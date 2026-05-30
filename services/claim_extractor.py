@@ -3,6 +3,8 @@ from services.nlp_processor import process_text
 
 def extract_claims(text: str):
 
+    print("=== NEW SPACY CLAIM EXTRACTOR ===")
+
     doc = process_text(text)
 
     claims = []
