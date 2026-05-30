@@ -1,7 +1,7 @@
 import json
 
 
-def load_trusted_sources():
+def load_sources():
 
     with open(
         "data/trusted_sources.json",
@@ -12,13 +12,22 @@ def load_trusted_sources():
         return json.load(file)
 
 
-def get_domain_category(domain):
+def evaluate_source(domain: str):
 
-    sources = load_trusted_sources()
+    sources = load_sources()
 
-    for category, domains in sources.items():
+    for category, info in sources.items():
 
-        if domain in domains:
-            return category
+        if domain in info["domains"]:
 
-    return "unknown"
+            return {
+                "domain": domain,
+                "category": category,
+                "weight": info["weight"]
+            }
+
+    return {
+        "domain": domain,
+        "category": "unknown",
+        "weight": 10
+    }
