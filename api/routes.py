@@ -1,2 +1,9 @@
+from fastapi import APIRouter
 
-# API routes will go here
+router = APIRouter()
+
+@router.get("/health")
+def health_check():
+    return {
+        "status": "healthy"
+    }
