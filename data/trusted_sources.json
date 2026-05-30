@@ -1,0 +1,22 @@
+{
+  "scientific": [
+    "pubmed.ncbi.nlm.nih.gov",
+    "openalex.org"
+  ],
+
+  "government": [
+    "data.gov.in",
+    "data.gov"
+  ],
+
+  "international": [
+    "who.int",
+    "worldbank.org",
+    "un.org"
+  ],
+
+  "environment": [
+    "ipcc.ch",
+    "unep.org"
+  ]
+}
