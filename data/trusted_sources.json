@@ -1,22 +1,34 @@
 {
-  "scientific": [
-    "pubmed.ncbi.nlm.nih.gov",
-    "openalex.org"
-  ],
+  "scientific": {
+    "weight": 100,
+    "domains": [
+      "pubmed.ncbi.nlm.nih.gov",
+      "openalex.org"
+    ]
+  },
 
-  "government": [
-    "data.gov.in",
-    "data.gov"
-  ],
+  "international": {
+    "weight": 95,
+    "domains": [
+      "who.int",
+      "worldbank.org",
+      "un.org"
+    ]
+  },
 
-  "international": [
-    "who.int",
-    "worldbank.org",
-    "un.org"
-  ],
+  "government": {
+    "weight": 90,
+    "domains": [
+      "data.gov.in",
+      "data.gov"
+    ]
+  },
 
-  "environment": [
-    "ipcc.ch",
-    "unep.org"
-  ]
+  "news": {
+    "weight": 80,
+    "domains": [
+      "reuters.com",
+      "apnews.com"
+    ]
+  }
 }
