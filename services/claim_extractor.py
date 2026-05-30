@@ -1,25 +1,31 @@
-import re
+from services.nlp_processor import process_text
 
 
 def extract_claims(text: str):
 
+    doc = process_text(text)
+
     claims = []
 
-    sentences = re.split(r"[.!?]+", text)
+    for sent in doc.sents:
 
-    for sentence in sentences:
-
-        sentence = sentence.strip()
+        sentence = sent.text.strip()
 
         if not sentence:
             continue
 
-        has_number = bool(re.search(r"\d", sentence))
+        has_entity = len(sent.ents) > 0
 
-        if has_number:
+        has_number = any(
+            token.like_num
+            for token in sent
+        )
+
+        if has_entity or has_number:
+
             claims.append({
                 "claim": sentence,
-                "type": "statistical_claim"
+                "type": "potential_claim"
             })
 
     return claims
