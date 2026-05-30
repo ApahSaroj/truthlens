@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from services.claim_extractor import extract_claims
 
 router = APIRouter()
 
@@ -18,8 +19,12 @@ def health_check():
 @router.post("/analyze")
 def analyze(request: AnalyzeRequest):
 
+    claims = extract_claims(request.content)
+
     return {
-        "received_type": request.type,
-        "received_content": request.content,
+        "input_type": request.type,
+        "claims_found": len(claims),
+        "claims": claims
+    }
         "message": "Analysis pipeline coming soon"
     }
