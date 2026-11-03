@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "india-*", "v0.*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,api]"
+      - name: Tests (offline; every external source is a recorded or documented-format fixture)
+        run: pytest -q
+      - name: Labelled-set accuracy (v0.1 numbers, v0.2 all claims; no keys)
+        run: python scripts/run_eval.py
+      - name: Sample report still builds offline
+        run: |
+          truthlens check samples/sample_policy_note.docx --format html -o /tmp/report.html --offline --docx-out /tmp/corrected.docx
+          truthlens check samples/sample_policy_note.docx --numbers-only --format md -o /tmp/numbers.md --offline
+      - name: Doctor runs and prints no secrets
+        env:
+          ANTHROPIC_API_KEY: sk-ci-dummy-not-a-key
+        run: |
+          truthlens doctor --offline | tee /tmp/doctor.txt
+          ! grep -q "sk-ci-dummy" /tmp/doctor.txt
+
+  live-smoke:
+    # optional, manual: hits the public MoSPI, World Bank, PIB and Crossref endpoints (no keys)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]" mospi-esankhyiki && python scripts/smoke_live.py
