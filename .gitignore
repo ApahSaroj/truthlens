@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.truthlens_cache/
+# local evidence index and caches
+*.sqlite
+truthlens.toml
+# v0.5 local state (sync, corrections, your own plug-in configs)
+/sources.d/
+/data/sync_state.json
+/data/sync_state.json.tmp
+/data/sync_log.jsonl
+/data/sync_cron.log
+/data/corrections/
+/data/live_cache/

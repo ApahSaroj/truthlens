@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "truthlens"
+version = "0.5.3"
+description = "Checks the numbers in Indian policy drafts against official data it holds, and lists the claims that need a source."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "ApahSaroj" }]
+requires-python = ">=3.10"
+keywords = ["fact-checking", "hallucination", "citations", "llm", "india", "statistics", "policy", "mospi", "plfs", "gdp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+  "Topic :: Text Processing",
+]
+dependencies = [
+  "requests>=2.28",
+  "beautifulsoup4>=4.11",
+  "pdfplumber>=0.10",
+  "PyYAML>=6.0",
+  "python-docx>=1.2",
+  "tomli>=2; python_version<'3.11'",
+]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.23", "python-multipart>=0.0.9"]
+nlp = ["spacy>=3.7"]
+mcp = ["mcp>=1.2"]
+mospi = ["mospi-esankhyiki>=0.2.1"]
+pdf = ["weasyprint>=60"]
+all = ["fastapi>=0.110", "uvicorn>=0.23", "python-multipart>=0.0.9", "mcp>=1.2", "mospi-esankhyiki>=0.2.1", "weasyprint>=60", "tomli>=2; python_version<'3.11'"]
+dev = ["pytest>=7", "httpx>=0.24", "fastapi>=0.110", "python-multipart>=0.0.9", "openpyxl>=3"]
+
+[project.scripts]
+truthlens = "truthlens.cli:main"
+truthlens-mcp = "truthlens.mcp_server:main"
+
+[project.urls]
+Homepage = "https://github.com/ApahSaroj/truthlens"
+
+[tool.setuptools]
+packages = ["truthlens", "truthlens.sources", "truthlens.retrievers", "truthlens.data"]
+
+[tool.setuptools.package-data]
+"truthlens.data" = ["*.json", "*.yaml", "plugin_examples/*.yaml", "plugin_examples/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

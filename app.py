@@ -1,16 +1,9 @@
-from fastapi import FastAPI
-from api.routes import router
+"""Run with: uvicorn app:app --reload
 
-app = FastAPI(
-    title="TruthLens",
-    version="0.1"
-)
+Serves the TruthLens India API (GET /health, POST /check, POST /check/file) plus the
+original generic POST /analyze endpoint.
+"""
+from api.routes import router as legacy_router
+from truthlens.api import app
 
-app.include_router(router)
-
-@app.get("/")
-def home():
-    return {
-        "project": "TruthLens",
-        "status": "running"
-    }
+app.include_router(legacy_router)

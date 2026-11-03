@@ -1,0 +1,44 @@
+# Copy to truthlens.toml (or ~/.config/truthlens/truthlens.toml). API KEYS NEVER GO HERE:
+# TruthLens refuses to start if this file contains api_key/key/token/password. Use environment variables:
+#   ANTHROPIC_API_KEY / OPENAI_API_KEY / OLLAMA_HOST      (LLM: claim extraction + evidence judge)
+#   BRAVE_API_KEY / TAVILY_API_KEY / SERPER_API_KEY        (web search)
+#   DATAGOVIN_API_KEY                                      (data.gov.in OGD API)
+
+[truthlens]
+# retrievers = ["curated", "worldbank", "mospi", "datagovin", "docs", "web", "citations"]
+# cache_dir = "~/.cache/truthlens"
+# timeout = 20
+# v0.5.1 speed limits (env: TRUTHLENS_LIVE_BUDGET, TRUTHLENS_CONNECT_TIMEOUT, TRUTHLENS_READ_TIMEOUT,
+# TRUTHLENS_PER_HOST, TRUTHLENS_WORKERS). Claims whose live checks miss the budget keep their official-data result or
+# show as "couldn't check (ran out of time)"; a timeout never counts as supported or wrong.
+# live_budget = 60                      # seconds of live-source time for the whole document
+# connect_timeout = 5                   # per request
+# read_timeout = 10                     # per request
+# per_host_limit = 3                    # requests at a time per server (rate limits)
+# claim_workers = 12                    # claims checked at the same time
+# contact_email = "you@example.org"     # sent to Crossref/OpenAlex as mailto (polite pool)
+
+[llm]
+# provider = "anthropic"                # anthropic | openai | ollama | none (default: first one with a key)
+# model = "claude-sonnet-4-5"
+
+[search]
+# provider = "brave"                    # brave | tavily | serper | none
+# tavily_keyless = false                # true sends claim text to Tavily without an account
+# fetch_top_official = 2                # fetch and index the top official search results
+
+[mospi]
+# enabled = true
+# base_url = "https://api.mospi.gov.in"
+# backend = "rest"                      # rest | esankhyiki (pip install mospi-esankhyiki)
+
+[docs]
+# allowed_domains = ["icrier.org"]      # added to the built-in official allow-list
+# max_mb = 40
+
+# data.gov.in: map resources you trust to keywords. Find the resource id on the dataset's "API" page.
+# [datagovin.resources.tap_water]
+# id = "00000000-0000-0000-0000-000000000000"
+# keywords = ["tap water", "jal jeevan"]
+# title = "State-wise tap water connections"
+# limit = 100
