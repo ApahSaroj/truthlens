@@ -20,13 +20,14 @@ which statements still need a citation.
   Jal Jeevan Mission. The full list, with what was tested live and what was not, is in
   [`docs/SOURCES.md`](docs/SOURCES.md).
 - For a wrong figure: shows the official value, the source link and a corrected sentence.
-- Checks DOIs in citations through Crossref.
-- Lists every claim it could not check as "Needs a source", downloadable as a CSV.
-- Never guesses: no evidence means "couldn't check", never "supported" or "wrong".
+- Checks DOIs in citations through Crossref (Deep mode; Quick mode only knows a small saved list).
+- Lists the claims it has no official data for as "Needs a source", downloadable as a CSV.
+- Fails closed: no evidence means "couldn't check", never "supported" or "wrong". Without an AI key, some
+  verdicts come from matching words and numbers; those are marked low confidence.
 - Two modes: **Quick** (seconds, uses only data already on your computer) and **Deep** (about half a minute to a
   minute, asks live websites about what Quick left open).
-- Runs without any API key. An optional AI key (Anthropic, OpenAI or local Ollama) is supported; keys are used for one
-  check only and never stored.
+- Runs without any API key. An optional AI key (Anthropic, OpenAI or local Ollama) is supported. A key typed into the
+  web page or the command-line prompt is used for that one check and never stored.
 
 ### Example (run on v0.5.3, 3 Nov 2026, Quick mode, no keys)
 
@@ -57,9 +58,9 @@ Output:
 - It does not search the open web unless you add a web-search key (Brave, Tavily or Serper), and that path has not
   been tested with real keys.
 - It is not a plagiarism checker and does not detect AI-written text.
-- Not tested yet: the web page in a real browser (tested over HTTP only), the Dockerfile (never built), data.gov.in,
-  Semantic Scholar and Shodhganga (tested only on sample data). The Windows launcher ran on a Windows PC with v0.5.2
-  (3 Nov 2026), not yet with this version.
+- Tested on one machine only: the web page and Windows were run on the author's own PC (Windows, Python 3.12,
+  3 Nov 2026), not yet by anyone else. Not tested: the Dockerfile (never built), data.gov.in, Semantic Scholar and
+  Shodhganga (tested only on sample data).
 - The not-a-claim filter still lets through about half of non-claims (blind test: 39 of 71 set aside, 1 of 29 real
   claims wrongly dropped). These show as "needs a source", never as "wrong".
 
@@ -67,10 +68,10 @@ Output:
 
 | Test | Result |
 |---|---|
-| Five real state water-policy documents (Karnataka 2022, Maharashtra 2019, Orissa 2007, Kerala SPB, Andhra Pradesh 2025) | 0 false "wrong" flags (v0.5.2 had 7, all false); 2 claims settled, both correct |
-| Unsafe "supported" verdicts across all labelled test sets | 0 |
+| Five real state water-policy documents (Karnataka 2022, Maharashtra 2019, Orissa 2007, Kerala SPB, Andhra Pradesh 2025) | 0 false "wrong" flags (v0.5.2 had 7, all false); 2 claims partly supported, both correct when checked by hand |
+| Unsafe "supported" verdicts on the labelled test sets (v0.5.3, recorded data) | 0 (one live v0.5.0 run had 1; fixed) |
 | Automated tests (offline, fresh copy, clean environment) | 479 passed, 4 skipped |
-| Speed, 51-claim test draft (Linux sandbox via a US proxy, not a home connection) | Quick 0.4 s; Deep 33 s with an empty cache |
+| Speed, 51-claim test draft (v0.5.2, Linux sandbox via a US proxy, not a home connection) | Quick 0.4 s; Deep 33 s with an empty cache |
 
 Older test sets and their numbers: [`docs/REFERENCE.md`](docs/REFERENCE.md#accuracy-and-safety-honestly).
 
@@ -104,7 +105,7 @@ Interfaces: web page (FastAPI), command line, REST API, MCP tool. New sources ca
 1. Collect reviews from people who write or check policy documents.
 2. Add the State department sources reviewers need most, one at a time, each tested live before it is listed.
 3. Optional web search with an AI reader for claims no dataset covers, clearly labelled and off by default.
-4. Test the web page in a real browser and the Windows launcher on this version.
+4. Get it tested on other people's PCs and browsers.
 5. Free hosted version, only after the above.
 
 ## Try it
