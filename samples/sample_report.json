@@ -1,0 +1,3776 @@
+{
+  "tool": "TruthLens",
+  "version": "0.2.0",
+  "generated_at": "2026-11-01T14:34:12+00:00",
+  "input": "sample_policy_note.docx",
+  "meta": {
+    "source_path": "sample_policy_note.docx",
+    "blocks": 17,
+    "extractor": "rules",
+    "judge": "heuristic",
+    "sources_status": [
+      {
+        "name": "curated",
+        "configured": true,
+        "detail": "bundled official snapshot, 127 values (offline fallback)"
+      },
+      {
+        "name": "worldbank",
+        "configured": true,
+        "detail": "World Bank WDI API, no key (secondary source)"
+      },
+      {
+        "name": "mospi",
+        "configured": true,
+        "detail": "MoSPI eSankhyiki API (https://api.mospi.gov.in, backend rest), no key"
+      },
+      {
+        "name": "docs",
+        "configured": true,
+        "detail": "6 document(s) in the local index (/tmp/samplecache/index.sqlite)"
+      },
+      {
+        "name": "datagovin",
+        "configured": false,
+        "detail": "set DATAGOVIN_API_KEY (free at data.gov.in) and map resources in truthlens.toml (0 mapped)"
+      },
+      {
+        "name": "web",
+        "configured": false,
+        "detail": "set BRAVE_API_KEY, TAVILY_API_KEY or SERPER_API_KEY (or TRUTHLENS_TAVILY_KEYLESS=1)"
+      },
+      {
+        "name": "citations",
+        "configured": true,
+        "detail": "Crossref + OpenAlex for DOIs; cited URLs fetched and searched (no key needed)"
+      },
+      {
+        "name": "llm",
+        "configured": false,
+        "detail": "no key: rule-based extraction and heuristic judge (lower confidence)"
+      }
+    ],
+    "errors": []
+  },
+  "summary": {
+    "sentences": 25,
+    "claims": 19,
+    "checkable_claims": 18,
+    "verdicts": {
+      "CONTRADICTED": 7,
+      "PARTLY SUPPORTED": 0,
+      "UNVERIFIED": 3,
+      "SUPPORTED": 8
+    },
+    "skipped_opinions": 1,
+    "verified_score": 44.4,
+    "claim_types": {
+      "citation": 6,
+      "numeric": 8,
+      "entity": 4,
+      "opinion": 1
+    },
+    "citations_checked": 6,
+    "citations_not_found": 1,
+    "suggested_fixes": 5,
+    "numbers_checked": 18,
+    "numbers": {
+      "MATCH": 9,
+      "CLOSE": 0,
+      "MISMATCH": 6,
+      "UNVERIFIED": 3
+    },
+    "warnings": 10
+  },
+  "blocks": [
+    {
+      "text": "Policy note (AI-assisted draft): growth, jobs and rural water",
+      "location": "para 1"
+    },
+    {
+      "text": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf). Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+      "location": "para 2"
+    },
+    {
+      "text": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+      "location": "para 3"
+    },
+    {
+      "text": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year. Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+      "location": "para 4"
+    },
+    {
+      "text": "PLFS has been conducted by MoSPI since 2017-18. In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+      "location": "para 5"
+    },
+    {
+      "text": "Jal Jeevan Mission was launched by Prime Minister Narendra Modi on 15 August 2019 [1]. Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1]. The Union Government has extended Jal Jeevan Mission till December 2028.",
+      "location": "para 6"
+    },
+    {
+      "text": "In March 2026 the Government introduced a Model Context Protocol server that links AI tools with official statistics; its beta version covered 12 statistical products [2]. The Output PPI series that now deflates the IIP was released by the Reserve Bank of India on 15 June 2026.",
+      "location": "para 7"
+    },
+    {
+      "text": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42). Statistical computing in Python builds on array programming with NumPy (Harris et al., 2020, doi:10.1038/s41586-020-2649-2). The Reserve Bank of India is headquartered in Mumbai.",
+      "location": "para 8"
+    },
+    {
+      "text": "Policymakers should prioritise service delivery and source sustainability over new pipelines.",
+      "location": "para 9"
+    },
+    {
+      "text": "Table 1: Key indicators",
+      "location": "para 10"
+    },
+    {
+      "text": "Indicator | 2024-25 | 2025-26",
+      "location": "table 1, row 1"
+    },
+    {
+      "text": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+      "location": "table 1, row 2"
+    },
+    {
+      "text": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+      "location": "table 1, row 3"
+    },
+    {
+      "text": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+      "location": "table 1, row 4"
+    },
+    {
+      "text": "References",
+      "location": "para 11"
+    },
+    {
+      "text": "[1] Press Information Bureau, “Jal Jeevan Mission Clocks Seven Years of Rural Transformation”, 14 August 2026. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+      "location": "para 12"
+    },
+    {
+      "text": "[2] Press Information Bureau, “Government has introduced a Model Context Protocol server…”, 23 March 2026. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+      "location": "para 13"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1",
+      "text": "Policy note (AI-assisted draft): growth, jobs and rural water",
+      "location": "para 1",
+      "block": 0,
+      "claims": [],
+      "verdict": null
+    },
+    {
+      "id": "s2",
+      "text": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).",
+      "location": "para 2",
+      "block": 1,
+      "claims": [
+        "c1"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s3",
+      "text": "Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+      "location": "para 2",
+      "block": 1,
+      "claims": [
+        "c2"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s4",
+      "text": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+      "location": "para 3",
+      "block": 2,
+      "claims": [
+        "c3"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s5",
+      "text": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+      "location": "para 4",
+      "block": 3,
+      "claims": [
+        "c4"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s6",
+      "text": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+      "location": "para 4",
+      "block": 3,
+      "claims": [
+        "c5"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s7",
+      "text": "PLFS has been conducted by MoSPI since 2017-18.",
+      "location": "para 5",
+      "block": 4,
+      "claims": [
+        "c6"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s8",
+      "text": "In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+      "location": "para 5",
+      "block": 4,
+      "claims": [
+        "c7"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s9",
+      "text": "Jal Jeevan Mission was launched by Prime Minister Narendra Modi on 15 August 2019 [1].",
+      "location": "para 6",
+      "block": 5,
+      "claims": [
+        "c8"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s10",
+      "text": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+      "location": "para 6",
+      "block": 5,
+      "claims": [
+        "c9"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s11",
+      "text": "The Union Government has extended Jal Jeevan Mission till December 2028.",
+      "location": "para 6",
+      "block": 5,
+      "claims": [
+        "c10"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s12",
+      "text": "In March 2026 the Government introduced a Model Context Protocol server that links AI tools with official statistics; its beta version covered 12 statistical products [2].",
+      "location": "para 7",
+      "block": 6,
+      "claims": [
+        "c11"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s13",
+      "text": "The Output PPI series that now deflates the IIP was released by the Reserve Bank of India on 15 June 2026.",
+      "location": "para 7",
+      "block": 6,
+      "claims": [
+        "c12"
+      ],
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "id": "s14",
+      "text": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42).",
+      "location": "para 8",
+      "block": 7,
+      "claims": [
+        "c13"
+      ],
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "id": "s15",
+      "text": "Statistical computing in Python builds on array programming with NumPy (Harris et al., 2020, doi:10.1038/s41586-020-2649-2).",
+      "location": "para 8",
+      "block": 7,
+      "claims": [
+        "c14"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s16",
+      "text": "The Reserve Bank of India is headquartered in Mumbai.",
+      "location": "para 8",
+      "block": 7,
+      "claims": [
+        "c15"
+      ],
+      "verdict": "UNVERIFIED"
+    },
+    {
+      "id": "s17",
+      "text": "Policymakers should prioritise service delivery and source sustainability over new pipelines.",
+      "location": "para 9",
+      "block": 8,
+      "claims": [
+        "c16"
+      ],
+      "verdict": "SKIPPED"
+    },
+    {
+      "id": "s18",
+      "text": "Table 1: Key indicators",
+      "location": "para 10",
+      "block": 9,
+      "claims": [],
+      "verdict": null
+    },
+    {
+      "id": "s19",
+      "text": "Indicator | 2024-25 | 2025-26",
+      "location": "table 1, row 1",
+      "block": 10,
+      "claims": [],
+      "verdict": null
+    },
+    {
+      "id": "s20",
+      "text": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+      "location": "table 1, row 2",
+      "block": 11,
+      "claims": [
+        "c17"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s21",
+      "text": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+      "location": "table 1, row 3",
+      "block": 12,
+      "claims": [
+        "c18"
+      ],
+      "verdict": "CONTRADICTED"
+    },
+    {
+      "id": "s22",
+      "text": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+      "location": "table 1, row 4",
+      "block": 13,
+      "claims": [
+        "c19"
+      ],
+      "verdict": "SUPPORTED"
+    },
+    {
+      "id": "s23",
+      "text": "References",
+      "location": "para 11",
+      "block": 14,
+      "claims": [],
+      "verdict": null
+    },
+    {
+      "id": "s24",
+      "text": "[1] Press Information Bureau, “Jal Jeevan Mission Clocks Seven Years of Rural Transformation”, 14 August 2026. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+      "location": "para 12",
+      "block": 15,
+      "claims": [],
+      "verdict": null
+    },
+    {
+      "id": "s25",
+      "text": "[2] Press Information Bureau, “Government has introduced a Model Context Protocol server…”, 23 March 2026. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+      "location": "para 13",
+      "block": 16,
+      "claims": [],
+      "verdict": null
+    }
+  ],
+  "claims": [
+    {
+      "claim": {
+        "id": "c1",
+        "sentence_id": "s2",
+        "sentence": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).",
+        "text": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).",
+        "type": "citation",
+        "location": "para 2",
+        "numbers": [
+          "7.8%"
+        ],
+        "citations": [
+          "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf"
+        ],
+        "entities": [
+          "GDP",
+          "FY",
+          "Mo",
+          "National Accounts Statistics",
+          "Write"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "7.8%: Matches the official value 7.8% at the precision written. The cited source contains the figure.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "snippet": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23).",
+          "date": "2026-08-31",
+          "publisher": "MoSPI (National Statistics Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 7.8,
+            "display": "7.8%",
+            "period": "2025-26",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "live": {
+              "value": 7.81882296343257,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "Crore) GDP Growth Rate (%) Previously Updated Previously Updated Previously Updated Previously Updated Released Released Released Released 2022–23 2,61,17,627 2,61,77,001 2,61,17,627 2,61,77,001 2023–24 2,89,83,909 2,90,73,287 11.0% 11.1% 2,80,00,767 2,80,94,358 7.2% 7.3% 2024–25 3,18,07,309 3,17,98,524 9.7% 9.4% 2,99,88,619 3,01,15,428 7.1% 7.2% (FRE) 2025–26 3,46,35,638 3,45,36,796 8.9% 8.6% 3,23,12,034 3,24,70,100 7.7% 7.8% (PE) FRE: First Revised Estimates; PE: Provisional Estimates 11.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 2,
+          "official": true,
+          "score": 0.983,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "The Supply and Use Tables (SUTs) for 2022–23 and 2023–24 have also been updated to incorporate the above indicated changes. The revised SUTs along with the accompanying ‘Methodological Note’ are available on the official website of MoSPI at https://www.mospi.gov.in/publications-reports/innerpage/847.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 2,
+          "official": true,
+          "score": 0.717,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "GOVERNMENT OF INDIA MINISTRY OF STATISTICS AND PROGRAMME IMPLEMENTATION Dated: 9 Bhadrapad, 1948 Saka 31 August, 2026 PRESS RELEASE NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION The Ministry of Statistics and Programme Implementation (MoSPI) has released the “National Accounts Statistics – 2026” publication for the base year 2022-23.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 1,
+          "official": true,
+          "score": 0.583,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E4"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "The detailed estimates may be accessed from the statements of ‘National Accounts Statistics – 2026’ publication as per the Annexure, which is available for download on the MoSPI website at: https://mospi.gov.in/publications-reports/innerpage/2861.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 2,
+          "official": true,
+          "score": 0.583,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E5"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c1",
+          "location": "para 2",
+          "sentence": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).",
+          "claimed": "7.8%",
+          "claimed_value": 7.8,
+          "indicator": "gdp_growth_real",
+          "indicator_name": "Real GDP growth (constant prices)",
+          "period": "2025-26",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 7.8% at the precision written.",
+          "official": {
+            "value": 7.8,
+            "display": "7.8%",
+            "period": "2025-26",
+            "variant": "default",
+            "stage": null,
+            "base": "2022-23",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "status": "current",
+            "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "source": {
+              "publisher": "MoSPI (National Statistics Office)",
+              "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+              "published": "2026-08-31",
+              "accessed": "2026-11-01",
+              "key": "NAS2026"
+            },
+            "geography": "India",
+            "live": {
+              "value": 7.81882296343257,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+          "warnings": [],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [
+        {
+          "citation": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "target": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "status": "found",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "date": "2026-08-31",
+          "numbers_found": [
+            "7.8"
+          ],
+          "numbers_missing": [],
+          "cover": 0.87,
+          "support": "supports"
+        }
+      ],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c2",
+        "sentence_id": "s3",
+        "sentence": "Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+        "text": "Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+        "type": "numeric",
+        "location": "para 2",
+        "numbers": [
+          "₹345.37 lakh crore"
+        ],
+        "citations": [],
+        "entities": [
+          "GDP"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "₹345.37 lakh crore: Matches the official value ₹345.37 lakh crore at the precision written.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "snippet": "Nominal GDP (current prices, level): ₹345.37 lakh crore (2025-26, base 2022-23).",
+          "date": "2026-08-31",
+          "publisher": "MoSPI (National Statistics Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 345367960000000.0,
+            "display": "₹345.37 lakh crore",
+            "period": "2025-26",
+            "series": "MoSPI National Accounts, GDP at current prices (base 2022-23), ₹ crore",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "live": {
+              "value": 345367960000000.0,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c2",
+          "location": "para 2",
+          "sentence": "Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+          "claimed": "₹345.37 lakh crore",
+          "claimed_value": 345370000000000.0,
+          "indicator": "gdp_nominal",
+          "indicator_name": "Nominal GDP (current prices, level)",
+          "period": "2025-26",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value ₹345.37 lakh crore at the precision written.",
+          "official": {
+            "value": 345367960000000.0,
+            "display": "₹345.37 lakh crore",
+            "period": "2025-26",
+            "variant": "default",
+            "stage": null,
+            "base": "2022-23",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "status": "current",
+            "series_id": "IN.MOSPI.NAS.GDP.CURRENT.LEVEL",
+            "series": "MoSPI National Accounts, GDP at current prices (base 2022-23), ₹ crore",
+            "source": {
+              "publisher": "MoSPI (National Statistics Office)",
+              "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+              "published": "2026-08-31",
+              "accessed": "2026-11-01",
+              "key": "NAS2026"
+            },
+            "geography": "India",
+            "live": {
+              "value": 345367960000000.0,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Nominal GDP (current prices, level): ₹345.37 lakh crore (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+          "warnings": [],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c3",
+        "sentence_id": "s4",
+        "sentence": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+        "text": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+        "type": "numeric",
+        "location": "para 3",
+        "numbers": [
+          "6.5%"
+        ],
+        "citations": [],
+        "entities": [
+          "GDP"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "6.5%: Official value is 7.2%; the draft differs by -0.70 percentage points.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "snippet": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23).",
+          "date": "2026-08-31",
+          "publisher": "MoSPI (National Statistics Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 7.2,
+            "display": "7.2%",
+            "period": "2024-25",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "vintage": "First Revised Estimate (updated, NAS 2026)",
+            "live": {
+              "value": 7.193864333899347,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+              "agrees": true,
+              "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c3",
+          "location": "para 3",
+          "sentence": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+          "claimed": "6.5%",
+          "claimed_value": 6.5,
+          "indicator": "gdp_growth_real",
+          "indicator_name": "Real GDP growth (constant prices)",
+          "period": "2024-25",
+          "geography": "India",
+          "verdict": "MISMATCH",
+          "reason": "Official value is 7.2%; the draft differs by -0.70 percentage points.",
+          "official": {
+            "value": 7.2,
+            "display": "7.2%",
+            "period": "2024-25",
+            "variant": "default",
+            "stage": null,
+            "base": "2022-23",
+            "vintage": "First Revised Estimate (updated, NAS 2026)",
+            "status": "current",
+            "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "source": {
+              "publisher": "MoSPI (National Statistics Office)",
+              "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+              "published": "2026-08-31",
+              "accessed": "2026-11-01",
+              "key": "NAS2026"
+            },
+            "geography": "India",
+            "live": {
+              "value": 7.193864333899347,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+              "agrees": true,
+              "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "old_base",
+              "severity": "error",
+              "message": "The draft's number matches the OLD base 2011-12 series (6.5%, MoSPI (National Statistics Office), 2025-05-30). MoSPI has replaced it with the base 2022-23 series, which gives 7.2%. Update the figure and say which base you use."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [
+        {
+          "code": "old_base",
+          "severity": "error",
+          "message": "The draft's number matches the OLD base 2011-12 series (6.5%, MoSPI (National Statistics Office), 2025-05-30). MoSPI has replaced it with the base 2022-23 series, which gives 7.2%. Update the figure and say which base you use."
+        }
+      ],
+      "suggested_fix": "In 2024-25, real GDP growth moderated to 7.2%, weighed down by weak manufacturing.",
+      "fix_source": "Source: MoSPI, “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table …”, 2026-08-31 (current base 2022-23 series)"
+    },
+    {
+      "claim": {
+        "id": "c4",
+        "sentence_id": "s5",
+        "sentence": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+        "text": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+        "type": "numeric",
+        "location": "para 4",
+        "numbers": [
+          "4.9%",
+          "4.1%"
+        ],
+        "citations": [],
+        "entities": [
+          "Telangana"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "4.9%: Official value is 3.2%; the draft differs by +1.70 percentage points. 4.1%: Official value is 4.8%; the draft differs by -0.70 percentage points.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "snippet": "Unemployment rate (PLFS, persons 15+): 3.2% (2023-24, usual status).",
+          "date": "2024-09-23",
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 3.2,
+            "display": "3.2%",
+            "period": "2023-24",
+            "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+            "vintage": null,
+            "live": {
+              "value": 3.2,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "mospi",
+          "source_url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "title": "PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS",
+          "snippet": "Unemployment rate (PLFS, persons 15+): 4.8% (2023-24, usual status).",
+          "date": "live API",
+          "publisher": "MoSPI (NSO), eSankhyiki API",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 4.8,
+            "display": "4.8%",
+            "period": "2023-24",
+            "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+            "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01",
+            "live": null
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c4",
+          "location": "para 4",
+          "sentence": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+          "claimed": "4.9%",
+          "claimed_value": 4.9,
+          "indicator": "unemployment_rate",
+          "indicator_name": "Unemployment rate (PLFS, persons 15+)",
+          "period": "2023-24",
+          "geography": "India",
+          "verdict": "MISMATCH",
+          "reason": "Official value is 3.2%; the draft differs by +1.70 percentage points.",
+          "official": {
+            "value": 3.2,
+            "display": "3.2%",
+            "period": "2023-24",
+            "variant": "usual_status",
+            "stage": null,
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.PLFS.UR",
+            "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+            "source": {
+              "publisher": "MoSPI (National Sample Survey Office)",
+              "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+              "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+              "published": "2024-09-23",
+              "accessed": "2026-11-01",
+              "key": "PLFS2324"
+            },
+            "geography": "India",
+            "live": {
+              "value": 3.2,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Unemployment rate (PLFS, persons 15+): 3.2% (2023-24, usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "plfs_status",
+              "severity": "warn",
+              "message": "Activity status not stated. PLFS publishes both usual status (ps+ss, 365-day reference) and current weekly status (CWS, 7-day); headline comparisons use usual status. Name the one you mean."
+            },
+            {
+              "code": "plfs_status",
+              "severity": "error",
+              "message": "The draft's number is the current weekly status (CWS) figure (4.9%) for PLFS 2023-24. Say ‘current weekly status (CWS)’; the usual status figure is 3.2%."
+            },
+            {
+              "code": "source_note",
+              "severity": "info",
+              "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+            }
+          ],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c5",
+          "location": "para 4",
+          "sentence": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+          "claimed": "4.1%",
+          "claimed_value": 4.1,
+          "indicator": "unemployment_rate",
+          "indicator_name": "Unemployment rate (PLFS, persons 15+)",
+          "period": "2023-24",
+          "geography": "Telangana",
+          "verdict": "MISMATCH",
+          "reason": "Official value is 4.8%; the draft differs by -0.70 percentage points.",
+          "official": {
+            "value": 4.8,
+            "display": "4.8%",
+            "period": "2023-24",
+            "variant": "usual_status",
+            "stage": null,
+            "base": null,
+            "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01",
+            "status": "current",
+            "series_id": "IN.MOSPI.PLFS.UR",
+            "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+            "source": {
+              "publisher": "MoSPI (NSO), eSankhyiki API",
+              "title": "PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS",
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "published": "live API",
+              "accessed": "2026-11-01",
+              "key": "MOSPI-API-PLFS"
+            },
+            "geography": "Telangana",
+            "live": null,
+            "live_source": true
+          },
+          "citation": "Unemployment rate (PLFS, persons 15+): 4.8% (2023-24, usual status). Source: MoSPI (NSO), eSankhyiki API, “PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS”, published live API, https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "plfs_status",
+              "severity": "warn",
+              "message": "Activity status not stated. PLFS publishes both usual status (ps+ss, 365-day reference) and current weekly status (CWS, 7-day); headline comparisons use usual status. Name the one you mean."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [
+        {
+          "code": "plfs_status",
+          "severity": "warn",
+          "message": "Activity status not stated. PLFS publishes both usual status (ps+ss, 365-day reference) and current weekly status (CWS, 7-day); headline comparisons use usual status. Name the one you mean."
+        },
+        {
+          "code": "plfs_status",
+          "severity": "error",
+          "message": "The draft's number is the current weekly status (CWS) figure (4.9%) for PLFS 2023-24. Say ‘current weekly status (CWS)’; the usual status figure is 3.2%."
+        }
+      ],
+      "suggested_fix": "The unemployment rate fell to 3.2% in 2023-24, and Telangana's unemployment rate was 4.8% in the same year.",
+      "fix_source": "Source: MoSPI, “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, 2024-09-23; Source: MoSPI, “PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + u…”"
+    },
+    {
+      "claim": {
+        "id": "c5",
+        "sentence_id": "s6",
+        "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+        "text": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+        "type": "numeric",
+        "location": "para 4",
+        "numbers": [
+          "37.0%",
+          "41.7%",
+          "4.7%"
+        ],
+        "citations": [],
+        "entities": [],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "37.0%: Matches the official value 37.0% at the precision written. 41.7%: Matches the official value 41.7% at the precision written. 4.7%: Change 2022-23 → 2023-24: official 37% → 41.7% = +4.70 percentage points (+12.7% relative). Claim read as 4.7 per cent (relative).",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "snippet": "Labour force participation rate (PLFS, persons 15+): 37.0% (2022-23, female usual status).",
+          "date": "2024-09-23",
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 37.0,
+            "display": "37.0%",
+            "period": "2022-23",
+            "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+            "vintage": null,
+            "live": {
+              "value": 37.0,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2022-23&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "curated",
+          "source_url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "snippet": "Labour force participation rate (PLFS, persons 15+): 41.7% (2023-24, female usual status).",
+          "date": "2024-09-23",
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 41.7,
+            "display": "41.7%",
+            "period": "2023-24",
+            "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+            "vintage": null,
+            "live": {
+              "value": 41.7,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c6",
+          "location": "para 4",
+          "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+          "claimed": "37.0%",
+          "claimed_value": 37.0,
+          "indicator": "lfpr",
+          "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+          "period": "2022-23",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 37.0% at the precision written.",
+          "official": {
+            "value": 37.0,
+            "display": "37.0%",
+            "period": "2022-23",
+            "variant": "female_usual_status",
+            "stage": null,
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.PLFS.LFPR",
+            "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+            "source": {
+              "publisher": "MoSPI (National Sample Survey Office)",
+              "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+              "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+              "published": "2024-09-23",
+              "accessed": "2026-11-01",
+              "key": "PLFS2324"
+            },
+            "geography": "India",
+            "live": {
+              "value": 37.0,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2022-23&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Labour force participation rate (PLFS, persons 15+): 37.0% (2022-23, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "source_note",
+              "severity": "info",
+              "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+            }
+          ],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c7",
+          "location": "para 4",
+          "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+          "claimed": "41.7%",
+          "claimed_value": 41.7,
+          "indicator": "lfpr",
+          "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+          "period": "2023-24",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 41.7% at the precision written.",
+          "official": {
+            "value": 41.7,
+            "display": "41.7%",
+            "period": "2023-24",
+            "variant": "female_usual_status",
+            "stage": null,
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.PLFS.LFPR",
+            "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+            "source": {
+              "publisher": "MoSPI (National Sample Survey Office)",
+              "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+              "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+              "published": "2024-09-23",
+              "accessed": "2026-11-01",
+              "key": "PLFS2324"
+            },
+            "geography": "India",
+            "live": {
+              "value": 41.7,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Labour force participation rate (PLFS, persons 15+): 41.7% (2023-24, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "source_note",
+              "severity": "info",
+              "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+            }
+          ],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c8",
+          "location": "para 4",
+          "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+          "claimed": "4.7%",
+          "claimed_value": 4.7,
+          "indicator": "lfpr",
+          "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+          "period": "2022-23 → 2023-24",
+          "geography": "India",
+          "verdict": "MISMATCH",
+          "reason": "Change 2022-23 → 2023-24: official 37% → 41.7% = +4.70 percentage points (+12.7% relative). Claim read as 4.7 per cent (relative).",
+          "official": {
+            "value": 41.7,
+            "display": "+4.7 pp (37% → 41.7%)",
+            "period": "2022-23 → 2023-24",
+            "variant": "female_usual_status",
+            "stage": null,
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.PLFS.LFPR",
+            "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+            "source": {
+              "publisher": "MoSPI (National Sample Survey Office)",
+              "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+              "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+              "published": "2024-09-23",
+              "accessed": "2026-11-01",
+              "key": "PLFS2324"
+            },
+            "geography": "India",
+            "live": {
+              "value": 41.7,
+              "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+              "agrees": true,
+              "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Labour force participation rate (PLFS, persons 15+): 37.0% (2022-23, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01). Labour force participation rate (PLFS, persons 15+): 41.7% (2023-24, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "pct_vs_pp",
+              "severity": "error",
+              "message": "4.7 is the change in percentage points, not per cent. Write ‘4.7 percentage points’ (a 12.7% relative change)."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [
+        {
+          "code": "pct_vs_pp",
+          "severity": "error",
+          "message": "4.7 is the change in percentage points, not per cent. Write ‘4.7 percentage points’ (a 12.7% relative change)."
+        }
+      ],
+      "suggested_fix": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7 percentage points.",
+      "fix_source": "Source: MoSPI, “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, 2024-09-23"
+    },
+    {
+      "claim": {
+        "id": "c6",
+        "sentence_id": "s7",
+        "sentence": "PLFS has been conducted by MoSPI since 2017-18.",
+        "text": "PLFS has been conducted by MoSPI since 2017-18.",
+        "type": "entity",
+        "location": "para 5",
+        "numbers": [],
+        "citations": [],
+        "entities": [
+          "Mo"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "The source passage contains the same figure(s)/date(s) and covers 100% of the claim's key terms.",
+      "evidence": [
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2196924",
+          "title": "NATIONAL EMPLOYMENT RATE",
+          "snippet": "The official data on Employment and Unemployment is collected through Periodic Labour Force Survey (PLFS), which is conducted by the Ministry of Statistics and Programme Implementation (MoSPI) since 2017-18.",
+          "date": "2025-12-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 1.05,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 1.0,
+            "num_hit": 0.0
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2196924",
+          "title": "NATIONAL EMPLOYMENT RATE",
+          "snippet": "Also, MoSPI has revamped PLFS from January 2025.",
+          "date": "2025-12-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.959,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.91,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "snippet": "The Beta version of the MCP server which included 7 key statistical products (such as the Periodic Labour Force Survey, Consumer Price Index, Annual Survey of Industries, Index of Industrial Production, National Accounts Statistics), has now been extended for 21 products available on the eSankhyiki portal.",
+          "date": "2026-03-23",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.595,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.55,
+            "num_hit": 0.0
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "GOVERNMENT OF INDIA MINISTRY OF STATISTICS AND PROGRAMME IMPLEMENTATION Dated: 9 Bhadrapad, 1948 Saka 31 August, 2026 PRESS RELEASE NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION The Ministry of Statistics and Programme Implementation (MoSPI) has released the “National Accounts Statistics – 2026” publication for the base year 2022-23.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 1,
+          "official": true,
+          "score": 0.505,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.45,
+            "num_hit": 0.0
+          },
+          "id": "E4"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E1",
+          "quote": "The official data on Employment and Unemployment is collected through Periodic Labour Force Survey (PLFS), which is conducted by the Ministry of Statistics and Programme Implementation (MoSPI) since 2017-18."
+        }
+      ],
+      "numbers": [],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c7",
+        "sentence_id": "s8",
+        "sentence": "In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+        "text": "In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+        "type": "numeric",
+        "location": "para 5",
+        "numbers": [
+          "₹157.4 billion"
+        ],
+        "citations": [],
+        "entities": [],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "₹157.4 billion: Official value is ₹15,74,431 crore (₹15.74 lakh crore); the draft differs by -99.0%.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "snippet": "Union fiscal deficit (₹): ₹15,74,431 crore (₹15.74 lakh crore) (2024-25, Actual).",
+          "date": "2026-02-01",
+          "publisher": "Ministry of Finance, Union Budget",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 15744310000000.0,
+            "display": "₹15,74,431 crore (₹15.74 lakh crore)",
+            "period": "2024-25",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit, ₹ crore",
+            "vintage": null,
+            "live": null
+          },
+          "id": "E1"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c9",
+          "location": "para 5",
+          "sentence": "In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+          "claimed": "₹157.4 billion",
+          "claimed_value": 157400000000.0,
+          "indicator": "fiscal_deficit_amount",
+          "indicator_name": "Union fiscal deficit (₹)",
+          "period": "2024-25",
+          "geography": "India",
+          "verdict": "MISMATCH",
+          "reason": "Official value is ₹15,74,431 crore (₹15.74 lakh crore); the draft differs by -99.0%.",
+          "official": {
+            "value": 15744310000000.0,
+            "display": "₹15,74,431 crore (₹15.74 lakh crore)",
+            "period": "2024-25",
+            "variant": "default",
+            "stage": "Actual",
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOF.UNION.FD.AMOUNT",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit, ₹ crore",
+            "source": {
+              "publisher": "Ministry of Finance, Union Budget",
+              "title": "Budget at a Glance 2026-27, Deficit Statistics",
+              "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+              "published": "2026-02-01",
+              "accessed": "2026-11-01",
+              "key": "BAG2627"
+            },
+            "geography": "India",
+            "live": null,
+            "live_source": false
+          },
+          "citation": "Union fiscal deficit (₹): ₹15,74,431 crore (₹15.74 lakh crore) (2024-25, Actual). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "budget_stage",
+              "severity": "warn",
+              "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: ₹16,13,312 crore (₹16.13 lakh crore); RE: ₹15,69,527 crore (₹15.70 lakh crore); Actual: ₹15,74,431 crore (₹15.74 lakh crore). Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+            },
+            {
+              "code": "unit_scale",
+              "severity": "error",
+              "message": "The draft's figure is off by a factor of 100 (too small): likely a lakh/crore vs million/billion slip. Check the billion conversion (1 million = 10 lakh; 1 crore = 10 million; 1 billion = 100 crore; 1 lakh crore = 1 trillion)."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: ₹16,13,312 crore (₹16.13 lakh crore); RE: ₹15,69,527 crore (₹15.70 lakh crore); Actual: ₹15,74,431 crore (₹15.74 lakh crore). Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+        },
+        {
+          "code": "unit_scale",
+          "severity": "error",
+          "message": "The draft's figure is off by a factor of 100 (too small): likely a lakh/crore vs million/billion slip. Check the billion conversion (1 million = 10 lakh; 1 crore = 10 million; 1 billion = 100 crore; 1 lakh crore = 1 trillion)."
+        }
+      ],
+      "suggested_fix": "In absolute terms, the fiscal deficit for 2024-25 was ₹15,74,431 crore (₹15.74 lakh crore).",
+      "fix_source": "Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, 2026-02-01"
+    },
+    {
+      "claim": {
+        "id": "c8",
+        "sentence_id": "s9",
+        "sentence": "Jal Jeevan Mission was launched by Prime Minister Narendra Modi on 15 August 2019 [1].",
+        "text": "Jal Jeevan Mission was launched by Prime Minister Narendra Modi on 15 August 2019 [1].",
+        "type": "citation",
+        "location": "para 6",
+        "numbers": [],
+        "citations": [
+          "[1]"
+        ],
+        "entities": [
+          "Jeevan Mission",
+          "Prime Minister Narendra Modi",
+          "August"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "The source passage contains the same figure(s)/date(s) and covers 100% of the claim's key terms.",
+      "evidence": [
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Launched by Hon'ble Prime Minister Shri Narendra Modi on 15 August 2019, Jal Jeevan Mission aims to provide every rural household with safe and adequate drinking water through a Functional Household Tap Connection (FHTC) on a regular and long-term basis.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 1.05,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Under the Jal Jeevan Mission 2.0, DDWS also focuses on source sustainability through Jal Sanchay Jan Bhagidari (JSJB), a reflection of the Hon’ble Prime Minister’s unwavering resolve to make water conservation a national priority for a water secure nation. Jal Sanchay Jan Bhagidari: Catch the Rain (JSJB: CTR) – 2026 was launched on 1st June 2026 enhancing the scope of the Jal Sanchay Jan Bhagidari (JSJB).",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.75,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82% Over 2 Lakh Villages, Now ‘Har Ghar Jal’ Certified Focus under JJM 2.0 shifts towards service delivery, source sustainability, community ownership and long-term functionality",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.45,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.45,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E4"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "On 15 th August, 2019, Jal Jeevan Mission was announced by the Hon’ble Prime Ministerfrom the ramparts of the Red Fort with an aim to provide Functional Household Tap Connection (FHTC)to every rural household by 2024.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.65,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.6,
+            "num_hit": 0.0
+          },
+          "id": "E5"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "During this year, every State/ UT did extensive planning following ‘bottom-up approach’ and have firmed up their plan to provide tap water connection to every home. The untiring efforts of States/ UTs have helped Jal Jeevan Mission provide 3 Crore tap water connections since August, 2019.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.55,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.5,
+            "num_hit": 0.0
+          },
+          "id": "E6"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E1",
+          "quote": "Launched by Hon'ble Prime Minister Shri Narendra Modi on 15 August 2019, Jal Jeevan Mission aims to provide every rural household with safe and adequate drinking water through a Functional Household Tap Connection (FHTC) on a regular and long-term basis."
+        }
+      ],
+      "numbers": [],
+      "citation_checks": [
+        {
+          "citation": "[1]",
+          "target": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "status": "found",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "date": "2026-08-14",
+          "numbers_found": [],
+          "numbers_missing": [],
+          "cover": 1.0,
+          "support": "supports"
+        }
+      ],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c9",
+        "sentence_id": "s10",
+        "sentence": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+        "text": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+        "type": "citation",
+        "location": "para 6",
+        "numbers": [
+          "92%",
+          "3.23 crore"
+        ],
+        "citations": [
+          "[1]"
+        ],
+        "entities": [],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "The source passage confirms 3.23 but gives a different figure where the draft says 92.",
+      "evidence": [
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "At the time of the launch of the Mission, only 3.23 crore rural households, representing about 16.72% of rural households in the country, had tap water connections. Today more than 15.91 crore rural households have tap water supply in their homes, accounting for 82.24% of all rural households.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 1.35,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "partial"
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Launched by Hon'ble Prime Minister Shri Narendra Modi on 15 August 2019, Jal Jeevan Mission aims to provide every rural household with safe and adequate drinking water through a Functional Household Tap Connection (FHTC) on a regular and long-term basis.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.8,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "partial"
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Building upon these efforts, Jal Jeevan Mission marked a paradigm shift from habitation-level coverage to service delivery at the household level through Functional Household Tap Connections, with a focus on adequate quantity (55 lpcd.) of prescribed quality (BIS:10500) on regular and long-term basis at affordable service delivery charges leading to improvement in living standards of rural communities.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.55,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "partial"
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "The Mission has enabled millions of women and girls to devote more time to education, livelihoods, and productive activities by reducing the burden of fetching water from distant sources. Access to tap water within households has also contributed towards improved health, hygiene, dignity, and overall quality of life in rural communities.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.55,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "partial"
+          },
+          "id": "E4"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "Jal Jeevan Mission is under implementation since August, 2019 in partnership with the State governments with an aim to provide potable water in adequate quantity and of prescribed quality on regular and long-term basis. As on 15 th August 2019, out of 18.93 Crore rural households, 3.23 Crore (17%) had tap water connections.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 1.1,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.75,
+            "num_hit": 0.5
+          },
+          "id": "E5"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "Progress of tap water supply in rural households since the launch of Mission",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.675,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.62,
+            "num_hit": 0.0
+          },
+          "id": "E6"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E1",
+          "quote": "At the time of the launch of the Mission, only 3.23 crore rural households, representing about 16.72% of rural households in the country, had tap water connections. Today more than 15.91 crore rural households have tap water supply in their homes, accounting for 82.24% of all rural households."
+        }
+      ],
+      "numbers": [
+        {
+          "claim_id": "c10",
+          "location": "para 6",
+          "sentence": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+          "claimed": "92%",
+          "claimed_value": 92.0,
+          "indicator": null,
+          "indicator_name": null,
+          "period": null,
+          "geography": "India",
+          "verdict": "UNVERIFIED",
+          "reason": "No supported indicator recognised for this number.",
+          "official": null,
+          "citation": null,
+          "warnings": [],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c11",
+          "location": "para 6",
+          "sentence": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+          "claimed": "3.23 crore",
+          "claimed_value": 32300000.0,
+          "indicator": null,
+          "indicator_name": null,
+          "period": null,
+          "geography": "India",
+          "verdict": "UNVERIFIED",
+          "reason": "No supported indicator recognised for this number.",
+          "official": null,
+          "citation": null,
+          "warnings": [],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [
+        {
+          "citation": "[1]",
+          "target": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "status": "found",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "date": "2026-08-14",
+          "numbers_found": [
+            "3.23"
+          ],
+          "numbers_missing": [
+            "92"
+          ],
+          "cover": 1.0,
+          "support": "partial"
+        }
+      ],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c10",
+        "sentence_id": "s11",
+        "sentence": "The Union Government has extended Jal Jeevan Mission till December 2028.",
+        "text": "The Union Government has extended Jal Jeevan Mission till December 2028.",
+        "type": "entity",
+        "location": "para 6",
+        "numbers": [],
+        "citations": [],
+        "entities": [
+          "Union Government",
+          "Jal Jeevan Mission",
+          "December"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "The source passage contains the same figure(s)/date(s) and covers 100% of the claim's key terms.",
+      "evidence": [
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Building on the achievements of the Mission, the Union Government has extended Jal Jeevan Mission till December 2028.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 1.05,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 1.0,
+            "num_hit": 0.0
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "As Jal Jeevan Mission enters its eighth year, the Department of Drinking Water & Sanitation, Ministry of Jal Shakti, reiterates its commitment to ensuring that every rural household receives safe drinking water on a regular basis while strengthening community-led management and sustainability of rural water supply systems. The collective efforts of States, Union Territories, District Administrations, Gram Panchayats, VWSCs, frontline workers, and rural communities will continue to drive the vision of \"Har Ghar Jal\" and water security for every rural household in the country.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.675,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.62,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "The Jal Jeevan Mission journeyso far has been filled with challenges and disruptions as the entire world battled with CoVid-19 pandemic fromMarch,2020 till date.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.675,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.62,
+            "num_hit": 0.0
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "As the Union government has been working towards making lives better for women across various sections by constructing individual household and community toilets, providing cooking gas, etc. similarly, tap water connections within the household aims to reduce drudgery and enhance 'ease of living' for young girls and women who are often burdened with the task of fetching water from the public standpost and walking long distances in search of water. By providing water at the doorstep, Jal Jeevan Mission is impacting the lives in multiple ways by improving the health parameters and reducing dropout from school among children.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.675,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.62,
+            "num_hit": 0.0
+          },
+          "id": "E4"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E1",
+          "quote": "Building on the achievements of the Mission, the Union Government has extended Jal Jeevan Mission till December 2028."
+        }
+      ],
+      "numbers": [],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c11",
+        "sentence_id": "s12",
+        "sentence": "In March 2026 the Government introduced a Model Context Protocol server that links AI tools with official statistics; its beta version covered 12 statistical products [2].",
+        "text": "In March 2026 the Government introduced a Model Context Protocol server that links AI tools with official statistics; its beta version covered 12 statistical products [2].",
+        "type": "citation",
+        "location": "para 7",
+        "numbers": [
+          "12"
+        ],
+        "citations": [
+          "[2]"
+        ],
+        "entities": [
+          "March",
+          "Government",
+          "Model Context Protocol",
+          "AI"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "An official passage on the same subject gives a different figure.",
+      "evidence": [
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "snippet": "The Government has introduced a Model Context Protocol (MCP) server to facilitate linking of Artificial Intelligence tools with Official Statistical databases.",
+          "date": "2026-03-23",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.734,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "number_missing"
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "snippet": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "date": "2026-03-23",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.734,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "number_missing"
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "snippet": "The Beta version of the MCP server which included 7 key statistical products (such as the Periodic Labour Force Survey, Consumer Price Index, Annual Survey of Industries, Index of Industrial Production, National Accounts Statistics), has now been extended for 21 products available on the eSankhyiki portal.",
+          "date": "2026-03-23",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.576,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "number_missing"
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "citation",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "snippet": "The newly launched MCP server allows access to verified Government data through Artificial Intelligence applications and platforms, with the National Statistical Portal e-Sankhyiki.",
+          "date": "2026-03-23",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.524,
+          "kind": "passage",
+          "meta": {
+            "cited": true,
+            "support": "number_missing"
+          },
+          "id": "E4"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E3",
+          "quote": "The Beta version of the MCP server which included 7 key statistical products (such as the Periodic Labour Force Survey, Consumer Price Index, Annual Survey of Industries, Index of Industrial Production, National Accounts Statistics), has now been extended for 21 products available on the eSankhyiki portal."
+        }
+      ],
+      "numbers": [],
+      "citation_checks": [
+        {
+          "citation": "[2]",
+          "target": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "status": "found",
+          "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+          "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+          "date": "2026-03-23",
+          "numbers_found": [],
+          "numbers_missing": [
+            "12"
+          ],
+          "cover": 0.74,
+          "support": "number_missing"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "citation_does_not_support",
+          "severity": "warn",
+          "message": "The cited source https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781 was found but does not contain the figure(s) 12."
+        }
+      ],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c12",
+        "sentence_id": "s13",
+        "sentence": "The Output PPI series that now deflates the IIP was released by the Reserve Bank of India on 15 June 2026.",
+        "text": "The Output PPI series that now deflates the IIP was released by the Reserve Bank of India on 15 June 2026.",
+        "type": "entity",
+        "location": "para 7",
+        "numbers": [],
+        "citations": [],
+        "entities": [
+          "Output",
+          "PPI",
+          "IIP",
+          "Reserve Bank",
+          "India",
+          "June"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "UNVERIFIED",
+      "confidence": "n/a",
+      "method": "heuristic",
+      "rationale": "Evidence found, but it does not clearly contain the claim's figures or dates.",
+      "evidence": [
+        {
+          "retriever": "docs",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "4. The publication incorporates the updated estimates of annual and quarterly estimates on account of using new series of output Producer Price Index (PPI), Index of Industrial Production (IIP), and Banking Services Price Index (BkSPI) with the base year 2022-23 released during June 2026, and updated data from administrative sources.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 1,
+          "official": true,
+          "score": 0.85,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.8,
+            "num_hit": 0.0
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2278961",
+          "title": "India's Index of industrial production records growth of 5.1% in May 2026",
+          "snippet": "Subsequently, the Department for Promotion of Industry and Internal Trade (DPIIT), Ministry of Commerce and Industry, released the Output Producer Price Index (Output PPI) series with base year 2022–23 on 15 th June 2026. As output PPI is a new and important indicator for capturing producer level prices, it has significant implications for compiling IIP.",
+          "date": "2026-06-29",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.783,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.73,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2278961",
+          "title": "India's Index of industrial production records growth of 5.1% in May 2026",
+          "snippet": "This affects 234 out of the 463 item groups in the IIP basket, representing 36.02 per cent of the total index weight. MoSPI has now revised and released the entire IIP 2022-23 series with Output PPI and it supersedes the earlier WPI based IIP 2022–23 series released on 1 st June 2026.",
+          "date": "2026-06-29",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.783,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "table row",
+            "cover": 0.73,
+            "num_hit": 0.0
+          },
+          "id": "E3"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2278961",
+          "title": "India's Index of industrial production records growth of 5.1% in May 2026",
+          "snippet": "Comparative Annual Growth Rates IIP 2022-23 series with Output PPI and 2011-12 Series with WPI based:",
+          "date": "2026-06-29",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.65,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.6,
+            "num_hit": 0.0
+          },
+          "id": "E4"
+        }
+      ],
+      "quotes": [],
+      "numbers": [],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c13",
+        "sentence_id": "s14",
+        "sentence": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42).",
+        "text": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42).",
+        "type": "citation",
+        "location": "para 8",
+        "numbers": [
+          "30%"
+        ],
+        "citations": [
+          "doi:10.5555/jjm.fake.42"
+        ],
+        "entities": [
+          "Sharma"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "UNVERIFIED",
+      "confidence": "n/a",
+      "method": "heuristic",
+      "rationale": "The cited reference does not exist (unknown to Crossref and OpenAlex). Evidence found, but it does not clearly contain the claim's figures or dates.",
+      "evidence": [
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "States are giving priority to water quality-affected areas, Scheduled Caste/ Scheduled Tribe majority villages, aspirational districts, village in drought prone and desert areas and quality-affected habitations. States are working to ensure that piped water supply reaches the regions affected by Fluoride and Arsenic at the earliest as well.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.272,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.22,
+            "num_hit": 0.0
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+          "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+          "snippet": "Ensuring disease free life and holistic development of our children is a priority. In this spirit, a '100-Day Campaign' was launched on 2 nd October, 2020 to provide piped water supply to every school, anganwadicentre (AWC) and ashramshala, i.e. residential schools for children from tribal communities.",
+          "date": "2021-01-01",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.272,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.22,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c12",
+          "location": "para 8",
+          "sentence": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42).",
+          "claimed": "30%",
+          "claimed_value": 30.0,
+          "indicator": null,
+          "indicator_name": null,
+          "period": "2024",
+          "geography": "India",
+          "verdict": "UNVERIFIED",
+          "reason": "No supported indicator recognised for this number.",
+          "official": null,
+          "citation": null,
+          "warnings": [],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [
+        {
+          "citation": "doi:10.5555/jjm.fake.42",
+          "target": "doi:10.5555/jjm.fake.42",
+          "status": "not_found",
+          "resolver": null,
+          "title": null,
+          "year": null,
+          "container": null,
+          "url": null,
+          "detail": "unknown to Crossref and OpenAlex"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "citation_not_found",
+          "severity": "error",
+          "message": "The cited doi:10.5555/jjm.fake.42 does not exist (unknown to Crossref and OpenAlex). Possibly a fabricated reference."
+        }
+      ],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c14",
+        "sentence_id": "s15",
+        "sentence": "Statistical computing in Python builds on array programming with NumPy (Harris et al., 2020, doi:10.1038/s41586-020-2649-2).",
+        "text": "Statistical computing in Python builds on array programming with NumPy (Harris et al., 2020, doi:10.1038/s41586-020-2649-2).",
+        "type": "citation",
+        "location": "para 8",
+        "numbers": [],
+        "citations": [
+          "doi:10.1038/s41586-020-2649-2"
+        ],
+        "entities": [
+          "Python",
+          "Num",
+          "Harris"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "low",
+      "method": "heuristic",
+      "rationale": "An official/cited passage covers 62% of the claim's key terms (lexical match only).",
+      "evidence": [
+        {
+          "retriever": "citation",
+          "source_url": "https://doi.org/10.1038/s41586-020-2649-2",
+          "title": "Array programming with NumPy",
+          "snippet": "Array programming with NumPy. Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor (2020). Nature. Abstract: Abstract Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language.",
+          "date": "2020",
+          "publisher": "Nature (via crossref)",
+          "page": null,
+          "official": false,
+          "score": 0.5,
+          "kind": "metadata",
+          "meta": {
+            "cited": true,
+            "support": "supports"
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+          "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+          "snippet": "Building on the achievements of the Mission, the Union Government has extended Jal Jeevan Mission till December 2028. Over the last seven years, Jal Jeevan Mission has evolved from an infrastructure creation programme into a people-centric movement for sustainable water security.",
+          "date": "2026-08-14",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": null,
+          "official": true,
+          "score": 0.3,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.25,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [
+        {
+          "evidence_id": "E1",
+          "quote": "Array programming with NumPy. Charles R. Harris, K. Jarrod Millman, Stéfan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor (2020). Nature. Abstract: Abstract Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language."
+        }
+      ],
+      "numbers": [],
+      "citation_checks": [
+        {
+          "citation": "doi:10.1038/s41586-020-2649-2",
+          "target": "doi:10.1038/s41586-020-2649-2",
+          "status": "found",
+          "resolver": "crossref",
+          "title": "Array programming with NumPy",
+          "year": 2020,
+          "container": "Nature",
+          "url": "https://doi.org/10.1038/s41586-020-2649-2",
+          "detail": null,
+          "numbers_found": [],
+          "numbers_missing": [],
+          "cover": 0.5,
+          "support": "supports"
+        }
+      ],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c15",
+        "sentence_id": "s16",
+        "sentence": "The Reserve Bank of India is headquartered in Mumbai.",
+        "text": "The Reserve Bank of India is headquartered in Mumbai.",
+        "type": "entity",
+        "location": "para 8",
+        "numbers": [],
+        "citations": [],
+        "entities": [
+          "Reserve Bank",
+          "India",
+          "Mumbai"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "UNVERIFIED",
+      "confidence": "n/a",
+      "method": "heuristic",
+      "rationale": "The closest passage does not name Reserve, Mumbai; without an LLM judge a possible name/actor swap cannot be ruled out.",
+      "evidence": [
+        {
+          "retriever": "docs",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "4. The publication incorporates the updated estimates of annual and quarterly estimates on account of using new series of output Producer Price Index (PPI), Index of Industrial Production (IIP), and Banking Services Price Index (BkSPI) with the base year 2022-23 released during June 2026, and updated data from administrative sources.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 1,
+          "official": true,
+          "score": 0.25,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.2,
+            "num_hit": 0.0
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "docs",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "NATIONAL ACCOUNTS STATISTICS - 2026 PUBLICATION",
+          "snippet": "uses PPI in place of WPI as one of its underlying price-related inputs. BkSPI (Base: 2022-23) enables compilation of growth in actual physical volume and transactional activity of banking services over time.",
+          "date": "2026-08-31",
+          "publisher": "Press Information Bureau (PIB), Government of India",
+          "page": 2,
+          "official": true,
+          "score": 0.25,
+          "kind": "passage",
+          "meta": {
+            "passage_kind": "text",
+            "cover": 0.2,
+            "num_hit": 0.0
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c16",
+        "sentence_id": "s17",
+        "sentence": "Policymakers should prioritise service delivery and source sustainability over new pipelines.",
+        "text": "Policymakers should prioritise service delivery and source sustainability over new pipelines.",
+        "type": "opinion",
+        "location": "para 9",
+        "numbers": [],
+        "citations": [],
+        "entities": [],
+        "extractor": "rules"
+      },
+      "verdict": "SKIPPED",
+      "confidence": "n/a",
+      "method": "skipped",
+      "rationale": "Opinion or recommendation; not a checkable factual claim.",
+      "evidence": [],
+      "quotes": [],
+      "numbers": [],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c17",
+        "sentence_id": "s20",
+        "sentence": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+        "text": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+        "type": "numeric",
+        "location": "table 1, row 2",
+        "numbers": [
+          "7.2%",
+          "7.8%"
+        ],
+        "citations": [],
+        "entities": [
+          "Real",
+          "GDP"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "7.2%: Matches the official value 7.2% at the precision written. 7.8%: Matches the official value 7.8% at the precision written.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "snippet": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23).",
+          "date": "2026-08-31",
+          "publisher": "MoSPI (National Statistics Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 7.2,
+            "display": "7.2%",
+            "period": "2024-25",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "vintage": "First Revised Estimate (updated, NAS 2026)",
+            "live": {
+              "value": 7.193864333899347,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+              "agrees": true,
+              "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "curated",
+          "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "snippet": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23).",
+          "date": "2026-08-31",
+          "publisher": "MoSPI (National Statistics Office)",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 7.8,
+            "display": "7.8%",
+            "period": "2025-26",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "live": {
+              "value": 7.81882296343257,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            }
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c13",
+          "location": "table 1, row 2",
+          "sentence": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+          "claimed": "7.2%",
+          "claimed_value": 7.2,
+          "indicator": "gdp_growth_real",
+          "indicator_name": "Real GDP growth (constant prices)",
+          "period": "2024-25",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 7.2% at the precision written.",
+          "official": {
+            "value": 7.2,
+            "display": "7.2%",
+            "period": "2024-25",
+            "variant": "default",
+            "stage": null,
+            "base": "2022-23",
+            "vintage": "First Revised Estimate (updated, NAS 2026)",
+            "status": "current",
+            "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "source": {
+              "publisher": "MoSPI (National Statistics Office)",
+              "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+              "published": "2026-08-31",
+              "accessed": "2026-11-01",
+              "key": "NAS2026"
+            },
+            "geography": "India",
+            "live": {
+              "value": 7.193864333899347,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+              "agrees": true,
+              "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+          "warnings": [],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c14",
+          "location": "table 1, row 2",
+          "sentence": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+          "claimed": "7.8%",
+          "claimed_value": 7.8,
+          "indicator": "gdp_growth_real",
+          "indicator_name": "Real GDP growth (constant prices)",
+          "period": "2025-26",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 7.8% at the precision written.",
+          "official": {
+            "value": 7.8,
+            "display": "7.8%",
+            "period": "2025-26",
+            "variant": "default",
+            "stage": null,
+            "base": "2022-23",
+            "vintage": "Provisional Estimate (updated, NAS 2026)",
+            "status": "current",
+            "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+            "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+            "source": {
+              "publisher": "MoSPI (National Statistics Office)",
+              "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+              "published": "2026-08-31",
+              "accessed": "2026-11-01",
+              "key": "NAS2026"
+            },
+            "geography": "India",
+            "live": {
+              "value": 7.81882296343257,
+              "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+              "agrees": true,
+              "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+            },
+            "live_source": false
+          },
+          "citation": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+          "warnings": [],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": null,
+      "fix_source": null
+    },
+    {
+      "claim": {
+        "id": "c18",
+        "sentence_id": "s21",
+        "sentence": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+        "text": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+        "type": "numeric",
+        "location": "table 1, row 3",
+        "numbers": [
+          "4.6%",
+          "2.6%"
+        ],
+        "citations": [],
+        "entities": [
+          "CPI"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "CONTRADICTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "4.6%: Matches the official value 4.6% at the precision written. 2.6%: Official value is 2.1%; the draft differs by +0.50 percentage points.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+          "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+          "snippet": "CPI inflation (All India, combined, annual average): 4.6% (2024-25, base 2012=100).",
+          "date": "2026-05-29",
+          "publisher": "Reserve Bank of India",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 4.6,
+            "display": "4.6%",
+            "period": "2024-25",
+            "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+            "vintage": null,
+            "live": null
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "curated",
+          "source_url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+          "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+          "snippet": "CPI inflation (All India, combined, annual average): 2.1% (2025-26, base spliced: 2012=100 (Apr-Dec 2025) + 2024=100 (Jan-Mar 2026)).",
+          "date": "2026-05-29",
+          "publisher": "Reserve Bank of India",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 2.1,
+            "display": "2.1%",
+            "period": "2025-26",
+            "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+            "vintage": null,
+            "live": null
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c15",
+          "location": "table 1, row 3",
+          "sentence": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+          "claimed": "4.6%",
+          "claimed_value": 4.6,
+          "indicator": "cpi_inflation",
+          "indicator_name": "CPI inflation (All India, combined, annual average)",
+          "period": "2024-25",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 4.6% at the precision written.",
+          "official": {
+            "value": 4.6,
+            "display": "4.6%",
+            "period": "2024-25",
+            "variant": "default",
+            "stage": null,
+            "base": "2012=100",
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.CPI.COMBINED.ANNUAL",
+            "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+            "source": {
+              "publisher": "Reserve Bank of India",
+              "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+              "url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+              "published": "2026-05-29",
+              "accessed": "2026-11-01",
+              "key": "RBIAR"
+            },
+            "geography": "India",
+            "live": null,
+            "live_source": false
+          },
+          "citation": "CPI inflation (All India, combined, annual average): 4.6% (2024-25, base 2012=100). Source: Reserve Bank of India, “RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit”, published 2026-05-29, https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477 (accessed 2026-11-01).",
+          "warnings": [],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c16",
+          "location": "table 1, row 3",
+          "sentence": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+          "claimed": "2.6%",
+          "claimed_value": 2.6,
+          "indicator": "cpi_inflation",
+          "indicator_name": "CPI inflation (All India, combined, annual average)",
+          "period": "2025-26",
+          "geography": "India",
+          "verdict": "MISMATCH",
+          "reason": "Official value is 2.1%; the draft differs by +0.50 percentage points.",
+          "official": {
+            "value": 2.1,
+            "display": "2.1%",
+            "period": "2025-26",
+            "variant": "default",
+            "stage": null,
+            "base": "spliced: 2012=100 (Apr-Dec 2025) + 2024=100 (Jan-Mar 2026)",
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOSPI.CPI.COMBINED.ANNUAL",
+            "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+            "source": {
+              "publisher": "Reserve Bank of India",
+              "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+              "url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+              "published": "2026-05-29",
+              "accessed": "2026-11-01",
+              "key": "RBIAR"
+            },
+            "geography": "India",
+            "live": null,
+            "live_source": false
+          },
+          "citation": "CPI inflation (All India, combined, annual average): 2.1% (2025-26, base spliced: 2012=100 (Apr-Dec 2025) + 2024=100 (Jan-Mar 2026)). Source: Reserve Bank of India, “RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit”, published 2026-05-29, https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477 (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "source_note",
+              "severity": "info",
+              "message": "RBI computed 2025-26 as the average of monthly inflation rates: April-December 2025 on the old base (2012=100), January 2026 onwards on the new base (2024=100)."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [],
+      "suggested_fix": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.1%",
+      "fix_source": "Source: Reserve Bank of India, “RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit”, 2026-05-29"
+    },
+    {
+      "claim": {
+        "id": "c19",
+        "sentence_id": "s22",
+        "sentence": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+        "text": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+        "type": "numeric",
+        "location": "table 1, row 4",
+        "numbers": [
+          "4.8%",
+          "4.4%"
+        ],
+        "citations": [],
+        "entities": [
+          "Fiscal",
+          "GDP"
+        ],
+        "extractor": "rules"
+      },
+      "verdict": "SUPPORTED",
+      "confidence": "high",
+      "method": "deterministic-numeric",
+      "rationale": "4.8%: Matches the official value 4.8% at the precision written. 4.4%: Matches the official value 4.4% at the precision written.",
+      "evidence": [
+        {
+          "retriever": "curated",
+          "source_url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "snippet": "Union fiscal deficit (% of GDP): 4.8% (2024-25, Actual).",
+          "date": "2026-02-01",
+          "publisher": "Ministry of Finance, Union Budget",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 4.8,
+            "display": "4.8%",
+            "period": "2024-25",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+            "vintage": null,
+            "live": null
+          },
+          "id": "E1"
+        },
+        {
+          "retriever": "curated",
+          "source_url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "snippet": "Union fiscal deficit (% of GDP): 4.4% (2025-26, RE).",
+          "date": "2026-02-01",
+          "publisher": "Ministry of Finance, Union Budget",
+          "page": null,
+          "official": true,
+          "score": 1.0,
+          "kind": "datapoint",
+          "meta": {
+            "value": 4.4,
+            "display": "4.4%",
+            "period": "2025-26",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+            "vintage": null,
+            "live": null
+          },
+          "id": "E2"
+        }
+      ],
+      "quotes": [],
+      "numbers": [
+        {
+          "claim_id": "c17",
+          "location": "table 1, row 4",
+          "sentence": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+          "claimed": "4.8%",
+          "claimed_value": 4.8,
+          "indicator": "fiscal_deficit_pct_gdp",
+          "indicator_name": "Union fiscal deficit (% of GDP)",
+          "period": "2024-25",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 4.8% at the precision written.",
+          "official": {
+            "value": 4.8,
+            "display": "4.8%",
+            "period": "2024-25",
+            "variant": "default",
+            "stage": "Actual",
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOF.UNION.FD.PCTGDP",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+            "source": {
+              "publisher": "Ministry of Finance, Union Budget",
+              "title": "Budget at a Glance 2026-27, Deficit Statistics",
+              "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+              "published": "2026-02-01",
+              "accessed": "2026-11-01",
+              "key": "BAG2627"
+            },
+            "geography": "India",
+            "live": null,
+            "live_source": false
+          },
+          "citation": "Union fiscal deficit (% of GDP): 4.8% (2024-25, Actual). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "budget_stage",
+              "severity": "warn",
+              "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: 4.9%; RE: 4.8%; Actual: 4.8%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+            }
+          ],
+          "alternatives": []
+        },
+        {
+          "claim_id": "c18",
+          "location": "table 1, row 4",
+          "sentence": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+          "claimed": "4.4%",
+          "claimed_value": 4.4,
+          "indicator": "fiscal_deficit_pct_gdp",
+          "indicator_name": "Union fiscal deficit (% of GDP)",
+          "period": "2025-26",
+          "geography": "India",
+          "verdict": "MATCH",
+          "reason": "Matches the official value 4.4% at the precision written.",
+          "official": {
+            "value": 4.4,
+            "display": "4.4%",
+            "period": "2025-26",
+            "variant": "default",
+            "stage": "RE",
+            "base": null,
+            "vintage": null,
+            "status": "current",
+            "series_id": "IN.MOF.UNION.FD.PCTGDP",
+            "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+            "source": {
+              "publisher": "Ministry of Finance, Union Budget",
+              "title": "Budget at a Glance 2026-27, Deficit Statistics",
+              "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+              "published": "2026-02-01",
+              "accessed": "2026-11-01",
+              "key": "BAG2627"
+            },
+            "geography": "India",
+            "live": null,
+            "live_source": false
+          },
+          "citation": "Union fiscal deficit (% of GDP): 4.4% (2025-26, RE). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+          "warnings": [
+            {
+              "code": "budget_stage",
+              "severity": "warn",
+              "message": "Budget stage not stated. For 2025-26 the Union Budget reports BE: 4.4%; RE: 4.4%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with RE."
+            }
+          ],
+          "alternatives": []
+        }
+      ],
+      "citation_checks": [],
+      "warnings": [
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: 4.9%; RE: 4.8%; Actual: 4.8%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+        },
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2025-26 the Union Budget reports BE: 4.4%; RE: 4.4%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with RE."
+        }
+      ],
+      "suggested_fix": null,
+      "fix_source": null
+    }
+  ],
+  "findings": [
+    {
+      "claim_id": "c1",
+      "location": "para 2",
+      "sentence": "India's real GDP grew by 7.8% in FY 2025-26, according to MoSPI's National Accounts Statistics 2026 (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).",
+      "claimed": "7.8%",
+      "claimed_value": 7.8,
+      "indicator": "gdp_growth_real",
+      "indicator_name": "Real GDP growth (constant prices)",
+      "period": "2025-26",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 7.8% at the precision written.",
+      "official": {
+        "value": 7.8,
+        "display": "7.8%",
+        "period": "2025-26",
+        "variant": "default",
+        "stage": null,
+        "base": "2022-23",
+        "vintage": "Provisional Estimate (updated, NAS 2026)",
+        "status": "current",
+        "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+        "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+        "source": {
+          "publisher": "MoSPI (National Statistics Office)",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "published": "2026-08-31",
+          "accessed": "2026-11-01",
+          "key": "NAS2026"
+        },
+        "geography": "India",
+        "live": {
+          "value": 7.81882296343257,
+          "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+          "agrees": true,
+          "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c2",
+      "location": "para 2",
+      "sentence": "Nominal GDP reached ₹345.37 lakh crore in 2025-26.",
+      "claimed": "₹345.37 lakh crore",
+      "claimed_value": 345370000000000.0,
+      "indicator": "gdp_nominal",
+      "indicator_name": "Nominal GDP (current prices, level)",
+      "period": "2025-26",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value ₹345.37 lakh crore at the precision written.",
+      "official": {
+        "value": 345367960000000.0,
+        "display": "₹345.37 lakh crore",
+        "period": "2025-26",
+        "variant": "default",
+        "stage": null,
+        "base": "2022-23",
+        "vintage": "Provisional Estimate (updated, NAS 2026)",
+        "status": "current",
+        "series_id": "IN.MOSPI.NAS.GDP.CURRENT.LEVEL",
+        "series": "MoSPI National Accounts, GDP at current prices (base 2022-23), ₹ crore",
+        "source": {
+          "publisher": "MoSPI (National Statistics Office)",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "published": "2026-08-31",
+          "accessed": "2026-11-01",
+          "key": "NAS2026"
+        },
+        "geography": "India",
+        "live": {
+          "value": 345367960000000.0,
+          "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+          "agrees": true,
+          "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Nominal GDP (current prices, level): ₹345.37 lakh crore (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c3",
+      "location": "para 3",
+      "sentence": "In 2024-25, real GDP growth moderated to 6.5%, weighed down by weak manufacturing.",
+      "claimed": "6.5%",
+      "claimed_value": 6.5,
+      "indicator": "gdp_growth_real",
+      "indicator_name": "Real GDP growth (constant prices)",
+      "period": "2024-25",
+      "geography": "India",
+      "verdict": "MISMATCH",
+      "reason": "Official value is 7.2%; the draft differs by -0.70 percentage points.",
+      "official": {
+        "value": 7.2,
+        "display": "7.2%",
+        "period": "2024-25",
+        "variant": "default",
+        "stage": null,
+        "base": "2022-23",
+        "vintage": "First Revised Estimate (updated, NAS 2026)",
+        "status": "current",
+        "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+        "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+        "source": {
+          "publisher": "MoSPI (National Statistics Office)",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "published": "2026-08-31",
+          "accessed": "2026-11-01",
+          "key": "NAS2026"
+        },
+        "geography": "India",
+        "live": {
+          "value": 7.193864333899347,
+          "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+          "agrees": true,
+          "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "old_base",
+          "severity": "error",
+          "message": "The draft's number matches the OLD base 2011-12 series (6.5%, MoSPI (National Statistics Office), 2025-05-30). MoSPI has replaced it with the base 2022-23 series, which gives 7.2%. Update the figure and say which base you use."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c4",
+      "location": "para 4",
+      "sentence": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+      "claimed": "4.9%",
+      "claimed_value": 4.9,
+      "indicator": "unemployment_rate",
+      "indicator_name": "Unemployment rate (PLFS, persons 15+)",
+      "period": "2023-24",
+      "geography": "India",
+      "verdict": "MISMATCH",
+      "reason": "Official value is 3.2%; the draft differs by +1.70 percentage points.",
+      "official": {
+        "value": 3.2,
+        "display": "3.2%",
+        "period": "2023-24",
+        "variant": "usual_status",
+        "stage": null,
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.PLFS.UR",
+        "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+        "source": {
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "published": "2024-09-23",
+          "accessed": "2026-11-01",
+          "key": "PLFS2324"
+        },
+        "geography": "India",
+        "live": {
+          "value": 3.2,
+          "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "agrees": true,
+          "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Unemployment rate (PLFS, persons 15+): 3.2% (2023-24, usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "plfs_status",
+          "severity": "warn",
+          "message": "Activity status not stated. PLFS publishes both usual status (ps+ss, 365-day reference) and current weekly status (CWS, 7-day); headline comparisons use usual status. Name the one you mean."
+        },
+        {
+          "code": "plfs_status",
+          "severity": "error",
+          "message": "The draft's number is the current weekly status (CWS) figure (4.9%) for PLFS 2023-24. Say ‘current weekly status (CWS)’; the usual status figure is 3.2%."
+        },
+        {
+          "code": "source_note",
+          "severity": "info",
+          "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c5",
+      "location": "para 4",
+      "sentence": "The unemployment rate fell to 4.9% in 2023-24, and Telangana's unemployment rate was 4.1% in the same year.",
+      "claimed": "4.1%",
+      "claimed_value": 4.1,
+      "indicator": "unemployment_rate",
+      "indicator_name": "Unemployment rate (PLFS, persons 15+)",
+      "period": "2023-24",
+      "geography": "Telangana",
+      "verdict": "MISMATCH",
+      "reason": "Official value is 4.8%; the draft differs by -0.70 percentage points.",
+      "official": {
+        "value": 4.8,
+        "display": "4.8%",
+        "period": "2023-24",
+        "variant": "usual_status",
+        "stage": null,
+        "base": null,
+        "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01",
+        "status": "current",
+        "series_id": "IN.MOSPI.PLFS.UR",
+        "series": "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban",
+        "source": {
+          "publisher": "MoSPI (NSO), eSankhyiki API",
+          "title": "PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS",
+          "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "published": "live API",
+          "accessed": "2026-11-01",
+          "key": "MOSPI-API-PLFS"
+        },
+        "geography": "Telangana",
+        "live": null,
+        "live_source": true
+      },
+      "citation": "Unemployment rate (PLFS, persons 15+): 4.8% (2023-24, usual status). Source: MoSPI (NSO), eSankhyiki API, “PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS”, published live API, https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "plfs_status",
+          "severity": "warn",
+          "message": "Activity status not stated. PLFS publishes both usual status (ps+ss, 365-day reference) and current weekly status (CWS, 7-day); headline comparisons use usual status. Name the one you mean."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c6",
+      "location": "para 4",
+      "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+      "claimed": "37.0%",
+      "claimed_value": 37.0,
+      "indicator": "lfpr",
+      "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+      "period": "2022-23",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 37.0% at the precision written.",
+      "official": {
+        "value": 37.0,
+        "display": "37.0%",
+        "period": "2022-23",
+        "variant": "female_usual_status",
+        "stage": null,
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.PLFS.LFPR",
+        "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+        "source": {
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "published": "2024-09-23",
+          "accessed": "2026-11-01",
+          "key": "PLFS2324"
+        },
+        "geography": "India",
+        "live": {
+          "value": 37.0,
+          "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2022-23&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "agrees": true,
+          "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Labour force participation rate (PLFS, persons 15+): 37.0% (2022-23, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "source_note",
+          "severity": "info",
+          "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c7",
+      "location": "para 4",
+      "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+      "claimed": "41.7%",
+      "claimed_value": 41.7,
+      "indicator": "lfpr",
+      "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+      "period": "2023-24",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 41.7% at the precision written.",
+      "official": {
+        "value": 41.7,
+        "display": "41.7%",
+        "period": "2023-24",
+        "variant": "female_usual_status",
+        "stage": null,
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.PLFS.LFPR",
+        "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+        "source": {
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "published": "2024-09-23",
+          "accessed": "2026-11-01",
+          "key": "PLFS2324"
+        },
+        "geography": "India",
+        "live": {
+          "value": 41.7,
+          "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "agrees": true,
+          "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Labour force participation rate (PLFS, persons 15+): 41.7% (2023-24, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "source_note",
+          "severity": "info",
+          "message": "PLFS survey year July-June (e.g. 2023-24 = July 2023 - June 2024)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c8",
+      "location": "para 4",
+      "sentence": "Female labour force participation rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.",
+      "claimed": "4.7%",
+      "claimed_value": 4.7,
+      "indicator": "lfpr",
+      "indicator_name": "Labour force participation rate (PLFS, persons 15+)",
+      "period": "2022-23 → 2023-24",
+      "geography": "India",
+      "verdict": "MISMATCH",
+      "reason": "Change 2022-23 → 2023-24: official 37% → 41.7% = +4.70 percentage points (+12.7% relative). Claim read as 4.7 per cent (relative).",
+      "official": {
+        "value": 41.7,
+        "display": "+4.7 pp (37% → 41.7%)",
+        "period": "2022-23 → 2023-24",
+        "variant": "female_usual_status",
+        "stage": null,
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.PLFS.LFPR",
+        "series": "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban",
+        "source": {
+          "publisher": "MoSPI (National Sample Survey Office)",
+          "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+          "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+          "published": "2024-09-23",
+          "accessed": "2026-11-01",
+          "key": "PLFS2324"
+        },
+        "geography": "India",
+        "live": {
+          "value": 41.7,
+          "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+          "agrees": true,
+          "vintage": "MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Labour force participation rate (PLFS, persons 15+): 37.0% (2022-23, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01). Labour force participation rate (PLFS, persons 15+): 41.7% (2023-24, female usual status). Source: MoSPI (National Sample Survey Office), “Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6”, published 2024-09-23, https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "pct_vs_pp",
+          "severity": "error",
+          "message": "4.7 is the change in percentage points, not per cent. Write ‘4.7 percentage points’ (a 12.7% relative change)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c9",
+      "location": "para 5",
+      "sentence": "In absolute terms, the fiscal deficit for 2024-25 was ₹157.4 billion.",
+      "claimed": "₹157.4 billion",
+      "claimed_value": 157400000000.0,
+      "indicator": "fiscal_deficit_amount",
+      "indicator_name": "Union fiscal deficit (₹)",
+      "period": "2024-25",
+      "geography": "India",
+      "verdict": "MISMATCH",
+      "reason": "Official value is ₹15,74,431 crore (₹15.74 lakh crore); the draft differs by -99.0%.",
+      "official": {
+        "value": 15744310000000.0,
+        "display": "₹15,74,431 crore (₹15.74 lakh crore)",
+        "period": "2024-25",
+        "variant": "default",
+        "stage": "Actual",
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOF.UNION.FD.AMOUNT",
+        "series": "Union Budget, Budget at a Glance: Fiscal Deficit, ₹ crore",
+        "source": {
+          "publisher": "Ministry of Finance, Union Budget",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "published": "2026-02-01",
+          "accessed": "2026-11-01",
+          "key": "BAG2627"
+        },
+        "geography": "India",
+        "live": null,
+        "live_source": false
+      },
+      "citation": "Union fiscal deficit (₹): ₹15,74,431 crore (₹15.74 lakh crore) (2024-25, Actual). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: ₹16,13,312 crore (₹16.13 lakh crore); RE: ₹15,69,527 crore (₹15.70 lakh crore); Actual: ₹15,74,431 crore (₹15.74 lakh crore). Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+        },
+        {
+          "code": "unit_scale",
+          "severity": "error",
+          "message": "The draft's figure is off by a factor of 100 (too small): likely a lakh/crore vs million/billion slip. Check the billion conversion (1 million = 10 lakh; 1 crore = 10 million; 1 billion = 100 crore; 1 lakh crore = 1 trillion)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c10",
+      "location": "para 6",
+      "sentence": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+      "claimed": "92%",
+      "claimed_value": 92.0,
+      "indicator": null,
+      "indicator_name": null,
+      "period": null,
+      "geography": "India",
+      "verdict": "UNVERIFIED",
+      "reason": "No supported indicator recognised for this number.",
+      "official": null,
+      "citation": null,
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c11",
+      "location": "para 6",
+      "sentence": "Today 92% of rural households have tap water connections, up from 3.23 crore households at launch [1].",
+      "claimed": "3.23 crore",
+      "claimed_value": 32300000.0,
+      "indicator": null,
+      "indicator_name": null,
+      "period": null,
+      "geography": "India",
+      "verdict": "UNVERIFIED",
+      "reason": "No supported indicator recognised for this number.",
+      "official": null,
+      "citation": null,
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c12",
+      "location": "para 8",
+      "sentence": "A recent meta-analysis found that piped water cut child diarrhoea by 30% (Sharma et al., 2024, doi:10.5555/jjm.fake.42).",
+      "claimed": "30%",
+      "claimed_value": 30.0,
+      "indicator": null,
+      "indicator_name": null,
+      "period": "2024",
+      "geography": "India",
+      "verdict": "UNVERIFIED",
+      "reason": "No supported indicator recognised for this number.",
+      "official": null,
+      "citation": null,
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c13",
+      "location": "table 1, row 2",
+      "sentence": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+      "claimed": "7.2%",
+      "claimed_value": 7.2,
+      "indicator": "gdp_growth_real",
+      "indicator_name": "Real GDP growth (constant prices)",
+      "period": "2024-25",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 7.2% at the precision written.",
+      "official": {
+        "value": 7.2,
+        "display": "7.2%",
+        "period": "2024-25",
+        "variant": "default",
+        "stage": null,
+        "base": "2022-23",
+        "vintage": "First Revised Estimate (updated, NAS 2026)",
+        "status": "current",
+        "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+        "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+        "source": {
+          "publisher": "MoSPI (National Statistics Office)",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "published": "2026-08-31",
+          "accessed": "2026-11-01",
+          "key": "NAS2026"
+        },
+        "geography": "India",
+        "live": {
+          "value": 7.193864333899347,
+          "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON",
+          "agrees": true,
+          "vintage": "First Revised Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Real GDP growth (constant prices): 7.2% (2024-25, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c14",
+      "location": "table 1, row 2",
+      "sentence": "Indicator: Real GDP growth (%) | 2024-25: 7.2% | 2025-26: 7.8%",
+      "claimed": "7.8%",
+      "claimed_value": 7.8,
+      "indicator": "gdp_growth_real",
+      "indicator_name": "Real GDP growth (constant prices)",
+      "period": "2025-26",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 7.8% at the precision written.",
+      "official": {
+        "value": 7.8,
+        "display": "7.8%",
+        "period": "2025-26",
+        "variant": "default",
+        "stage": null,
+        "base": "2022-23",
+        "vintage": "Provisional Estimate (updated, NAS 2026)",
+        "status": "current",
+        "series_id": "IN.MOSPI.NAS.GDP.CONSTANT.GROWTH",
+        "series": "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)",
+        "source": {
+          "publisher": "MoSPI (National Statistics Office)",
+          "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+          "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+          "published": "2026-08-31",
+          "accessed": "2026-11-01",
+          "key": "NAS2026"
+        },
+        "geography": "India",
+        "live": {
+          "value": 7.81882296343257,
+          "url": "https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2025-26&Format=JSON",
+          "agrees": true,
+          "vintage": "Provisional Estimates via MoSPI eSankhyiki API, fetched 2026-11-01"
+        },
+        "live_source": false
+      },
+      "citation": "Real GDP growth (constant prices): 7.8% (2025-26, base 2022-23). Source: MoSPI (National Statistics Office), “Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10”, published 2026-08-31, https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf (accessed 2026-11-01).",
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c15",
+      "location": "table 1, row 3",
+      "sentence": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+      "claimed": "4.6%",
+      "claimed_value": 4.6,
+      "indicator": "cpi_inflation",
+      "indicator_name": "CPI inflation (All India, combined, annual average)",
+      "period": "2024-25",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 4.6% at the precision written.",
+      "official": {
+        "value": 4.6,
+        "display": "4.6%",
+        "period": "2024-25",
+        "variant": "default",
+        "stage": null,
+        "base": "2012=100",
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.CPI.COMBINED.ANNUAL",
+        "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+        "source": {
+          "publisher": "Reserve Bank of India",
+          "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+          "url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+          "published": "2026-05-29",
+          "accessed": "2026-11-01",
+          "key": "RBIAR"
+        },
+        "geography": "India",
+        "live": null,
+        "live_source": false
+      },
+      "citation": "CPI inflation (All India, combined, annual average): 4.6% (2024-25, base 2012=100). Source: Reserve Bank of India, “RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit”, published 2026-05-29, https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477 (accessed 2026-11-01).",
+      "warnings": [],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c16",
+      "location": "table 1, row 3",
+      "sentence": "Indicator: CPI inflation (%) | 2024-25: 4.6% | 2025-26: 2.6%",
+      "claimed": "2.6%",
+      "claimed_value": 2.6,
+      "indicator": "cpi_inflation",
+      "indicator_name": "CPI inflation (All India, combined, annual average)",
+      "period": "2025-26",
+      "geography": "India",
+      "verdict": "MISMATCH",
+      "reason": "Official value is 2.1%; the draft differs by +0.50 percentage points.",
+      "official": {
+        "value": 2.1,
+        "display": "2.1%",
+        "period": "2025-26",
+        "variant": "default",
+        "stage": null,
+        "base": "spliced: 2012=100 (Apr-Dec 2025) + 2024=100 (Jan-Mar 2026)",
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOSPI.CPI.COMBINED.ANNUAL",
+        "series": "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026",
+        "source": {
+          "publisher": "Reserve Bank of India",
+          "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+          "url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+          "published": "2026-05-29",
+          "accessed": "2026-11-01",
+          "key": "RBIAR"
+        },
+        "geography": "India",
+        "live": null,
+        "live_source": false
+      },
+      "citation": "CPI inflation (All India, combined, annual average): 2.1% (2025-26, base spliced: 2012=100 (Apr-Dec 2025) + 2024=100 (Jan-Mar 2026)). Source: Reserve Bank of India, “RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit”, published 2026-05-29, https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477 (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "source_note",
+          "severity": "info",
+          "message": "RBI computed 2025-26 as the average of monthly inflation rates: April-December 2025 on the old base (2012=100), January 2026 onwards on the new base (2024=100)."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c17",
+      "location": "table 1, row 4",
+      "sentence": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+      "claimed": "4.8%",
+      "claimed_value": 4.8,
+      "indicator": "fiscal_deficit_pct_gdp",
+      "indicator_name": "Union fiscal deficit (% of GDP)",
+      "period": "2024-25",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 4.8% at the precision written.",
+      "official": {
+        "value": 4.8,
+        "display": "4.8%",
+        "period": "2024-25",
+        "variant": "default",
+        "stage": "Actual",
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOF.UNION.FD.PCTGDP",
+        "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+        "source": {
+          "publisher": "Ministry of Finance, Union Budget",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "published": "2026-02-01",
+          "accessed": "2026-11-01",
+          "key": "BAG2627"
+        },
+        "geography": "India",
+        "live": null,
+        "live_source": false
+      },
+      "citation": "Union fiscal deficit (% of GDP): 4.8% (2024-25, Actual). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2024-25 the Union Budget reports BE: 4.9%; RE: 4.8%; Actual: 4.8%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with Actual."
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "claim_id": "c18",
+      "location": "table 1, row 4",
+      "sentence": "Indicator: Fiscal deficit (% of GDP) | 2024-25: 4.8% | 2025-26: 4.4%",
+      "claimed": "4.4%",
+      "claimed_value": 4.4,
+      "indicator": "fiscal_deficit_pct_gdp",
+      "indicator_name": "Union fiscal deficit (% of GDP)",
+      "period": "2025-26",
+      "geography": "India",
+      "verdict": "MATCH",
+      "reason": "Matches the official value 4.4% at the precision written.",
+      "official": {
+        "value": 4.4,
+        "display": "4.4%",
+        "period": "2025-26",
+        "variant": "default",
+        "stage": "RE",
+        "base": null,
+        "vintage": null,
+        "status": "current",
+        "series_id": "IN.MOF.UNION.FD.PCTGDP",
+        "series": "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP",
+        "source": {
+          "publisher": "Ministry of Finance, Union Budget",
+          "title": "Budget at a Glance 2026-27, Deficit Statistics",
+          "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+          "published": "2026-02-01",
+          "accessed": "2026-11-01",
+          "key": "BAG2627"
+        },
+        "geography": "India",
+        "live": null,
+        "live_source": false
+      },
+      "citation": "Union fiscal deficit (% of GDP): 4.4% (2025-26, RE). Source: Ministry of Finance, Union Budget, “Budget at a Glance 2026-27, Deficit Statistics”, published 2026-02-01, https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf (accessed 2026-11-01).",
+      "warnings": [
+        {
+          "code": "budget_stage",
+          "severity": "warn",
+          "message": "Budget stage not stated. For 2025-26 the Union Budget reports BE: 4.4%; RE: 4.4%. Say whether this is the Budget Estimate (BE), Revised Estimate (RE) or Actuals; compared with RE."
+        }
+      ],
+      "alternatives": []
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf",
+      "title": "Press Release: National Accounts Statistics - 2026 publication (base year 2022-23), table in para 10",
+      "publisher": "MoSPI (National Statistics Office)",
+      "date": "2026-08-31",
+      "retriever": "curated",
+      "official": true
+    },
+    {
+      "url": "https://www.mospi.gov.in/sites/default/files/press_release/Press_note_AR_PLFS_2023_24_22092024.pdf",
+      "title": "Press Note on PLFS Annual Report July 2023 - June 2024, Tables 1, 3, 4 and 6",
+      "publisher": "MoSPI (National Sample Survey Office)",
+      "date": "2024-09-23",
+      "retriever": "curated",
+      "official": true
+    },
+    {
+      "url": "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON",
+      "title": "PLFS 2023-24 (Agriculture Year), UR (Unemployment Rate, in per cent), Telangana, rural + urban, person, 15 years and above, PS+SS",
+      "publisher": "MoSPI (NSO), eSankhyiki API",
+      "date": "live API",
+      "retriever": "mospi",
+      "official": true
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2196924",
+      "title": "NATIONAL EMPLOYMENT RATE",
+      "publisher": "Press Information Bureau (PIB), Government of India",
+      "date": "2025-12-01",
+      "retriever": "docs",
+      "official": true
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781",
+      "title": "Government has introduced a Model Context Protocol server to facilitate linking of Artificial Intelligence tools with Official Statistical databases",
+      "publisher": "Press Information Bureau (PIB), Government of India",
+      "date": "2026-03-23",
+      "retriever": "docs",
+      "official": true
+    },
+    {
+      "url": "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+      "title": "Budget at a Glance 2026-27, Deficit Statistics",
+      "publisher": "Ministry of Finance, Union Budget",
+      "date": "2026-02-01",
+      "retriever": "curated",
+      "official": true
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2299487",
+      "title": "Jal Jeevan Mission Clocks Seven Years of Rural Transformation: Rural Drinking Water Tap Coverage Surges from 16.7% to Over 82%",
+      "publisher": "Press Information Bureau (PIB), Government of India",
+      "date": "2026-08-14",
+      "retriever": "citation",
+      "official": true
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1685391",
+      "title": "In the last one year, more than 3 Crore tap water connections provided under Jal Jeevan Mission",
+      "publisher": "Press Information Bureau (PIB), Government of India",
+      "date": "2021-01-01",
+      "retriever": "docs",
+      "official": true
+    },
+    {
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2278961",
+      "title": "India's Index of industrial production records growth of 5.1% in May 2026",
+      "publisher": "Press Information Bureau (PIB), Government of India",
+      "date": "2026-06-29",
+      "retriever": "docs",
+      "official": true
+    },
+    {
+      "url": "https://doi.org/10.1038/s41586-020-2649-2",
+      "title": "Array programming with NumPy",
+      "publisher": "Nature (via crossref)",
+      "date": "2020",
+      "retriever": "citation",
+      "official": false
+    },
+    {
+      "url": "https://www.rbi.org.in/scripts/AnnualReportPublications.aspx?Id=1477",
+      "title": "RBI Annual Report 2025-26, Appendix Table: Inflation, Money and Credit",
+      "publisher": "Reserve Bank of India",
+      "date": "2026-05-29",
+      "retriever": "curated",
+      "official": true
+    }
+  ]
+}
