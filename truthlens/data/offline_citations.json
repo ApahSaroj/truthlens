@@ -1,0 +1,53 @@
+{
+ "_about": "Offline citation cache: DOI and arXiv records recorded from the live Crossref, OpenAlex and arXiv APIs (tests/fixtures). Used only when TruthLens runs offline. A DOI found here is reported as 'citation exists (offline cache)'; a DOI not here is 'can't check offline', never 'fake'.",
+ "dois": {
+  "10.1038/s41586-020-2649-2": {
+   "resolver": "crossref",
+   "title": "Array programming with NumPy",
+   "container": "Nature",
+   "year": 2020,
+   "authors": [
+    "Charles R. Harris",
+    "K. Jarrod Millman",
+    "Stéfan J. van der Walt",
+    "Ralf Gommers",
+    "Pauli Virtanen",
+    "David Cournapeau",
+    "Eric Wieser",
+    "Julian Taylor"
+   ],
+   "abstract": "Abstract \n                   \n                    Array programming provides a powerful, compact and expressive syntax for accessing, manipulating and operating on data in vectors, matrices and higher-dimensional arrays. NumPy is the primary array programming library for the Python language. It has an essential role in research analysis pipelines in fields as diverse as physics, chemistry, astronomy, geoscience, biology, psychology, materials science, engineering, finance and economics. For example, in astronomy, NumPy was an important part of the software stack used in the discovery of gravitational waves\n                     1 \n                    and in the first imaging of a black hole\n                     2 \n                    . Here we review how a few fundamental array concepts lead to a simple and powerful programming paradigm for organizing, exploring and analysing scientific data. NumPy is the foundation upon which the scientific Python ecosystem is constructed. It is so pervasive that several projects, targeting audiences with specialized needs, have developed their own NumPy-like interfaces and array objects. Owing to its central position in the ecosystem, NumPy increasingly acts as an interoperability layer between such array computation libraries and, together with its application programming interface (API), provides a flexible framework to support the next decade of scientific and industrial analysis.",
+   "url": "https://doi.org/10.1038/s41586-020-2649-2",
+   "recorded": "2026-11-01",
+   "source_file": "crossref/10.1038_s41586-020-2649-2.json"
+  },
+  "10.5281/zenodo.19207048": {
+   "resolver": "openalex",
+   "title": "Bridging the Rural Water Divide through Jal Jeevan Mission in Bihar: Household Determinants of Functional Tap Water Access",
+   "container": "Zenodo (CERN European Organization for Nuclear Research)",
+   "year": 2026,
+   "authors": [
+    "Patel KK, Kumar A, Rai R and Rai AK"
+   ],
+   "abstract": "Ensuring equitable access to safe drinking water remains a central development challenge in rural India despite substantial public investment. JJM aims to provide FHTCs to all rural households. This study examines the determinants of functional water connection access in the Samastipur district of Bihar using primary household data collected in 2025. A community-based cross-sectional study was conducted among 926 rural households selected through random sampling. Descriptive analysis, chi-square tests, and binary logistic regression were employed to identify significant predictors of access to functional tap water connections. Results indicate that 84.9 per cent of households reported having a functional JJM connection; however, access varied significantly across socio-economic groups. Regression estimates reveal that households where the head had secondary and above education were more likely to have a functional connection than households with an illiterate head. Pacca households exhibited significantly higher odds of access (OR = 1.87, p < 0.05). Households with separate kitchen were more likely to have functional connections (OR = 2.74, p < 0.01). Middle-income households showed a positive and significant association with access (OR = 1.69, p < 0.05). Although caste-based differences were observed in bivariate analysis, their effects became statistically insignificant after adjusting for education and housing characteristics, suggesting the presence of indirect pathways of inequality. The findings underscore that infrastructure expansion alone does not ensure equitable water access. Addressing socio-economic vulnerabilities through integrated interventions in education, housing, and social inclusion is essential to achieving sustainable, inclusive outcomes under the Jal Jeevan Mission.",
+   "url": "https://doi.org/10.5281/zenodo.19207048",
+   "recorded": "2026-11-01",
+   "source_file": "live/openalex_search_jjm.json"
+  }
+ },
+ "arxiv": {
+  "1908.00255": {
+   "resolver": "arxiv",
+   "title": "Groundwater pumping to increase food production causes persistent groundwater drought in India",
+   "year": 2019,
+   "authors": [
+    "Akarsh Asoka",
+    "Vimal Mishra"
+   ],
+   "abstract": "Rapid groundwater depletion in India is a sustainability challenge. However, the crucial role of climate and groundwater pumping on persisting groundwater drought remains unrecognized. Using the data from Gravity recovery climate experiment (GRACE) satellites and more than 5000 observational wells, here we show that the increase in precipitation in northwest India (NWI) no longer helps to recover from groundwater drought that started after 2012. Groundwater storage anomaly (GWSA) from the GRACE well observations is strongly linked with accumulated precipitation for 153, 105, and 18 months for NWI, northcentral (NCI), and south India (SI). Precipitation and GWSA have decoupled in NWI after 2012 indicating the higher influence of groundwater pumping for crop production than climate. The relative contribution of vegetation growth (R2=0.26) on GWSA is higher than precipitation (R2=0.02) for 2002-2016 in NWI than in NCI and SI. Our findings highlight the urgent need of reducing groundwater pumping in India.",
+   "url": "https://arxiv.org/abs/1908.00255",
+   "recorded": "2026-11-02",
+   "source_file": "live/recorded_v04.json"
+  }
+ }
+}

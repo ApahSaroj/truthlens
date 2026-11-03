@@ -1,0 +1,39 @@
+# TruthLens plug-in source template (v0.5). Copy to sources.d/<name>.yaml, fill in, then:
+#   truthlens sources test <name>
+# Full schema: docs/PLUGINS.md
+name: my-source                 # lowercase letters, digits, '-'
+kind: rest                      # rest | mcp
+enabled: true
+publisher: Who publishes the data
+badge: Short badge text
+trust: other                    # official | scholarly | other   ('other': at most PARTLY SUPPORTED, low confidence)
+timeout: 15
+keywords: [words, a claim must name]   # routing
+# allow_local: false            # true only for a service on your own machine or network
+# auth:                         # optional. The key is read from an environment variable, never from this file.
+#   env: MY_SOURCE_API_KEY
+#   in: header                  # header | query
+#   name: X-API-Key             # header or query parameter name
+#   prefix: ""                  # e.g. "Bearer "
+request:
+  method: GET                   # GET | POST (body: {...} with the same placeholders)
+  url: "https://api.example.org/data?indicator={indicator}&place={place}&period={period}&q={query}"
+source_url: "https://example.org/data/{indicator}"   # the public page shown in reports (no key in it)
+places: {india: IND}            # TruthLens place -> the API's code; a claim about another place is not sent
+period: {format: year, default: ""}    # year | fy | range
+indicators:
+  - {code: CODE1, label: words describing the series, unit: "%", keywords: [words]}
+response:
+  records: "$.data[*]"          # JSONPath to the list of records ({indicator}/{place} allowed)
+  value: "$.value"              # JSONPath inside one record
+  period: "$.year"
+  place: "$.country"
+  title: "$.name"
+  as_of: "$.updated"
+# For an MCP server instead of REST:
+# kind: mcp
+# server: {command: [python, my_server.py]}      # stdio; or  server: {url: "https://mcp.example.org/mcp"}
+# tool: get_indicator
+# arguments: {indicator: "{indicator}", place: "{place}", period: "{period}"}
+test:
+  claim: "A sentence with a figure this source can check, 12.3% in 2023."

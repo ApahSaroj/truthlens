@@ -1,0 +1,287 @@
+# TruthLens India indicator registry (v0.1)
+#
+# Each indicator:
+#   unit_kind      percent | inr | count   (the kind of number a claim must carry to match)
+#   period_type    fy (April-March) | plfs (July-June survey years, and calendar years from 2025) |
+#                  survey (multi-year rounds such as NFHS) | census | cy
+#   aliases        regexes (case-insensitive) that signal the indicator in a sentence
+#   exclude        regexes that, when found in the same window, veto the alias
+#   priority       tie-breaker when several indicators match (higher wins)
+#   tolerance      match_abs / close_abs (percentage points) for percent; close_rel for levels
+#   default_variant, variants   sub-series and the words that select them
+#   default_latest when the claim states no period, compare with the latest survey round (with a warning)
+#   traps          which India data-trap checks apply
+#   series_id      TruthLens internal series identifier (not an official code)
+#   worldbank      optional World Bank WDI fallback (code, and how WDI years map to the period)
+
+indicators:
+  gdp_growth_real:
+    name: Real GDP growth (constant prices)
+    unit_kind: percent
+    period_type: fy
+    priority: 50
+    aliases:
+      - '\breal gdp\b'
+      - '\bgdp\b[^.;]{0,40}\b(grow|grew|growth|expan|rose|increase)'
+      - '\b(grow|grew|growth|expan)\w*\b[^.;]{0,25}\b(of|in)\b[^.;]{0,10}\bgdp\b'
+      - "\\b(economy|economic growth)\\b[^.;]{0,30}\\b(grow|grew|growth|expan)"
+      - '\beconomic growth\b'
+      - '\bgdp growth\b'
+    exclude:
+      - '\bnominal\b'
+      - '\bcurrent prices\b'
+      - '\bper cent of gdp\b|% of gdp|\bpercent of gdp\b|\bof gdp\b|\bto[- ]gdp\b'
+      - '\bper capita\b'
+    tolerance: {close_abs: 0.2}
+    traps: [old_base, fy_vs_cy, wrong_year, vintage]
+    series_id: IN.MOSPI.NAS.GDP.CONSTANT.GROWTH
+    official_series: "MoSPI National Accounts, GDP at constant prices, y-o-y growth (base 2022-23)"
+    worldbank: {code: NY.GDP.MKTP.KD.ZG, year_map: fy_start}
+
+  gdp_growth_nominal:
+    name: Nominal GDP growth (current prices)
+    unit_kind: percent
+    period_type: fy
+    priority: 55
+    aliases:
+      - '\bnominal gdp\b'
+      - '\bgdp at current prices\b'
+      - '\bnominal growth\b'
+    exclude:
+      - '% of gdp|\bper cent of gdp\b|\bof gdp\b'
+      - '\bper capita\b'
+    tolerance: {close_abs: 0.2}
+    traps: [old_base, fy_vs_cy, wrong_year, vintage]
+    series_id: IN.MOSPI.NAS.GDP.CURRENT.GROWTH
+    official_series: "MoSPI National Accounts, GDP at current prices, y-o-y growth (base 2022-23)"
+
+  gdp_nominal:
+    name: Nominal GDP (current prices, level)
+    unit_kind: inr
+    period_type: fy
+    priority: 40
+    aliases:
+      - '\bgdp\b'
+      - '\bgross domestic product\b'
+      - '\bsize of (the|india.s) economy\b'
+    exclude:
+      - '\breal gdp\b|\bconstant prices\b|\bconstant \(?20'
+      - '\bper capita\b'
+      - '\bdeficit\b|\bdebt\b'
+    tolerance: {close_rel: 0.01}
+    traps: [old_base, fy_vs_cy, unit_scale, wrong_year, vintage]
+    series_id: IN.MOSPI.NAS.GDP.CURRENT.LEVEL
+    official_series: "MoSPI National Accounts, GDP at current prices (base 2022-23), ₹ crore"
+
+  gdp_real:
+    name: Real GDP (constant 2022-23 prices, level)
+    unit_kind: inr
+    period_type: fy
+    priority: 45
+    aliases:
+      - '\breal gdp\b'
+      - '\bgdp at constant prices\b'
+      - '\bconstant[- ]price gdp\b'
+    exclude:
+      - '\bper capita\b'
+    tolerance: {close_rel: 0.01}
+    traps: [old_base, unit_scale, wrong_year, vintage]
+    series_id: IN.MOSPI.NAS.GDP.CONSTANT.LEVEL
+    official_series: "MoSPI National Accounts, GDP at constant prices (base 2022-23), ₹ crore"
+
+  cpi_inflation:
+    name: CPI inflation (All India, combined, annual average)
+    unit_kind: percent
+    period_type: fy
+    priority: 30
+    aliases:
+      - '\bcpi\b'
+      - '\bconsumer price'
+      - '\bretail inflation\b'
+      - '\bheadline inflation\b'
+      - '\binflation\b'
+    exclude:
+      - '\bwholesale\b|\bwpi\b'
+      - '\bfood inflation\b|\bcore inflation\b'
+      - '\bcpi[- ]?(iw|al|rl)\b|\bindustrial workers\b'
+    generic_alias: '\binflation\b'
+    tolerance: {close_abs: 0.2}
+    traps: [old_base, fy_vs_cy, wrong_year]
+    series_id: IN.MOSPI.CPI.COMBINED.ANNUAL
+    official_series: "MoSPI CPI (Combined), annual average inflation as published by RBI; 2012=100 to Dec 2025, 2024=100 from Jan 2026"
+    worldbank: {code: FP.CPI.TOTL.ZG, year_map: cy}
+
+  wpi_inflation:
+    name: WPI inflation (All commodities, 2011-12=100)
+    unit_kind: percent
+    period_type: fy
+    priority: 60
+    aliases:
+      - '\bwpi\b'
+      - '\bwholesale (price|inflation)'
+    tolerance: {close_abs: 0.2}
+    traps: [fy_vs_cy, wrong_year]
+    series_id: IN.DPIIT.WPI.ALL.ANNUAL
+    official_series: "WPI (2011-12=100), all commodities, annual average inflation as published by RBI"
+
+  unemployment_rate:
+    name: Unemployment rate (PLFS, persons 15+)
+    unit_kind: percent
+    period_type: plfs
+    priority: 60
+    aliases:
+      - '\bunemployment\b'
+      - '\bjobless(ness)?\b'
+    tolerance: {close_abs: 0.2}
+    default_variant: usual_status
+    status_variants: [usual_status, cws]
+    variants:
+      cws: '\bcws\b|\bcurrent weekly\b|\bweekly status\b'
+      usual_status: '\busual (principal )?status\b|\bps\s*\+\s*ss\b|\bupss\b'
+      youth_usual_status: '\byouth\b|\b15\s*[-–]\s*29\b|\byoung (people|persons)\b'
+    traps: [plfs_status, pct_vs_pp, wrong_year]
+    series_id: IN.MOSPI.PLFS.UR
+    official_series: "MoSPI PLFS Annual Report, unemployment rate, persons aged 15+, rural+urban"
+
+  lfpr:
+    name: Labour force participation rate (PLFS, persons 15+)
+    unit_kind: percent
+    period_type: plfs
+    priority: 60
+    aliases:
+      - '\blabou?r force participation\b'
+      - '\bparticipation in the labou?r force\b'
+      - '\blfpr\b'
+      - '\bparticipation rate\b'
+    tolerance: {close_abs: 0.3}
+    default_variant: usual_status
+    status_variants: [usual_status, cws]
+    variants:
+      cws: '\bcws\b|\bcurrent weekly\b|\bweekly status\b'
+      usual_status: '\busual (principal )?status\b|\bps\s*\+\s*ss\b|\bupss\b'
+      female_usual_status: '\bfemale\b|\bwomen\b|\bwomen.s\b'
+    traps: [plfs_status, pct_vs_pp, wrong_year]
+    series_id: IN.MOSPI.PLFS.LFPR
+    official_series: "MoSPI PLFS Annual Report, LFPR, persons aged 15+, rural+urban"
+
+  fiscal_deficit_pct_gdp:
+    name: Union fiscal deficit (% of GDP)
+    unit_kind: percent
+    period_type: fy
+    priority: 80
+    aliases:
+      - '\bfiscal deficit\b'
+      - '\bgfd\b'
+    tolerance: {close_abs: 0.1}
+    stage_priority: [Actual, Provisional Actual, RE, BE]
+    traps: [budget_stage, fy_vs_cy, wrong_year]
+    series_id: IN.MOF.UNION.FD.PCTGDP
+    official_series: "Union Budget, Budget at a Glance: Fiscal Deficit as % of GDP"
+
+  fiscal_deficit_amount:
+    name: Union fiscal deficit (₹)
+    unit_kind: inr
+    period_type: fy
+    priority: 80
+    aliases:
+      - '\bfiscal deficit\b'
+      - '\bgfd\b'
+    tolerance: {close_rel: 0.01}
+    stage_priority: [Actual, Provisional Actual, RE, BE]
+    traps: [budget_stage, unit_scale, fy_vs_cy, wrong_year]
+    series_id: IN.MOF.UNION.FD.AMOUNT
+    official_series: "Union Budget, Budget at a Glance: Fiscal Deficit, ₹ crore"
+
+  revenue_deficit_pct_gdp:
+    name: Union revenue deficit (% of GDP)
+    unit_kind: percent
+    period_type: fy
+    priority: 85
+    aliases:
+      - '\brevenue deficit\b'
+    exclude:
+      - '\beffective revenue deficit\b'
+    tolerance: {close_abs: 0.1}
+    stage_priority: [Actual, Provisional Actual, RE, BE]
+    traps: [budget_stage, wrong_year]
+    series_id: IN.MOF.UNION.RD.PCTGDP
+    official_series: "Union Budget, Budget at a Glance: Revenue Deficit as % of GDP"
+
+  population:
+    name: Population (Census count)
+    unit_kind: count
+    period_type: census
+    priority: 50
+    aliases:
+      - '\bpopulation\b'
+      - '\bcensus\b'
+      - '\b(india|country) (has|had) (a population of )?'
+    # v0.5.2: counts of households, villages or towns, densities and rural/urban splits are not the total population
+    exclude:
+      - '\bhouseholds?\b'
+      - '\bvillages?\b'
+      - '\btowns?\b'
+      - '\bdensity\b|\bper sq'
+      - '\brural\b|\burban\b'
+    tolerance: {close_rel: 0.01}
+    traps: [unit_scale]
+    series_id: IN.RGI.CENSUS.POP
+    official_series: "Census of India (Registrar General & Census Commissioner), total population"
+    worldbank: {code: SP.POP.TOTL, year_map: cy}
+
+  child_stunting:
+    name: Stunting, children under 5 (NFHS)
+    unit_kind: percent
+    period_type: survey
+    priority: 70
+    default_latest: true
+    aliases:
+      - '\bstunt(ed|ing)\b'
+    tolerance: {close_abs: 0.5}
+    traps: [survey_vs_admin, wrong_year]
+    series_id: IN.MOHFW.NFHS.STUNTING.U5
+    official_series: "NFHS India fact sheet, children under 5 who are stunted (height-for-age)"
+
+  child_wasting:
+    name: Wasting, children under 5 (NFHS)
+    unit_kind: percent
+    period_type: survey
+    priority: 70
+    default_latest: true
+    aliases:
+      - '\bwast(ed|ing)\b'
+    exclude:
+      - '\bsevere(ly)? wast'
+      - '\bwaste (water|management)\b|\bsolid waste\b'
+    tolerance: {close_abs: 0.5}
+    traps: [survey_vs_admin, wrong_year]
+    series_id: IN.MOHFW.NFHS.WASTING.U5
+    official_series: "NFHS India fact sheet, children under 5 who are wasted (weight-for-height)"
+
+  child_underweight:
+    name: Underweight, children under 5 (NFHS)
+    unit_kind: percent
+    period_type: survey
+    priority: 70
+    default_latest: true
+    aliases:
+      - '\bunderweight\b'
+    tolerance: {close_abs: 0.5}
+    traps: [survey_vs_admin, wrong_year]
+    series_id: IN.MOHFW.NFHS.UNDERWEIGHT.U5
+    official_series: "NFHS India fact sheet, children under 5 who are underweight (weight-for-age)"
+
+  iip_growth:
+    name: Industrial production (IIP general index) growth
+    unit_kind: percent
+    period_type: fy
+    priority: 65
+    aliases:
+      - '\biip\b'
+      - '\bindustrial (production|output|growth)\b'
+      - '\bfactory output\b'
+      - '\bindex of industrial production\b'
+    tolerance: {close_abs: 0.2}
+    traps: [old_base, fy_vs_cy, wrong_year, vintage]
+    series_id: IN.MOSPI.IIP.GENERAL.ANNUAL
+    official_series: "MoSPI IIP general index, annual growth (base 2022-23, Output PPI deflator)"

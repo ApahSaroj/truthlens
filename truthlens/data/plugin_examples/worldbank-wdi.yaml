@@ -1,0 +1,42 @@
+# TruthLens plug-in source (v0.5): World Bank World Development Indicators. Key-free.
+# Add it with:  truthlens sources add worldbank-wdi      Test it:  truthlens sources test worldbank-wdi
+# Indicators here are ones the bundled India dataset does not cover (so it adds coverage instead of competing).
+name: worldbank-wdi
+kind: rest
+enabled: true
+description: World Bank WDI indicators for India (development, environment, energy, health)
+publisher: World Bank (World Development Indicators)
+badge: World Bank
+trust: official            # official | scholarly | other
+timeout: 15                # seconds per request
+cache_hours: 24
+keywords: [world bank]     # extra routing words; each indicator below adds its own
+request:
+  method: GET
+  url: "https://api.worldbank.org/v2/country/{place}/indicator/{indicator}?format=json&per_page=100&date={period}"
+source_url: "https://data.worldbank.org/indicator/{indicator}?locations=IN"
+places:
+  india: IND
+period:
+  format: year             # a claim's "2023-24" asks for 2023; rows are calendar years
+  default: "2010:2030"     # no period in the claim: fetch the series, the latest year is the reference
+indicators:
+  - {code: SP.DYN.LE00.IN, label: life expectancy at birth, unit: years, keywords: [life expectancy]}
+  - {code: AG.LND.FRST.ZS, label: forest area share of land area, unit: "%", keywords: [forest area, forest cover]}
+  - {code: EG.ELC.ACCS.ZS, label: access to electricity share of population, unit: "%", keywords: [access to electricity]}
+  - {code: SP.URB.TOTL.IN.ZS, label: urban population share of total population, unit: "%", keywords: [urban population, urbanisation, urbanization]}
+  - {code: EG.FEC.RNEW.ZS, label: renewable energy consumption share of final energy consumption, unit: "%", keywords: [renewable energy consumption]}
+  - {code: ER.H2O.FWTL.ZS, label: annual freshwater withdrawals share of internal water resources, unit: "%", keywords: [freshwater withdrawals, freshwater withdrawal]}
+response:
+  records: "$[1][*]"
+  value: "$.value"
+  period: "$.date"
+  place: "$.country.value"
+  title: "$.indicator.value"
+  as_of_root: "$[0].lastupdated"
+sync:                      # `truthlens sync` refreshes these and reports new periods
+  requests:
+    - {indicator: SP.DYN.LE00.IN, place: IND}
+    - {indicator: EG.ELC.ACCS.ZS, place: IND}
+test:
+  claim: "Life expectancy at birth in India was 72.0 years in 2023."

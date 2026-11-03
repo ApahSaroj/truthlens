@@ -1,0 +1,9 @@
+{
+  "_note": "Source weights used to rank web-search evidence (higher = preferred). Extends the original TruthLens data/trusted_sources.json with Indian official sources. Domains match themselves and their subdomains.",
+  "official_india": {"weight": 100, "domains": ["pib.gov.in", "mospi.gov.in", "rbi.org.in", "indiabudget.gov.in", "censusindia.gov.in", "niti.gov.in", "data.gov.in", "gov.in", "nic.in"]},
+  "scientific": {"weight": 100, "domains": ["pubmed.ncbi.nlm.nih.gov", "openalex.org", "doi.org", "nature.com", "science.org", "thelancet.com", "nber.org", "arxiv.org"]},
+  "international": {"weight": 95, "domains": ["who.int", "worldbank.org", "un.org", "imf.org", "oecd.org", "unicef.org", "undp.org", "ilo.org", "adb.org", "dhsprogram.com"]},
+  "government": {"weight": 90, "domains": ["data.gov", "gov.uk", "europa.eu"]},
+  "news": {"weight": 80, "domains": ["reuters.com", "apnews.com", "thehindu.com", "indianexpress.com", "livemint.com", "business-standard.com", "economictimes.indiatimes.com", "bbc.com"]},
+  "reference": {"weight": 60, "domains": ["wikipedia.org"]}
+}

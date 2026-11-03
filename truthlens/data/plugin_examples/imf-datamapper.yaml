@@ -1,0 +1,39 @@
+# TruthLens plug-in source (v0.5): IMF DataMapper (World Economic Outlook). Key-free.
+# Note: the IMF reports India on a fiscal-year basis (2024 = FY 2024-25) and the latest years are projections.
+name: imf-datamapper
+kind: rest
+enabled: true
+description: IMF World Economic Outlook figures for India (debt, current account, growth projections)
+publisher: International Monetary Fund (World Economic Outlook, DataMapper)
+badge: IMF
+trust: official
+timeout: 15
+cache_hours: 24
+keywords: [imf, world economic outlook]
+request:
+  url: "https://www.imf.org/external/datamapper/api/v1/{indicator}/{place}"
+  headers:
+    # imf.org's firewall answers HTTP 403 to browser-like user agents without a browser (checked 2 Nov 2026)
+    User-Agent: "python-requests/2.32 TruthLens"
+source_url: "https://www.imf.org/external/datamapper/{indicator}@WEO/IND"
+places:
+  india: IND
+period:
+  format: year
+  default: ""
+  max_offset: -1           # WEO rows run years ahead (projections): use only years up to last year
+indicators:
+  - {code: GGXWDG_NGDP, label: general government gross debt share of gdp, unit: "%", keywords: [government debt, public debt, general government debt, debt-to-gdp, debt to gdp]}
+  - {code: BCA_NGDPD, label: current account balance share of gdp, unit: "%", keywords: [current account balance, current account deficit]}
+  - {code: NGDP_RPCH, label: imf real gdp growth projection, unit: "%", keywords: [imf, world economic outlook]}
+response:
+  records: "$.values.{indicator}.{place}"
+  records_mode: items       # {"2023": 7.0, "2024": 6.5} -> one record per year
+  value: "$.value"
+  period: "$.key"
+place_name: India
+sync:
+  requests:
+    - {indicator: GGXWDG_NGDP, place: IND}
+test:
+  claim: "India's general government debt was 84.7 per cent of GDP in 2023."
