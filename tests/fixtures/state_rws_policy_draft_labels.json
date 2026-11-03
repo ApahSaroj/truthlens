@@ -1,0 +1,912 @@
+[
+ {
+  "n": 1,
+  "text": "This draft sets out the policy of the Government of Karnataka for rural drinking water supply.",
+  "label": "D"
+ },
+ {
+  "n": 2,
+  "text": "The policy shall apply to all rural habitations of the State.",
+  "label": "D"
+ },
+ {
+  "n": 3,
+  "text": "The Rural Drinking Water and Sanitation Department shall be the nodal department for this policy.",
+  "label": "D"
+ },
+ {
+  "n": 4,
+  "text": "Karnataka had a population of 6.11 crore as per Census 2011.",
+  "label": "S"
+ },
+ {
+  "n": 5,
+  "text": "As per Census 2011, Karnataka had a population of 61,095,297.",
+  "label": "S"
+ },
+ {
+  "n": 6,
+  "text": "As per Census 2011, the rural population of Karnataka was 3.75 crore.",
+  "label": "S"
+ },
+ {
+  "n": 7,
+  "text": "As per Census 2011, the urban population of Karnataka was 2.36 crore.",
+  "label": "S"
+ },
+ {
+  "n": 8,
+  "text": "As per Census 2011, Karnataka had 1.34 crore households.",
+  "label": "S"
+ },
+ {
+  "n": 9,
+  "text": "As per Census 2011, Karnataka had 79.47 lakh rural households.",
+  "label": "S"
+ },
+ {
+  "n": 10,
+  "text": "As per Census 2011, Karnataka had 54.10 lakh urban households.",
+  "label": "S"
+ },
+ {
+  "n": 11,
+  "text": "Karnataka has 27,397 inhabited villages according to the 2011 Census.",
+  "label": "S"
+ },
+ {
+  "n": 12,
+  "text": "As per Census 2011, Karnataka had 347 towns.",
+  "label": "S"
+ },
+ {
+  "n": 13,
+  "text": "The geographical area of Karnataka is 191,791 sq km as per Census 2011.",
+  "label": "S"
+ },
+ {
+  "n": 14,
+  "text": "The population density of Karnataka was 319 persons per sq km in 2011.",
+  "label": "S"
+ },
+ {
+  "n": 15,
+  "text": "As per Census 2011, Karnataka had a population of 6.5 crore.",
+  "label": "C"
+ },
+ {
+  "n": 16,
+  "text": "As per Census 2011, Karnataka had 85 lakh rural households.",
+  "label": "C"
+ },
+ {
+  "n": 17,
+  "text": "Karnataka had 29,500 inhabited villages according to the 2011 Census.",
+  "label": "C"
+ },
+ {
+  "n": 18,
+  "text": "Karnataka has about 92 lakh rural households today.",
+  "label": "N"
+ },
+ {
+  "n": 19,
+  "text": "The State is home to a large rural population that depends on groundwater for drinking water.",
+  "label": "D"
+ },
+ {
+  "n": 20,
+  "text": "Rural Karnataka is diverse, from the coastal belt to the dry northern plains.",
+  "label": null
+ },
+ {
+  "n": 21,
+  "text": "As per Census 2011, Tumakuru district had a population of 26.79 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 22,
+  "text": "As per Census 2011, Belagavi district had a population of 47.80 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 23,
+  "text": "As per Census 2011, Kolar district had 1,608 inhabited villages.",
+  "label": "S"
+ },
+ {
+  "n": 24,
+  "text": "As per Census 2011, Raichur district had 2.68 lakh rural households.",
+  "label": "S"
+ },
+ {
+  "n": 25,
+  "text": "As per Census 2011, Yadgir district had a population of 11.74 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 26,
+  "text": "As per Census 2011, Chitradurga district had 948 inhabited villages.",
+  "label": "S"
+ },
+ {
+  "n": 27,
+  "text": "As per Census 2011, Mysuru district had a population of 35 lakh.",
+  "label": "N"
+ },
+ {
+  "n": 28,
+  "text": "As per Census 2011, Dakshina Kannada district had 400 inhabited villages.",
+  "label": "N"
+ },
+ {
+  "n": 29,
+  "text": "Each district shall constitute a District Water and Sanitation Mission chaired by the Deputy Commissioner.",
+  "label": "D"
+ },
+ {
+  "n": 30,
+  "text": "The District Water and Sanitation Mission is responsible for approving village action plans.",
+  "label": "D"
+ },
+ {
+  "n": 31,
+  "text": "The stage of ground water extraction in Karnataka was 66.49 per cent in the 2025 assessment.",
+  "label": "S"
+ },
+ {
+  "n": 32,
+  "text": "As per the 2025 assessment, the total annual ground water recharge of Karnataka was 19.27 bcm.",
+  "label": "S"
+ },
+ {
+  "n": 33,
+  "text": "As per the 2025 assessment, the annual extractable ground water resource of Karnataka was 17.41 bcm.",
+  "label": "S"
+ },
+ {
+  "n": 34,
+  "text": "As per the 2025 assessment, annual ground water extraction for all uses in Karnataka was 11.58 bcm.",
+  "label": "S"
+ },
+ {
+  "n": 35,
+  "text": "The stage of groundwater extraction in Karnataka was 72 per cent in the 2025 assessment.",
+  "label": "C"
+ },
+ {
+  "n": 36,
+  "text": "For India as a whole, the stage of ground water extraction was 60.63 per cent in the 2025 assessment.",
+  "label": "S"
+ },
+ {
+  "n": 37,
+  "text": "The stage of ground water extraction in Karnataka is around 70 per cent.",
+  "label": "N"
+ },
+ {
+  "n": 38,
+  "text": "Over-dependence on groundwater makes many rural schemes vulnerable in summer.",
+  "label": null
+ },
+ {
+  "n": 39,
+  "text": "The Department shall promote recharge structures near drinking water sources.",
+  "label": "D"
+ },
+ {
+  "n": 40,
+  "text": "Source sustainability measures include check dams, recharge pits and rejuvenation of tanks.",
+  "label": "D"
+ },
+ {
+  "n": 41,
+  "text": "In Karnataka, 96 per cent of households use an improved source of drinking water (NFHS-5).",
+  "label": "S"
+ },
+ {
+  "n": 42,
+  "text": "In Karnataka, 93 per cent of households have basic drinking water service as per NFHS-5.",
+  "label": "S"
+ },
+ {
+  "n": 43,
+  "text": "In Karnataka, 47 per cent of households have water piped into their dwelling, yard or plot (NFHS-5).",
+  "label": "S"
+ },
+ {
+  "n": 44,
+  "text": "In rural Karnataka, 38 per cent of households have water piped into their dwelling, yard or plot (NFHS-5).",
+  "label": "S"
+ },
+ {
+  "n": 45,
+  "text": "In Karnataka, 83 per cent of households have access to a toilet facility (NFHS-5).",
+  "label": "S"
+ },
+ {
+  "n": 46,
+  "text": "In Karnataka, 90 per cent of households use an improved source of drinking water (NFHS-5).",
+  "label": "N"
+ },
+ {
+  "n": 47,
+  "text": "Safe sanitation and safe drinking water together reduce the burden of water-borne disease.",
+  "label": null
+ },
+ {
+  "n": 48,
+  "text": "Jal Jeevan Mission was launched on 15 August 2019.",
+  "label": null
+ },
+ {
+  "n": 49,
+  "text": "India had a population of 121.09 crore in the 2011 Census.",
+  "label": "S"
+ },
+ {
+  "n": 50,
+  "text": "As per Census 2011, India had 16.86 crore rural households.",
+  "label": "S"
+ },
+ {
+  "n": 51,
+  "text": "As per Census 2011, India had 24.95 crore households.",
+  "label": "S"
+ },
+ {
+  "n": 52,
+  "text": "The Jal Jeevan Mission aims to provide a functional household tap connection to every rural household.",
+  "label": "D"
+ },
+ {
+  "n": 53,
+  "text": "The service level under the mission is 55 litres per capita per day.",
+  "label": null
+ },
+ {
+  "n": 54,
+  "text": "Jal Jeevan Mission is implemented in partnership with the States.",
+  "label": "D"
+ },
+ {
+  "n": 55,
+  "text": "The objective of this policy is to provide safe and adequate drinking water to every rural household.",
+  "label": "D"
+ },
+ {
+  "n": 56,
+  "text": "The policy aims to ensure that every household receives water of prescribed quality on a regular basis.",
+  "label": "D"
+ },
+ {
+  "n": 57,
+  "text": "The policy seeks to promote community ownership of village water supply schemes.",
+  "label": "D"
+ },
+ {
+  "n": 58,
+  "text": "The policy envisages a shift from source-based to service-based delivery.",
+  "label": "D"
+ },
+ {
+  "n": 59,
+  "text": "The State will encourage the use of treated wastewater for non-potable purposes.",
+  "label": "D"
+ },
+ {
+  "n": 60,
+  "text": "The Department will strengthen water quality monitoring at all levels.",
+  "label": "D"
+ },
+ {
+  "n": 61,
+  "text": "The policy shall promote the conjunctive use of surface water and groundwater.",
+  "label": "D"
+ },
+ {
+  "n": 62,
+  "text": "The State will support capacity building of Gram Panchayat members and pump operators.",
+  "label": "D"
+ },
+ {
+  "n": 63,
+  "text": "The Gram Panchayat is responsible for operation and maintenance of in-village infrastructure.",
+  "label": "D"
+ },
+ {
+  "n": 64,
+  "text": "The Village Water and Sanitation Committee shall be a standing committee of the Gram Panchayat.",
+  "label": "D"
+ },
+ {
+  "n": 65,
+  "text": "At least half of the members of the Village Water and Sanitation Committee shall be women.",
+  "label": "D"
+ },
+ {
+  "n": 66,
+  "text": "The Taluk Panchayat shall review the progress of schemes every quarter.",
+  "label": "D"
+ },
+ {
+  "n": 67,
+  "text": "The State Water and Sanitation Mission shall approve schemes above the delegated limit.",
+  "label": "D"
+ },
+ {
+  "n": 68,
+  "text": "The roles of each institution are listed in Annexure II.",
+  "label": "D"
+ },
+ {
+  "n": 69,
+  "text": "Rural Drinking Water and Sanitation Department engineers will provide technical support to Gram Panchayats.",
+  "label": "D"
+ },
+ {
+  "n": 70,
+  "text": "The Zilla Panchayat Chief Executive Officer shall be the member secretary of the District Mission.",
+  "label": "D"
+ },
+ {
+  "n": 71,
+  "text": "The State operates 4,850 multi-village schemes serving 21,300 habitations.",
+  "label": "X"
+ },
+ {
+  "n": 72,
+  "text": "A total of 12,640 water quality tests were conducted by district laboratories in the last quarter.",
+  "label": "X"
+ },
+ {
+  "n": 73,
+  "text": "The State has trained 18,200 pump operators under the skilling programme.",
+  "label": "X"
+ },
+ {
+  "n": 74,
+  "text": "Around 3,400 single-village schemes are being retrofitted with household tap connections.",
+  "label": "X"
+ },
+ {
+  "n": 75,
+  "text": "The State has set up 76 water testing laboratories at taluk level.",
+  "label": "X"
+ },
+ {
+  "n": 76,
+  "text": "The average per capita supply in surveyed villages was 48 litres per day.",
+  "label": "X"
+ },
+ {
+  "n": 77,
+  "text": "About 2,150 villages received water by tanker during the last summer.",
+  "label": "X"
+ },
+ {
+  "n": 78,
+  "text": "The State allotted Rs 2,400 crore to rural water supply operation and maintenance in the current year.",
+  "label": "X"
+ },
+ {
+  "n": 79,
+  "text": "Functional household tap connection means a tap connection that provides water of prescribed quality regularly.",
+  "label": "D"
+ },
+ {
+  "n": 80,
+  "text": "Habitation refers to a cluster of households within a village.",
+  "label": "D"
+ },
+ {
+  "n": 81,
+  "text": "Service level is defined as the quantity of water supplied per person per day.",
+  "label": "D"
+ },
+ {
+  "n": 82,
+  "text": "Grey water means wastewater from kitchens and bathrooms, excluding toilet waste.",
+  "label": "D"
+ },
+ {
+  "n": 83,
+  "text": "A multi-village scheme is a scheme that supplies water to more than one village from a common source.",
+  "label": "D"
+ },
+ {
+  "n": 84,
+  "text": "Every Gram Panchayat shall prepare a Village Action Plan before taking up new works.",
+  "label": "D"
+ },
+ {
+  "n": 85,
+  "text": "Water samples shall be tested at least twice a year for chemical contamination.",
+  "label": "D"
+ },
+ {
+  "n": 86,
+  "text": "Complaints shall be registered through the toll-free helpline and resolved within seven days.",
+  "label": "D"
+ },
+ {
+  "n": 87,
+  "text": "Water tariffs shall be fixed by the Gram Panchayat in consultation with the Village Water and Sanitation Committee.",
+  "label": "D"
+ },
+ {
+  "n": 88,
+  "text": "Operators shall maintain daily records of pumping hours and chlorination.",
+  "label": "D"
+ },
+ {
+  "n": 89,
+  "text": "Schemes will be handed over to the Gram Panchayat after a trial run of three months.",
+  "label": "D"
+ },
+ {
+  "n": 90,
+  "text": "Third-party inspection shall be carried out for all works.",
+  "label": "D"
+ },
+ {
+  "n": 91,
+  "text": "Karnataka had a population of 6.11 crore as per Census 2011.",
+  "label": "S"
+ },
+ {
+  "n": 92,
+  "text": "As per Census 2011, Karnataka had 79.47 lakh rural households.",
+  "label": "S"
+ },
+ {
+  "n": 93,
+  "text": "The stage of ground water extraction in Karnataka was 66.49 per cent in the 2025 assessment.",
+  "label": "S"
+ },
+ {
+  "n": 94,
+  "text": "Karnataka has 27,397 inhabited villages according to the 2011 Census.",
+  "label": "S"
+ },
+ {
+  "n": 95,
+  "text": "The State should give priority to water-scarce taluks in the coming years.",
+  "label": "O"
+ },
+ {
+  "n": 96,
+  "text": "We recommend that every Gram Panchayat publish its water accounts.",
+  "label": "O"
+ },
+ {
+  "n": 97,
+  "text": "It is essential to move from asset creation to reliable service.",
+  "label": "O"
+ },
+ {
+  "n": 98,
+  "text": "The Department should review this policy every five years.",
+  "label": "O"
+ },
+ {
+  "n": 99,
+  "text": "As per Census 2011, Belagavi district had a population of 47.80 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 100,
+  "text": "As per Census 2011, Belagavi district had 9.84 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 101,
+  "text": "The Belagavi District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 102,
+  "text": "As per Census 2011, Bagalkot district had a population of 18.90 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 103,
+  "text": "As per Census 2011, Bagalkot district had 3.61 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 104,
+  "text": "The Bagalkot District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 105,
+  "text": "As per Census 2011, Vijayapura district had a population of 21.77 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 106,
+  "text": "As per Census 2011, Vijayapura district had 4.09 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 107,
+  "text": "The Vijayapura District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 108,
+  "text": "As per Census 2011, Bidar district had a population of 20.44 lakh.",
+  "label": "Cd"
+ },
+ {
+  "n": 109,
+  "text": "As per Census 2011, Bidar district had 3.20 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 110,
+  "text": "The Bidar District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 111,
+  "text": "As per Census 2011, Raichur district had a population of 19.29 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 112,
+  "text": "As per Census 2011, Raichur district had 3.64 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 113,
+  "text": "The Raichur District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 114,
+  "text": "As per Census 2011, Koppal district had a population of 13.90 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 115,
+  "text": "As per Census 2011, Koppal district had 2.65 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 116,
+  "text": "The Koppal District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 117,
+  "text": "As per Census 2011, Gadag district had a population of 10.65 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 118,
+  "text": "As per Census 2011, Gadag district had 2.19 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 119,
+  "text": "The Gadag District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 120,
+  "text": "As per Census 2011, Dharwad district had a population of 18.47 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 121,
+  "text": "As per Census 2011, Dharwad district had 3.83 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 122,
+  "text": "The Dharwad District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 123,
+  "text": "As per Census 2011, Uttara Kannada district had a population of 14.37 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 124,
+  "text": "As per Census 2011, Uttara Kannada district had 3.25 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 125,
+  "text": "The Uttara Kannada District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 126,
+  "text": "As per Census 2011, Haveri district had a population of 15.98 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 127,
+  "text": "As per Census 2011, Haveri district had 3.30 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 128,
+  "text": "The Haveri District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 129,
+  "text": "As per Census 2011, Ballari district had a population of 29.43 lakh.",
+  "label": "Cd"
+ },
+ {
+  "n": 130,
+  "text": "As per Census 2011, Ballari district had 4.89 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 131,
+  "text": "The Ballari District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 132,
+  "text": "As per Census 2011, Chitradurga district had a population of 16.59 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 133,
+  "text": "As per Census 2011, Chitradurga district had 3.57 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 134,
+  "text": "The Chitradurga District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 135,
+  "text": "As per Census 2011, Davanagere district had a population of 19.45 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 136,
+  "text": "As per Census 2011, Davanagere district had 4.10 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 137,
+  "text": "The Davanagere District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 138,
+  "text": "As per Census 2011, Shivamogga district had a population of 17.53 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 139,
+  "text": "As per Census 2011, Shivamogga district had 4.07 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 140,
+  "text": "The Shivamogga District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 141,
+  "text": "As per Census 2011, Udupi district had a population of 11.77 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 142,
+  "text": "As per Census 2011, Udupi district had 2.53 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 143,
+  "text": "The Udupi District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 144,
+  "text": "As per Census 2011, Chikkamagaluru district had a population of 11.38 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 145,
+  "text": "As per Census 2011, Chikkamagaluru district had 2.76 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 146,
+  "text": "The Chikkamagaluru District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 147,
+  "text": "As per Census 2011, Tumakuru district had a population of 26.79 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 148,
+  "text": "As per Census 2011, Tumakuru district had 6.40 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 149,
+  "text": "The Tumakuru District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 150,
+  "text": "As per Census 2011, Mandya district had a population of 21.67 lakh.",
+  "label": "Cd"
+ },
+ {
+  "n": 151,
+  "text": "As per Census 2011, Mandya district had 4.29 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 152,
+  "text": "The Mandya District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 153,
+  "text": "As per Census 2011, Hassan district had a population of 17.76 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 154,
+  "text": "As per Census 2011, Hassan district had 4.33 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 155,
+  "text": "The Hassan District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 156,
+  "text": "As per Census 2011, Dakshina Kannada district had a population of 20.90 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 157,
+  "text": "As per Census 2011, Dakshina Kannada district had 4.40 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 158,
+  "text": "The Dakshina Kannada District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 159,
+  "text": "As per Census 2011, Kodagu district had a population of 5.55 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 160,
+  "text": "As per Census 2011, Kodagu district had 1.43 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 161,
+  "text": "The Kodagu District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 162,
+  "text": "As per Census 2011, Mysuru district had a population of 30.01 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 163,
+  "text": "As per Census 2011, Mysuru district had 7.01 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 164,
+  "text": "The Mysuru District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 165,
+  "text": "As per Census 2011, Chamarajanagar district had a population of 10.21 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 166,
+  "text": "As per Census 2011, Chamarajanagar district had 2.45 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 167,
+  "text": "The Chamarajanagar District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 168,
+  "text": "As per Census 2011, Kalaburagi district had a population of 25.66 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 169,
+  "text": "As per Census 2011, Kalaburagi district had 4.72 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 170,
+  "text": "The Kalaburagi District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 171,
+  "text": "As per Census 2011, Yadgir district had a population of 14.09 lakh.",
+  "label": "Cd"
+ },
+ {
+  "n": 172,
+  "text": "As per Census 2011, Yadgir district had 2.02 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 173,
+  "text": "The Yadgir District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 174,
+  "text": "As per Census 2011, Kolar district had a population of 15.36 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 175,
+  "text": "As per Census 2011, Kolar district had 3.33 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 176,
+  "text": "The Kolar District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 177,
+  "text": "As per Census 2011, Chikkaballapura district had a population of 12.55 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 178,
+  "text": "As per Census 2011, Chikkaballapura district had 2.85 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 179,
+  "text": "The Chikkaballapura District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ },
+ {
+  "n": 180,
+  "text": "As per Census 2011, Ramanagara district had a population of 10.83 lakh.",
+  "label": "S"
+ },
+ {
+  "n": 181,
+  "text": "As per Census 2011, Ramanagara district had 2.61 lakh households.",
+  "label": "S"
+ },
+ {
+  "n": 182,
+  "text": "The Ramanagara District Water and Sanitation Mission shall review water quality results every month.",
+  "label": "D"
+ }
+]

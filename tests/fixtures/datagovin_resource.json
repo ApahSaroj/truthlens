@@ -1,0 +1,23 @@
+{
+ "index_name": "0b6a0c4e-0000-4000-8000-000000000001",
+ "title": "State-wise tap water connections (synthetic test fixture)",
+ "org": [
+  "Ministry of Jal Shakti"
+ ],
+ "updated_date": "2026-08-01",
+ "status": "ok",
+ "total": 2,
+ "count": 2,
+ "records": [
+  {
+   "state_name": "Goa",
+   "households_with_tap_water____": "100",
+   "total_rural_households": "263013"
+  },
+  {
+   "state_name": "Bihar",
+   "households_with_tap_water____": "95.6",
+   "total_rural_households": "16697000"
+  }
+ ]
+}

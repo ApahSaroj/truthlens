@@ -1,0 +1,551 @@
+{
+"https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=2&year=2025&state_code=99&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON": {
+"data": [
+{
+"year_type": "Calendar Year",
+"year": "2025",
+"frequency": "Annually",
+"indicator": "UR (Unemployment Rate, in per cent)",
+"state": "All India",
+"gender": "person",
+"sector": "rural + urban",
+"AgeGroup": "15 years and above",
+"weekly_status": "PS+SS",
+"religion": "all",
+"socialGroup": "all",
+"General_Education": "all",
+"quarter": null,
+"month": null,
+"value": "3.1",
+"unit": "%"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 20
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=2&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON": {
+"data": [
+{
+"year_type": "Agriculture Year",
+"year": "2023-24",
+"frequency": "Annually",
+"indicator": "LFPR (Labour Force Participation Rate, in per cent)",
+"state": "All India",
+"gender": "female",
+"sector": "rural + urban",
+"AgeGroup": "15 years and above",
+"weekly_status": "PS+SS",
+"religion": "all",
+"socialGroup": "all",
+"General_Education": "all",
+"quarter": "all",
+"month": null,
+"value": "41.7",
+"unit": "%"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 20
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=99&gender_code=3&age_code=1&sector_code=1&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON": {
+"data": [
+{
+"year_type": "Agriculture Year",
+"year": "2023-24",
+"frequency": "Annually",
+"indicator": "UR (Unemployment Rate, in per cent)",
+"state": "All India",
+"gender": "person",
+"sector": "rural",
+"AgeGroup": "15 years and above",
+"weekly_status": "PS+SS",
+"religion": "all",
+"socialGroup": "all",
+"General_Education": "all",
+"quarter": "all",
+"month": null,
+"value": "2.5",
+"unit": "%"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 20
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2023-24&Format=JSON": {
+"data": [
+{
+"base_year": "2022-23",
+"series": "Current",
+"year": "2023-24",
+"indicator": "Gross Domestic Product",
+"frequency": "Annual",
+"revision": "Final Estimates",
+"quarter": null,
+"current_price": "29073287",
+"constant_price": "28094358",
+"unit": "₹ Crore"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 10
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/nas/getNASData?base_year=2022-23&series=Current&frequency_code=1&indicator_code=5&year=2024-25&Format=JSON": {
+"data": [
+{
+"base_year": "2022-23",
+"series": "Current",
+"year": "2024-25",
+"indicator": "Gross Domestic Product",
+"frequency": "Annual",
+"revision": "First Revised Estimates",
+"quarter": null,
+"current_price": "31798524",
+"constant_price": "30115428",
+"unit": "₹ Crore"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 10
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=2&religion_code=1&social_category_code=1&education_code=0&Format=JSON": {
+"data": [
+{
+"year_type": "Agriculture Year",
+"year": "2023-24",
+"frequency": "Annually",
+"indicator": "UR (Unemployment Rate, in per cent)",
+"state": "Telangana",
+"gender": "person",
+"sector": "rural + urban",
+"AgeGroup": "15 years and above",
+"weekly_status": "CWS",
+"religion": "all",
+"socialGroup": "all",
+"General_Education": "all",
+"quarter": "all",
+"month": null,
+"value": "6.0",
+"unit": "%"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 20
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=1&year_type_code=1&year=2023-24&state_code=26&gender_code=3&age_code=1&sector_code=3&weekly_status_code=1&religion_code=1&social_category_code=1&education_code=0&Format=JSON": {
+"data": [
+{
+"year_type": "Agriculture Year",
+"year": "2023-24",
+"frequency": "Annually",
+"indicator": "UR (Unemployment Rate, in per cent)",
+"state": "Telangana",
+"gender": "person",
+"sector": "rural + urban",
+"AgeGroup": "15 years and above",
+"weekly_status": "PS+SS",
+"religion": "all",
+"socialGroup": "all",
+"General_Education": "all",
+"quarter": "all",
+"month": null,
+"value": "4.8",
+"unit": "%"
+}
+],
+"meta_data": {
+"page": 1,
+"totalRecords": 1,
+"totalPages": 1,
+"recordPerPage": 20
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+},
+"https://api.mospi.gov.in/api/plfs/getFilterByIndicatorId?indicator_code=3&frequency_code=1": {
+"data": {
+"year_type": [
+{
+"description": "Calendar Year",
+"year_type_code": 2
+},
+{
+"description": "Agriculture Year",
+"year_type_code": 1
+}
+],
+"year": [
+{
+"year": "2025"
+},
+{
+"year": "2024"
+},
+{
+"year": "2023-24"
+},
+{
+"year": "2023"
+},
+{
+"year": "2022-23"
+},
+{
+"year": "2022"
+},
+{
+"year": "2021-22"
+},
+{
+"year": "2020-21"
+},
+{
+"year": "2019-20"
+},
+{
+"year": "2018-19"
+},
+{
+"year": "2017-18"
+}
+],
+"age": [
+{
+"age_code": 1,
+"description": "15 years and above"
+},
+{
+"age_code": 2,
+"description": "15-29 years"
+},
+{
+"age_code": 3,
+"description": "15-59 years"
+},
+{
+"age_code": 4,
+"description": "All ages"
+}
+],
+"education": [
+{
+"description": "all",
+"education_code": 0
+},
+{
+"description": "1.not literate",
+"education_code": 1
+},
+{
+"description": "2.literate & upto primary",
+"education_code": 2
+},
+{
+"description": "3.middle",
+"education_code": 3
+},
+{
+"description": "4.secondary",
+"education_code": 4
+},
+{
+"description": "5.higher secondary",
+"education_code": 5
+},
+{
+"description": "6.diploma/ certificate course",
+"education_code": 6
+},
+{
+"description": "7.graduate",
+"education_code": 7
+},
+{
+"description": "8.post graduate & above",
+"education_code": 8
+},
+{
+"description": "9.secondary & above",
+"education_code": 9
+}
+],
+"gender": [
+{
+"description": "male",
+"gender_code": 1
+},
+{
+"description": "female",
+"gender_code": 2
+},
+{
+"description": "person",
+"gender_code": 3
+}
+],
+"religion": [
+{
+"description": "all",
+"religion_code": 1
+},
+{
+"description": "Hinduism",
+"religion_code": 2
+},
+{
+"description": "Islam",
+"religion_code": 3
+},
+{
+"description": "Christianity",
+"religion_code": 4
+},
+{
+"description": "Sikhism",
+"religion_code": 5
+}
+],
+"sector": [
+{
+"description": "rural",
+"sector_code": 1
+},
+{
+"description": "urban",
+"sector_code": 2
+},
+{
+"description": "rural + urban",
+"sector_code": 3
+}
+],
+"social_category": [
+{
+"description": "all",
+"social_category_code": 1
+},
+{
+"description": "scheduled tribe",
+"social_category_code": 2
+},
+{
+"description": "scheduled caste",
+"social_category_code": 3
+},
+{
+"description": "other backward class",
+"social_category_code": 4
+},
+{
+"description": "others",
+"social_category_code": 5
+}
+],
+"state": [
+{
+"state_code": 99,
+"description": "All India"
+},
+{
+"state_code": 31,
+"description": "Andaman & Nicobar Islands"
+},
+{
+"state_code": 1,
+"description": "Andhra Pradesh"
+},
+{
+"state_code": 2,
+"description": "Arunachal Pradesh"
+},
+{
+"state_code": 3,
+"description": "Assam"
+},
+{
+"state_code": 4,
+"description": "Bihar"
+},
+{
+"state_code": 32,
+"description": "Chandigarh"
+},
+{
+"state_code": 5,
+"description": "Chhattisgarh"
+},
+{
+"state_code": 33,
+"description": "Dadra & Nagar Haveli"
+},
+{
+"state_code": 38,
+"description": "Dadra & Nagar Haveli & Daman & Diu"
+},
+{
+"state_code": 34,
+"description": "Daman & Diu"
+},
+{
+"state_code": 6,
+"description": "Delhi"
+},
+{
+"state_code": 7,
+"description": "Goa"
+},
+{
+"state_code": 8,
+"description": "Gujarat"
+},
+{
+"state_code": 9,
+"description": "Haryana"
+},
+{
+"state_code": 10,
+"description": "Himachal Pradesh"
+},
+{
+"state_code": 11,
+"description": "Jammu & Kashmir"
+},
+{
+"state_code": 12,
+"description": "Jharkhand"
+},
+{
+"state_code": 13,
+"description": "Karnataka"
+},
+{
+"state_code": 14,
+"description": "Kerala"
+},
+{
+"state_code": 37,
+"description": "Ladakh"
+},
+{
+"state_code": 35,
+"description": "Lakshadweep"
+},
+{
+"state_code": 15,
+"description": "Madhya Pradesh"
+},
+{
+"state_code": 16,
+"description": "Maharashtra"
+},
+{
+"state_code": 17,
+"description": "Manipur"
+},
+{
+"state_code": 18,
+"description": "Meghalaya"
+},
+{
+"state_code": 19,
+"description": "Mizoram"
+},
+{
+"state_code": 20,
+"description": "Nagaland"
+},
+{
+"state_code": 21,
+"description": "Odisha"
+},
+{
+"state_code": 36,
+"description": "Puducherry"
+},
+{
+"state_code": 22,
+"description": "Punjab"
+},
+{
+"state_code": 23,
+"description": "Rajasthan"
+},
+{
+"state_code": 24,
+"description": "Sikkim"
+},
+{
+"state_code": 25,
+"description": "Tamil Nadu"
+},
+{
+"state_code": 26,
+"description": "Telangana"
+},
+{
+"state_code": 27,
+"description": "Tripura"
+},
+{
+"state_code": 28,
+"description": "Uttarakhand"
+},
+{
+"state_code": 29,
+"description": "Uttar Pradesh"
+},
+{
+"state_code": 30,
+"description": "West Bengal"
+}
+],
+"weekly_status": [
+{
+"description": "PS+SS",
+"weekly_status_code": 1
+},
+{
+"description": "CWS",
+"weekly_status_code": 2
+}
+]
+},
+"msg": "Data fetched successfully",
+"statusCode": true
+}
+}

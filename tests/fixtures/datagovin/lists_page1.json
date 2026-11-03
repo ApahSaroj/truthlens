@@ -1,0 +1,87 @@
+{
+ "status": "ok",
+ "total": 3,
+ "count": 3,
+ "limit": "1000",
+ "offset": "0",
+ "records": [
+  {
+   "index_name": "0b6a0c4e-0000-4000-8000-0000000000a2",
+   "title": "State-wise Functional Household Tap Connections under Jal Jeevan Mission as on 31-03-2026 (synthetic test fixture)",
+   "desc": "State-wise FHTC coverage",
+   "org_type": "Central",
+   "org": [
+    "Ministry of Jal Shakti",
+    "Department of Drinking Water and Sanitation"
+   ],
+   "sector": [
+    "Water and Sanitation"
+   ],
+   "source": "data.gov.in",
+   "field": [
+    {
+     "id": "state_name",
+     "name": "State Name",
+     "type": "keyword"
+    },
+    {
+     "id": "households_with_tap_water____",
+     "name": "Households with tap water (%)",
+     "type": "double"
+    }
+   ],
+   "created_date": "2026-04-10T10:00:00Z",
+   "updated_date": "2026-04-10T10:00:00Z"
+  },
+  {
+   "index_name": "0b6a0c4e-0000-4000-8000-0000000000a1",
+   "title": "State-wise Functional Household Tap Connections under Jal Jeevan Mission as on 31-03-2025 (synthetic test fixture)",
+   "desc": "State-wise FHTC coverage",
+   "org_type": "Central",
+   "org": [
+    "Ministry of Jal Shakti",
+    "Department of Drinking Water and Sanitation"
+   ],
+   "sector": [
+    "Water and Sanitation"
+   ],
+   "source": "data.gov.in",
+   "field": [
+    {
+     "id": "state_name",
+     "name": "State Name",
+     "type": "keyword"
+    },
+    {
+     "id": "households_with_tap_water____",
+     "name": "Households with tap water (%)",
+     "type": "double"
+    }
+   ],
+   "created_date": "2025-04-12T10:00:00Z",
+   "updated_date": "2025-04-12T10:00:00Z"
+  },
+  {
+   "index_name": "0b6a0c4e-0000-4000-8000-0000000000b1",
+   "title": "Year-wise Rainfall in Sub-divisions (synthetic test fixture)",
+   "desc": "Rainfall",
+   "org_type": "Central",
+   "org": [
+    "Ministry of Earth Sciences"
+   ],
+   "sector": [
+    "Environment and Forest"
+   ],
+   "source": "data.gov.in",
+   "field": [
+    {
+     "id": "subdivision",
+     "name": "Subdivision",
+     "type": "keyword"
+    }
+   ],
+   "created_date": "2024-01-01T10:00:00Z",
+   "updated_date": "2024-01-01T10:00:00Z"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "_synthetic": "SYNTHETIC test fixture in the documented Graph API /paper/search format",
+ "total": 1,
+ "offset": 0,
+ "data": [
+  {
+   "paperId": "synthetic0001",
+   "title": "Groundwater depletion in north-west India (synthetic test fixture)",
+   "year": 2024,
+   "venue": "Synthetic Journal of Hydrology",
+   "publicationDate": "2024-05-01",
+   "url": "https://www.semanticscholar.org/paper/synthetic0001",
+   "externalIds": {
+    "DOI": "10.5555/synthetic.0001"
+   },
+   "authors": [
+    {
+     "authorId": "1",
+     "name": "A. Author"
+    }
+   ],
+   "abstract": "We find that groundwater storage in north-west India declined by 12 cubic kilometres per year between 2003 and 2020."
+  }
+ ]
+}

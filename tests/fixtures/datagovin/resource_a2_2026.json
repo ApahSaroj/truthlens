@@ -1,0 +1,21 @@
+{
+ "index_name": "0b6a0c4e-0000-4000-8000-0000000000a2",
+ "title": "State-wise Functional Household Tap Connections under Jal Jeevan Mission as on 31-03-2026 (synthetic test fixture)",
+ "org": [
+  "Ministry of Jal Shakti"
+ ],
+ "updated_date": "2026-04-10",
+ "status": "ok",
+ "total": 2,
+ "count": 2,
+ "records": [
+  {
+   "state_name": "Bihar",
+   "households_with_tap_water____": "97.1"
+  },
+  {
+   "state_name": "Goa",
+   "households_with_tap_water____": "100"
+  }
+ ]
+}

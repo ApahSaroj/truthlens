@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC test fixture in the DSpace OpenSearch Atom format: Shodhganga served a bot-challenge page on 2 Nov 2026 -->
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>Shodhganga search (synthetic test fixture)</title>
+  <entry>
+    <title>Groundwater over-exploitation in Telangana: a district study (synthetic test fixture)</title>
+    <link href="https://shodhganga.inflibnet.ac.in/handle/10603/000000"/>
+    <author><name>C. Scholar</name></author>
+    <published>2021-03-15</published>
+    <summary>The thesis finds that 62 per cent of the observation wells in the study districts of Telangana were over-exploited in 2019.</summary>
+  </entry>
+</feed>

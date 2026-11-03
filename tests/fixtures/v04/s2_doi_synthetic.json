@@ -1,0 +1,16 @@
+{
+ "_synthetic": "SYNTHETIC test fixture in the documented Graph API /paper/DOI: format",
+ "paperId": "synthetic0002",
+ "title": "A paper only Semantic Scholar knows (synthetic test fixture)",
+ "year": 2023,
+ "venue": "Synthetic Venue",
+ "authors": [
+  {
+   "name": "B. Author"
+  }
+ ],
+ "abstract": "Synthetic abstract.",
+ "externalIds": {
+  "DOI": "10.5555/s2only.0002"
+ }
+}
