@@ -1,0 +1,28 @@
+{"id": 301, "text": "PLFS data show joblessness on usual status dropped from 6.0% in 2017-18 to 3.2% in 2023-24.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 302, "text": "Real GDP growth for FY 2023-24 was revised to 7.3%.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 303, "text": "The economy grew 9.2% in 2023-24.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 304, "text": "Nominal GDP stood at ₹345.37 lakh crore in 2025-26.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 305, "text": "The IIP's quick estimate for May 2026 stood at 122.7, against 116.7 a year earlier.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 306, "text": "Mining and quarrying output contracted 1.6 percent in May 2026.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 307, "text": "Electricity and gas supply grew 7.9% in May 2026.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 308, "text": "Over 2.04 lakh villages have been certified Har Ghar Jal.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 309, "text": "As many as 288 districts have been certified as Har Ghar Jal.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 310, "text": "About 90.86% of schools now have drinking water tap connections.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 311, "text": "Jal Jeevan Mission was announced from the ramparts of the Red Fort.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 312, "text": "The mission's service-level norm is 55 litres per capita per day.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 313, "text": "Jal Jeevan Mission will end in March 2026.", "type": "entity", "expected": "CONTRADICTED"}
+{"id": 314, "text": "The National Rural Drinking Water Programme was among the earlier rural water initiatives.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 315, "text": "The MCP server's beta version included the Periodic Labour Force Survey and the Consumer Price Index.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 316, "text": "Information on the MCP server was given in the Rajya Sabha by Rao Inderjit Singh.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 317, "text": "The Output PPI series was released by the Reserve Bank of India.", "type": "entity", "expected": "CONTRADICTED"}
+{"id": 318, "text": "The Supply and Use Tables for 2022-23 and 2023-24 were updated in the NAS 2026 release.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 319, "text": "The Bank of England sets India's policy repo rate.", "type": "entity", "expected": "UNVERIFIED"}
+{"id": 320, "text": "India hosted the G20 summit in New Delhi in 2023.", "type": "entity", "expected": "UNVERIFIED"}
+{"id": 321, "text": "Governments must stop chasing headline coverage numbers.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 322, "text": "In our view, the Output PPI switch was long overdue.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 323, "text": "The NAS 2026 press release lists sixty statements (https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9748_20260831_15530601.pdf).", "type": "citation", "expected": "SUPPORTED"}
+{"id": 324, "text": "Under PM-DAKSH, skill training is provided to SCs, OBCs and Safai Karamcharis (https://www.pib.gov.in/PressReleasePage.aspx?PRID=2196924).", "type": "citation", "expected": "SUPPORTED"}
+{"id": 325, "text": "The National Career Service portal is run by the Ministry of Education [https://www.pib.gov.in/PressReleasePage.aspx?PRID=2196924].", "type": "citation", "expected": "CONTRADICTED"}
+{"id": 326, "text": "Tap water access in rural India rose from 3.23 crore households in 2019 (Smith & Rao, 2024, doi:10.5555/jjm.fake.42).", "type": "citation", "expected": "PARTLY SUPPORTED"}
+{"id": 327, "text": "Rural unemployment on CWS was 4.3% in August 2025.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 328, "text": "The PM Viksit Bharat Rozgar Yojana focuses especially on the services sector.", "type": "entity", "expected": "CONTRADICTED"}

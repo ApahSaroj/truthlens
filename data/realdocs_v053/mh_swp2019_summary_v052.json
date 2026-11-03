@@ -1,0 +1,92 @@
+{
+ "doc": "mh_swp2019",
+ "file": "mh_state_water_policy_2019.pdf",
+ "blocks": 24,
+ "quick": {
+  "statements": 433,
+  "claims": 271,
+  "checkable": 155,
+  "not_checkable": 83,
+  "opinions": 33,
+  "contradicted": 1,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 154,
+  "skipped": 116,
+  "headline": "1 wrong · 0 supported · 154 couldn't check · 116 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 64
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 90
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 1.6
+ },
+ "deep": {
+  "statements": 433,
+  "claims": 271,
+  "checkable": 155,
+  "not_checkable": 83,
+  "opinions": 33,
+  "contradicted": 2,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 153,
+  "skipped": 116,
+  "headline": "2 wrong · 0 supported · 153 couldn't check · 116 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 128
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 25
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 38.1
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "OpenAlex: RuntimeError: HTTP 429 (OpenAlex daily budget for this network used up; add OPENALEX_API_KEY)",
+  "MoSPI /api/env/getEnvStatsRecords: RuntimeError: HTTP 429"
+ ]
+}

@@ -1,0 +1,45 @@
+{"id": 201, "text": "Unemployment among persons aged 15 and above was 3.2% in 2023-24 on usual status.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 202, "text": "India's real GDP expanded by 8.2% in 2025-26.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 203, "text": "Nominal GDP growth in 2024-25 was 9.4 per cent.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 204, "text": "The Union fiscal deficit was 4.4 per cent of GDP in 2025-26.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 205, "text": "WPI inflation was 2.3% in 2024-25.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 206, "text": "Real GDP grew 6.5% in 2024-25.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 207, "text": "India's unemployment rate was 4.9% in 2023-24.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 208, "text": "IIP grew 5.7% in 2024-25.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 209, "text": "GDP growth in 2025-26 was 7.7%.", "type": "numeric", "expected": "PARTLY SUPPORTED"}
+{"id": 210, "text": "Female labour force participation rose to 41.7% in 2023-24.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 211, "text": "At the launch of Jal Jeevan Mission, only 3.23 crore rural households had tap water connections.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 212, "text": "Today more than 15.91 crore rural households have tap water supply, about 82.24% of all rural households.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 213, "text": "Jal Jeevan Mission now covers 92% of rural households with tap water.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 214, "text": "Output PPI replaced WPI as the deflator for 234 of the 463 item groups in the IIP basket.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 215, "text": "The value-based item groups account for 46.02 per cent of IIP weight.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 216, "text": "The IIP grew 5.1% in May 2026, with manufacturing up 5.5%.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 217, "text": "The Pradhan Mantri Viksit Bharat Rozgar Yojana has an outlay of Rs 99,446 crore.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 218, "text": "The ELI scheme aims to create more than 5 crore jobs over two years.", "type": "numeric", "expected": "CONTRADICTED"}
+{"id": 219, "text": "In Maharashtra, the usual-status unemployment rate fell from 4.8% in 2017-18 to 3.3% in 2023-24.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 220, "text": "The Code on Social Security, 2020 provides 26 weeks of paid maternity leave.", "type": "numeric", "expected": "SUPPORTED"}
+{"id": 221, "text": "Jal Jeevan Mission was launched by Prime Minister Narendra Modi on 15 August 2019.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 222, "text": "Jal Jeevan Mission was launched on 2 October 2014.", "type": "entity", "expected": "CONTRADICTED"}
+{"id": 223, "text": "The Union Government has extended Jal Jeevan Mission till December 2028.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 224, "text": "Goa was the first State to provide tap water connections to all rural households.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 225, "text": "MoSPI adopted Output PPI as the IIP deflator in place of WPI.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 226, "text": "The Department for Promotion of Industry and Internal Trade released the Output PPI series on 15 June 2026.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 227, "text": "The new IIP series with base year 2022-23 was first released on 1 June 2026 using the WPI as deflator.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 228, "text": "PLFS has been conducted by MoSPI since 2017-18.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 229, "text": "MoSPI revamped the PLFS from April 2024.", "type": "entity", "expected": "CONTRADICTED"}
+{"id": 230, "text": "The MCP server links AI tools with official statistical databases through the e-Sankhyiki portal.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 231, "text": "The MCP server was announced by the Finance Minister in the Lok Sabha.", "type": "entity", "expected": "CONTRADICTED"}
+{"id": 232, "text": "MoSPI released the National Accounts Statistics 2026 publication with base year 2022-23.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 233, "text": "The National Accounts Statistics 2026 publication contains First Revised Estimates for 2024-25.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 234, "text": "Jal Sanchay Jan Bhagidari: Catch the Rain 2026 was launched on 1st June 2026.", "type": "entity", "expected": "SUPPORTED"}
+{"id": 235, "text": "The Reserve Bank of India is headquartered in Mumbai.", "type": "entity", "expected": "UNVERIFIED"}
+{"id": 236, "text": "NITI Aayog replaced the Planning Commission in January 2015.", "type": "entity", "expected": "UNVERIFIED"}
+{"id": 237, "text": "The Swachh Bharat Mission was launched in 2014.", "type": "entity", "expected": "UNVERIFIED"}
+{"id": 238, "text": "Policymakers should prioritise source sustainability over new pipelines.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 239, "text": "We believe the rebasing makes Indian statistics far more credible.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 240, "text": "It is essential that States invest in water quality testing.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 241, "text": "This is arguably the most ambitious drinking water programme in the world.", "type": "opinion", "expected": "SKIPPED"}
+{"id": 242, "text": "According to PIB (https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781), the MCP server now covers 21 products on the eSankhyiki portal.", "type": "citation", "expected": "SUPPORTED"}
+{"id": 243, "text": "The MCP beta covered 12 statistical products (https://www.pib.gov.in/PressReleasePage.aspx?PRID=2243781).", "type": "citation", "expected": "CONTRADICTED"}
+{"id": 244, "text": "NumPy's array programming model is described in Harris et al. (2020), doi:10.1038/s41586-020-2649-2.", "type": "citation", "expected": "SUPPORTED"}
+{"id": 245, "text": "Rural tap water coverage reached 82.24% by August 2026 (doi:10.9999/fake.2026.001).", "type": "citation", "expected": "PARTLY SUPPORTED"}

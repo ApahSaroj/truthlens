@@ -1,0 +1,91 @@
+{
+ "doc": "kl_spb_dw",
+ "file": "kl_spb_drinking_water.pdf",
+ "blocks": 898,
+ "quick": {
+  "statements": 1973,
+  "claims": 970,
+  "checkable": 526,
+  "not_checkable": 344,
+  "opinions": 100,
+  "contradicted": 0,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 526,
+  "skipped": 444,
+  "headline": "0 claims checked against official data · 0 wrong · 287 need a source you should cite · 239 not checked this run",
+  "verified_score": null,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 287
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 239
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": 287,
+  "checked_against_data": 0,
+  "lead": null,
+  "wall_s": 3.4
+ },
+ "deep": {
+  "statements": 1973,
+  "claims": 970,
+  "checkable": 526,
+  "not_checkable": 344,
+  "opinions": 100,
+  "contradicted": 0,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 526,
+  "skipped": 444,
+  "headline": "0 claims checked against official data · 0 wrong · 497 need a source you should cite · 29 not checked this run",
+  "verified_score": null,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 497
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 26
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 3
+   }
+  },
+  "needs_source": 497,
+  "checked_against_data": 0,
+  "lead": null,
+  "wall_s": 60.8
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "OpenAlex: RuntimeError: HTTP 429 (OpenAlex daily budget for this network used up; add OPENALEX_API_KEY)"
+ ]
+}

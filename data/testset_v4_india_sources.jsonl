@@ -1,0 +1,25 @@
+{"id": 601, "text": "The RBI's policy repo rate is 5.50%.", "type": "numeric", "expected": "SUPPORTED", "source": "RBI current rates"}
+{"id": 602, "text": "The cash reserve ratio currently stands at 4%.", "type": "numeric", "expected": "CONTRADICTED", "source": "RBI current rates (CRR 3.00%)"}
+{"id": 603, "text": "The statutory liquidity ratio is 18%.", "type": "numeric", "expected": "SUPPORTED", "source": "RBI current rates"}
+{"id": 604, "text": "India's foreign exchange reserves stood at US$719.7 billion in the week ended October 23, 2026.", "type": "numeric", "expected": "SUPPORTED", "source": "RBI WSS extract"}
+{"id": 605, "text": "Gold accounted for US$103.15 billion of India's foreign exchange reserves as on October 23, 2026.", "type": "numeric", "expected": "SUPPORTED", "source": "RBI WSS extract"}
+{"id": 606, "text": "Scheduled commercial banks' credit grew 11.6% year-on-year as of mid-October 2026.", "type": "numeric", "expected": "CONTRADICTED", "source": "RBI WSS extract (18.2% YoY 2026; 11.6% was 2025)"}
+{"id": 607, "text": "Gujarat had an installed power generation capacity of 79,508.78 MW in September 2026.", "type": "numeric", "expected": "SUPPORTED", "source": "CEA installed capacity"}
+{"id": 608, "text": "Rajasthan's installed generation capacity was 70,000 MW in September 2026.", "type": "numeric", "expected": "CONTRADICTED", "source": "CEA installed capacity (64,969.34 MW)"}
+{"id": 609, "text": "All-India peak demand met was 258.27 GW in August 2026.", "type": "numeric", "expected": "SUPPORTED", "source": "CEA power sector performance"}
+{"id": 610, "text": "India's peak power demand met reached 270 GW in August 2026.", "type": "numeric", "expected": "CONTRADICTED", "source": "CEA power sector performance (258.27 GW in Aug; 270.2 was July)"}
+{"id": 611, "text": "India imported 246.6 million tonnes of crude oil in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "source": "PPAC import/export"}
+{"id": 612, "text": "India's crude oil imports were 300 million tonnes in 2025-26.", "type": "numeric", "expected": "CONTRADICTED", "source": "PPAC import/export"}
+{"id": 613, "text": "Consumption of diesel (HSD) was 94.7 million tonnes in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "source": "PPAC consumption"}
+{"id": 614, "text": "Total petroleum product consumption was 241.6 million tonnes in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "source": "PPAC consumption"}
+{"id": 615, "text": "The retail selling price of petrol in Delhi is ₹102.12 per litre.", "type": "numeric", "expected": "SUPPORTED", "source": "PPAC home page"}
+{"id": 616, "text": "Goa has provided tap water connections to 100% of its rural households.", "type": "numeric", "expected": "SUPPORTED", "source": "JJM dashboard"}
+{"id": 617, "text": "Ladakh has tap water connections in 98.53% of rural households.", "type": "numeric", "expected": "SUPPORTED", "source": "JJM dashboard"}
+{"id": 618, "text": "Ladakh has tap water connections in 90% of rural households.", "type": "numeric", "expected": "CONTRADICTED", "source": "JJM dashboard (98.53%)"}
+{"id": 619, "text": "The repo rate was 6.5%.", "type": "numeric", "expected": "UNVERIFIED", "source": "undated past figure: may be historical; current 5.50% must not contradict it"}
+{"id": 620, "text": "The stage of groundwater extraction in Punjab was 156.36% in 2024.", "type": "numeric", "expected": "UNVERIFIED", "source": "NDAP has the CGWB dataset but rows need a token; catalogue pointer only"}
+{"id": 621, "text": "A 2019 study using GRACE satellite data and more than 5,000 wells found that groundwater pumping to increase food production causes persistent groundwater drought in India.", "type": "entity", "expected": "SUPPORTED", "source": "arXiv 1908.00255 abstract"}
+{"id": 622, "text": "Groundwater pumping to increase food production causes persistent groundwater drought in India (arXiv:1908.00255).", "type": "citation", "expected": "SUPPORTED", "source": "arXiv id exists; abstract states it"}
+{"id": 623, "text": "A study (arXiv:2601.99999) found that India's groundwater levels rose 40% after 2020.", "type": "citation", "expected": "UNVERIFIED", "source": "fabricated arXiv id"}
+{"id": 624, "text": "A PhD thesis on Shodhganga found that 62% of wells in Telangana were over-exploited.", "type": "entity", "expected": "UNVERIFIED", "source": "Shodhganga unreachable (bot challenge); unverifiable"}
+{"id": 625, "text": "CEA data show that the all-India plant load factor was 66.85% in August 2026.", "type": "numeric", "expected": "SUPPORTED", "source": "CEA power sector performance"}

@@ -1,0 +1,421 @@
+{
+ "table": [
+  {
+   "doc": "ka_swp2022",
+   "v052_quick": {
+    "claims": 146,
+    "checkable": 95,
+    "contradicted": 2,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 93,
+    "skipped": 51,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 1.5,
+    "headline": "2 wrong · 0 supported · 93 couldn't check · 51 skipped"
+   },
+   "v052_deep": {
+    "claims": 146,
+    "checkable": 95,
+    "contradicted": 3,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 92,
+    "skipped": 51,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 46.5,
+    "headline": "3 wrong · 0 supported · 92 couldn't check · 51 skipped"
+   },
+   "v053_quick": {
+    "claims": 98,
+    "checkable": 22,
+    "contradicted": 0,
+    "partly": 1,
+    "supported": 0,
+    "couldnt_check": 21,
+    "skipped": 76,
+    "needs_source": 2,
+    "checked_against_data": 1,
+    "wall_s": 0.3,
+    "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 2 need a source you should cite · 19 not checked this run"
+   },
+   "v053_deep": {
+    "claims": 98,
+    "checkable": 22,
+    "contradicted": 0,
+    "partly": 1,
+    "supported": 0,
+    "couldnt_check": 21,
+    "skipped": 76,
+    "needs_source": 4,
+    "checked_against_data": 1,
+    "wall_s": 35.5,
+    "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 4 need a source you should cite · 17 not checked this run"
+   }
+  },
+  {
+   "doc": "mh_swp2019",
+   "v052_quick": {
+    "claims": 271,
+    "checkable": 155,
+    "contradicted": 1,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 154,
+    "skipped": 116,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 1.6,
+    "headline": "1 wrong · 0 supported · 154 couldn't check · 116 skipped"
+   },
+   "v052_deep": {
+    "claims": 271,
+    "checkable": 155,
+    "contradicted": 2,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 153,
+    "skipped": 116,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 38.1,
+    "headline": "2 wrong · 0 supported · 153 couldn't check · 116 skipped"
+   },
+   "v053_quick": {
+    "claims": 321,
+    "checkable": 100,
+    "contradicted": 0,
+    "partly": 1,
+    "supported": 0,
+    "couldnt_check": 99,
+    "skipped": 221,
+    "needs_source": 57,
+    "checked_against_data": 1,
+    "wall_s": 1.5,
+    "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 57 need a source you should cite · 42 not checked this run"
+   },
+   "v053_deep": {
+    "claims": 321,
+    "checkable": 100,
+    "contradicted": 0,
+    "partly": 1,
+    "supported": 0,
+    "couldnt_check": 99,
+    "skipped": 221,
+    "needs_source": 81,
+    "checked_against_data": 1,
+    "wall_s": 45.7,
+    "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 81 need a source you should cite · 18 not checked this run"
+   }
+  },
+  {
+   "doc": "od_swp2007",
+   "v052_quick": {
+    "claims": 132,
+    "checkable": 71,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 71,
+    "skipped": 61,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 2.2,
+    "headline": "0 wrong · 0 supported · 71 couldn't check · 61 skipped"
+   },
+   "v052_deep": {
+    "claims": 132,
+    "checkable": 71,
+    "contradicted": 1,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 70,
+    "skipped": 61,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 35.7,
+    "headline": "1 wrong · 0 supported · 70 couldn't check · 61 skipped"
+   },
+   "v053_quick": {
+    "claims": 171,
+    "checkable": 67,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 67,
+    "skipped": 104,
+    "needs_source": 20,
+    "checked_against_data": 0,
+    "wall_s": 1.0,
+    "headline": "0 claims checked against official data · 0 wrong · 20 need a source you should cite · 47 not checked this run"
+   },
+   "v053_deep": {
+    "claims": 171,
+    "checkable": 67,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 67,
+    "skipped": 104,
+    "needs_source": 49,
+    "checked_against_data": 0,
+    "wall_s": 36.0,
+    "headline": "0 claims checked against official data · 0 wrong · 49 need a source you should cite · 18 not checked this run"
+   }
+  },
+  {
+   "doc": "kl_spb_dw",
+   "v052_quick": {
+    "claims": 954,
+    "checkable": 685,
+    "contradicted": 1,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 684,
+    "skipped": 269,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 4.4,
+    "headline": "1 wrong · 0 supported · 684 couldn't check · 269 skipped"
+   },
+   "v052_deep": {
+    "claims": 954,
+    "checkable": 685,
+    "contradicted": 1,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 684,
+    "skipped": 269,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 60.2,
+    "headline": "1 wrong · 0 supported · 684 couldn't check · 269 skipped"
+   },
+   "v053_quick": {
+    "claims": 970,
+    "checkable": 526,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 526,
+    "skipped": 444,
+    "needs_source": 287,
+    "checked_against_data": 0,
+    "wall_s": 3.4,
+    "headline": "0 claims checked against official data · 0 wrong · 287 need a source you should cite · 239 not checked this run"
+   },
+   "v053_deep": {
+    "claims": 970,
+    "checkable": 526,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 526,
+    "skipped": 444,
+    "needs_source": 497,
+    "checked_against_data": 0,
+    "wall_s": 60.8,
+    "headline": "0 claims checked against official data · 0 wrong · 497 need a source you should cite · 29 not checked this run"
+   }
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "v052_quick": {
+    "claims": 805,
+    "checkable": 411,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 411,
+    "skipped": 394,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 3.2,
+    "headline": "0 wrong · 0 supported · 411 couldn't check · 394 skipped"
+   },
+   "v052_deep": {
+    "claims": 805,
+    "checkable": 411,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 411,
+    "skipped": 394,
+    "needs_source": null,
+    "checked_against_data": null,
+    "wall_s": 47.2,
+    "headline": "0 wrong · 0 supported · 411 couldn't check · 394 skipped"
+   },
+   "v053_quick": {
+    "claims": 903,
+    "checkable": 343,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 343,
+    "skipped": 560,
+    "needs_source": 195,
+    "checked_against_data": 0,
+    "wall_s": 2.7,
+    "headline": "0 claims checked against official data · 0 wrong · 195 need a source you should cite · 148 not checked this run"
+   },
+   "v053_deep": {
+    "claims": 903,
+    "checkable": 343,
+    "contradicted": 0,
+    "partly": 0,
+    "supported": 0,
+    "couldnt_check": 343,
+    "skipped": 560,
+    "needs_source": 325,
+    "checked_against_data": 0,
+    "wall_s": 49.7,
+    "headline": "0 claims checked against official data · 0 wrong · 325 need a source you should cite · 18 not checked this run"
+   }
+  }
+ ],
+ "v052_contradicted": [
+  {
+   "doc": "ka_swp2022",
+   "text": "Improving watersheds, rivers, and environment 14 3.12.",
+   "v052_rationale": "Failed: draft 3.12; the source says ‘37 (Projects for improving environment), answered on 1 March 2002 by the Ministry of Environment And Forests.’. An official passage on the same subject gives a different figure.",
+   "v052_numbers": [],
+   "v053_verdict": "(sentence not extracted the same way)",
+   "v053_reason": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "text": "It is the eighth The allowable surface water largest state by population with over utilization for various uses is limited 61.13 million inhabitants (Census, to 35,916 Million m3 (1268 TMC) and 2011) and projected to be 67.56 million safe utilization of groundwater is in 2020 (UIDAI, May 2020).",
+   "v052_rationale": "Failed: 2011 Population: draft 61.13 million, official 1,21,08,54,977 (121.09 crore); 2011 Population: draft 35,916 Million, official 1,21,08,54,977 (121.09 crore). 61.13 million: Official value is 1,21,08,54,977 (121.09 crore); the draft differs by -95.0%. 35,916 Million: Official value is 1,21,08,54,977 (121.09 crore); the draft differs by +2866.2%. Not checked: ‘largest state by population with",
+   "v052_numbers": [
+    [
+     "61.13 million",
+     "MISMATCH",
+     "1,21,08,54,977 (121.09 crore)",
+     "Population (Census count)"
+    ],
+    [
+     "35,916 Million",
+     "MISMATCH",
+     "1,21,08,54,977 (121.09 crore)",
+     "Population (Census count)"
+    ]
+   ],
+   "v053_verdict": "(sentence not extracted the same way)",
+   "v053_reason": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "text": "Floods are becoming common every year due to heavy Agriculture accounted for about 84% rainfall which is higher than the of water diversions and estimated long-term average in some days water demands in the State may and sometimes 10 to 20 times above reach 45,052 Million m3 (1591 TMC) the normal. by 2030 from 42,225 Million m3 (1,491 TMC) in 2020.",
+   "v052_rationale": "Internal inconsistency: the sentence says ‘higher than’, but its own figures go from 42,225 Million to 20, which is a fall. Not checked: ‘due to heavy Agriculture accounted for about 84% rainfall which is higher than the of’ (causal) — no evidence passage states it.",
+   "v052_numbers": [],
+   "v053_verdict": "(sentence not extracted the same way)",
+   "v053_reason": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "text": "In September 2015, the United Nations 193 member states including India, committed to the 17 Sustainable Development Goals (SDGs) to be achieved over the next 15 years.",
+   "v052_rationale": "Failed: draft 193, 15; the source says ‘ASHOK KUMAR MITTAL: Will the Minister of PLANNING be pleased to state: (a) the details of official measures for monitoring SDGs at national…’. An official passage on the same subject gives a different figure.",
+   "v052_numbers": [],
+   "v053_verdict": "UNVERIFIED",
+   "v053_reason": "No evidence passage was found for this claim. This is an official-statistics figure: research papers are not used to confirm or contradict official data. Check the official source."
+  },
+  {
+   "doc": "mh_swp2019",
+   "text": "With population of 112.4 million, as per population Census 2011 and geographical area of 0.308 million sq. km, Maharashtra is ranked 2nd by population and 3rd in terms of area.",
+   "v052_rationale": "Failed: 2011 Population: draft 112.4 million, official 1,21,08,54,977 (121.09 crore). No evidence passage was found for this claim.",
+   "v052_numbers": [
+    [
+     "112.4 million",
+     "MISMATCH",
+     "1,21,08,54,977 (121.09 crore)",
+     "Population (Census count)"
+    ]
+   ],
+   "v053_verdict": "PARTLY SUPPORTED",
+   "v053_reason": "No evidence passage was found for this claim."
+  },
+  {
+   "doc": "od_swp2007",
+   "text": "Km.) 41700 7400 4.75% Indravati River is a tributary of Godavari Basin of area3,12,812 Sq.",
+   "v052_rationale": "Failed: 2024 EnviStats India (environment statistics): Catchment Area of major River Basins: draft 41700, official 312,150; 2024 EnviStats India (environment statistics): Catchment Area of major River Basins: draft 7400, official 312,150; 2024 EnviStats India (environment statistics): Catchment Area of major River Basins: draft 4.75%, official 312,150. 41700: Official value is 312,150 (2024). 7400",
+   "v052_numbers": [
+    [
+     "41700",
+     "MISMATCH",
+     "312,150",
+     "EnviStats India (environment statistics): Catchment Area of major River Basins"
+    ],
+    [
+     "7400",
+     "MISMATCH",
+     "312,150",
+     "EnviStats India (environment statistics): Catchment Area of major River Basins"
+    ],
+    [
+     "4.75%",
+     "MISMATCH",
+     "312,150",
+     "EnviStats India (environment statistics): Catchment Area of major River Basins"
+    ]
+   ],
+   "v053_verdict": "(sentence not extracted the same way)",
+   "v053_reason": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "text": "The Kochi Corporation is spread over 94.88 km2 and has been divided in to 74 wards with total population of 6,02,046 as per 2011 census.",
+   "v052_rationale": "Failed: 2011 Population: draft 6,02,046, official 1,21,08,54,977 (121.09 crore). No evidence passage was found for this claim.",
+   "v052_numbers": [
+    [
+     "6,02,046",
+     "MISMATCH",
+     "1,21,08,54,977 (121.09 crore)",
+     "Population (Census count)"
+    ]
+   ],
+   "v053_verdict": "UNVERIFIED",
+   "v053_reason": "No evidence passage was found for this claim. This is an official-statistics figure: research papers are not used to confirm or contradict official data. Check the official source."
+  }
+ ],
+ "v053_supported": [
+  {
+   "doc": "ka_swp2022",
+   "verdict": "PARTLY SUPPORTED",
+   "text": "The State of Karnataka covers an area of 1,91,791 Sq. Kms., i.e., 5.83% of the area of India.",
+   "numbers": [
+    [
+     "5.83%",
+     "UNVERIFIED",
+     "No supported indicator recognised for this number."
+    ],
+    [
+     "1,91,791",
+     "MATCH",
+     "Matches the official value 191,791 (2011)."
+    ]
+   ],
+   "rationale": "No evidence passage was found for this claim."
+  },
+  {
+   "doc": "mh_swp2019",
+   "verdict": "PARTLY SUPPORTED",
+   "text": "With population of 112.4 million, as per population Census 2011 and geographical area of 0.308 million sq. km, Maharashtra is ranked 2nd by population and 3rd in terms of area.",
+   "numbers": [
+    [
+     "0.308 million",
+     "UNVERIFIED",
+     "Sub-national figure (Maharashtra); the curated dataset covers all-India values only (state-level PLFS figures are checked when the live MoSPI source is enabled)."
+    ],
+    [
+     "112.4 million",
+     "MATCH",
+     "Matches the official value 112.37 (2011)."
+    ]
+   ],
+   "rationale": "No evidence passage was found for this claim."
+  }
+ ]
+}

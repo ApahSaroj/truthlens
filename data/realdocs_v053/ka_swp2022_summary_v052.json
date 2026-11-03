@@ -1,0 +1,92 @@
+{
+ "doc": "ka_swp2022",
+ "file": "ka_state_water_policy_2022.pdf",
+ "blocks": 26,
+ "quick": {
+  "statements": 271,
+  "claims": 146,
+  "checkable": 95,
+  "not_checkable": 48,
+  "opinions": 3,
+  "contradicted": 2,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 93,
+  "skipped": 51,
+  "headline": "2 wrong · 0 supported · 93 couldn't check · 51 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 33
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 60
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 1.5
+ },
+ "deep": {
+  "statements": 271,
+  "claims": 146,
+  "checkable": 95,
+  "not_checkable": 48,
+  "opinions": 3,
+  "contradicted": 3,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 92,
+  "skipped": 51,
+  "headline": "3 wrong · 0 supported · 92 couldn't check · 51 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 76
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 16
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 46.5
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "OpenAlex: RuntimeError: HTTP 429 (OpenAlex daily budget for this network used up; add OPENALEX_API_KEY)",
+  "MoSPI /api/nfhs/getNfhsRecords: RuntimeError: HTTP 429"
+ ]
+}

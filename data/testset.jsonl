@@ -1,0 +1,65 @@
+{"id": 1, "text": "India's real GDP grew by 7.8% in FY 2025-26.", "claim": "7.8%", "expected": "MATCH", "traps": []}
+{"id": 2, "text": "Real GDP growth in 2024-25 was 7.2 per cent.", "claim": "7.2 per cent", "expected": "MATCH", "traps": []}
+{"id": 3, "text": "Real GDP grew 6.5% in 2024-25.", "claim": "6.5%", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 4, "text": "The economy expanded 9.2% in 2023-24.", "claim": "9.2%", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 5, "text": "GDP growth in 2025-26 was 7.7%.", "claim": "7.7%", "expected": "CLOSE", "traps": ["vintage"]}
+{"id": 6, "text": "India's GDP grew 7.1% in 2024.", "claim": "7.1%", "expected": "UNVERIFIED", "traps": ["fy_vs_cy"]}
+{"id": 7, "text": "Nominal GDP grew 8.6% in 2025-26.", "claim": "8.6%", "expected": "MATCH", "traps": []}
+{"id": 8, "text": "Nominal GDP growth was 9.8% in 2024-25.", "claim": "9.8%", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 9, "text": "GDP at current prices stood at ₹317.99 lakh crore in 2024-25.", "claim": "₹317.99 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 10, "text": "India's nominal GDP in 2025-26 was ₹345 lakh crore.", "claim": "₹345 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 11, "text": "India's GDP was ₹3,453.7 crore in 2025-26.", "claim": "₹3,453.7 crore", "expected": "MISMATCH", "traps": ["unit_scale"]}
+{"id": 12, "text": "Real GDP in 2025-26 was ₹324.70 lakh crore.", "claim": "₹324.70 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 13, "text": "CPI inflation averaged 4.6% in 2024-25.", "claim": "4.6%", "expected": "MATCH", "traps": []}
+{"id": 14, "text": "Retail inflation was 5.4 per cent in FY 2023-24.", "claim": "5.4 per cent", "expected": "MATCH", "traps": []}
+{"id": 15, "text": "CPI inflation fell to 2.1% in 2025-26.", "claim": "2.1%", "expected": "MATCH", "traps": []}
+{"id": 16, "text": "Headline CPI inflation was 3.5% in 2025-26.", "claim": "3.5%", "expected": "MISMATCH", "traps": []}
+{"id": 17, "text": "CPI inflation in 2024 was 4.95%.", "claim": "4.95%", "expected": "MATCH", "traps": ["fy_vs_cy"]}
+{"id": 18, "text": "WPI inflation was 2.3% in 2024-25.", "claim": "2.3%", "expected": "MATCH", "traps": []}
+{"id": 19, "text": "Wholesale inflation turned negative at -0.7% in 2023-24.", "claim": "-0.7%", "expected": "MATCH", "traps": []}
+{"id": 20, "text": "WPI inflation was 13% in 2021-22.", "claim": "13%", "expected": "MATCH", "traps": []}
+{"id": 21, "text": "The unemployment rate (usual status) was 3.2% in 2023-24.", "claim": "3.2%", "expected": "MATCH", "traps": []}
+{"id": 22, "text": "India's unemployment rate was 4.9% in 2023-24.", "claim": "4.9%", "expected": "MISMATCH", "traps": ["plfs_status"]}
+{"id": 23, "text": "Unemployment rate as per current weekly status was 4.9% during July 2023 - June 2024.", "claim": "4.9%", "expected": "MATCH", "traps": []}
+{"id": 24, "text": "The unemployment rate was 6.1% in 2017-18.", "claim": "6.1%", "expected": "CLOSE", "traps": ["plfs_status"]}
+{"id": 25, "text": "Unemployment in usual status fell to 3.1% in 2025.", "claim": "3.1%", "expected": "MATCH", "traps": []}
+{"id": 26, "text": "Youth unemployment was 9.9% in 2025.", "claim": "9.9%", "expected": "MATCH", "traps": []}
+{"id": 27, "text": "LFPR in usual status was 60.1% in 2023-24.", "claim": "60.1%", "expected": "MATCH", "traps": []}
+{"id": 28, "text": "Female LFPR rose to 41.7% in 2023-24.", "claim": "41.7%", "expected": "MATCH", "traps": []}
+{"id": 29, "text": "Female labour force participation was 40.0% in 2025.", "claim": "40.0%", "expected": "MATCH", "traps": []}
+{"id": 30, "text": "The female LFPR rose from 37.0% in 2022-23 to 41.7% in 2023-24, an increase of 4.7%.", "claim": "4.7%", "expected": "MISMATCH", "traps": ["pct_vs_pp"]}
+{"id": 31, "text": "Female LFPR rose by 4.7 percentage points between 2022-23 and 2023-24.", "claim": "4.7 percentage points", "expected": "MATCH", "traps": []}
+{"id": 32, "text": "LFPR was 56.4% in 2023-24.", "claim": "56.4%", "expected": "MISMATCH", "traps": ["plfs_status"]}
+{"id": 33, "text": "The fiscal deficit was 4.8% of GDP in 2024-25.", "claim": "4.8%", "expected": "MATCH", "traps": ["budget_stage"]}
+{"id": 34, "text": "The fiscal deficit is budgeted at 4.3% of GDP for 2026-27.", "claim": "4.3%", "expected": "MATCH", "traps": []}
+{"id": 35, "text": "The revised estimate of the fiscal deficit for 2025-26 is 4.4% of GDP.", "claim": "4.4%", "expected": "MATCH", "traps": []}
+{"id": 36, "text": "The fiscal deficit in 2023-24 was 5.8% of GDP.", "claim": "5.8%", "expected": "MISMATCH", "traps": ["budget_stage"]}
+{"id": 37, "text": "The fiscal deficit for 2022-23 was 6.4% of GDP.", "claim": "6.4%", "expected": "MATCH", "traps": []}
+{"id": 38, "text": "The fiscal deficit stood at ₹15,74,431 crore in 2024-25.", "claim": "₹15,74,431 crore", "expected": "MATCH", "traps": []}
+{"id": 39, "text": "The fiscal deficit for 2026-27 is ₹16.96 lakh crore (BE).", "claim": "₹16.96 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 40, "text": "The fiscal deficit was ₹157.4 billion in 2024-25.", "claim": "₹157.4 billion", "expected": "MISMATCH", "traps": ["unit_scale"]}
+{"id": 41, "text": "The revenue deficit was 1.7% of GDP in 2024-25.", "claim": "1.7%", "expected": "MATCH", "traps": []}
+{"id": 42, "text": "India's population was 121.09 crore as per Census 2011.", "claim": "121.09 crore", "expected": "MATCH", "traps": []}
+{"id": 43, "text": "India had a population of 1.21 billion in 2011.", "claim": "1.21 billion", "expected": "MATCH", "traps": []}
+{"id": 44, "text": "According to Census 2011, India's population was 12.1 million.", "claim": "12.1 million", "expected": "MISMATCH", "traps": ["unit_scale"]}
+{"id": 45, "text": "India's population reached 145.09 crore in 2024.", "claim": "145.09 crore", "expected": "MATCH", "traps": ["not_census"]}
+{"id": 46, "text": "35.5% of children under five are stunted (NFHS-5).", "claim": "35.5%", "expected": "MATCH", "traps": []}
+{"id": 47, "text": "Stunting among children under 5 was 38.4% in NFHS-4.", "claim": "38.4%", "expected": "MATCH", "traps": []}
+{"id": 48, "text": "As per NFHS-5, 32.1% of children under five are underweight.", "claim": "32.1%", "expected": "MATCH", "traps": []}
+{"id": 49, "text": "Child wasting stood at 21% in NFHS-5.", "claim": "21%", "expected": "MISMATCH", "traps": ["wrong_year"]}
+{"id": 50, "text": "Stunting has fallen to 33% as per Poshan Tracker.", "claim": "33%", "expected": "UNVERIFIED", "traps": ["survey_vs_admin"]}
+{"id": 51, "text": "IIP grew 4.3% in 2025-26.", "claim": "4.3%", "expected": "MATCH", "traps": []}
+{"id": 52, "text": "Industrial production grew 4.0% in 2024-25.", "claim": "4.0%", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 53, "text": "Industrial output grew 6.4% in 2024-25.", "claim": "6.4%", "expected": "MISMATCH", "traps": ["vintage"]}
+{"id": 54, "text": "Over 30 crore unorganised workers registered on the e-Shram portal have benefited.", "claim": "30 crore", "expected": "UNVERIFIED", "traps": ["registrations_vs_beneficiaries"]}
+{"id": 55, "text": "GDP growth in Q1 FY27 was 8.1%.", "claim": "8.1%", "expected": "UNVERIFIED", "traps": []}
+{"id": 56, "text": "Kerala's unemployment rate was 7.2% in 2023-24.", "claim": "7.2%", "expected": "UNVERIFIED", "traps": []}
+{"id": 57, "text": "The economy is projected to grow 6.3-6.8% in 2026-27.", "claim": "6.3-6.8%", "expected": "UNVERIFIED", "traps": []}
+{"id": 58, "text": "Real GDP grew 7.6% in 2025-26 as per the Second Advance Estimates.", "claim": "7.6%", "expected": "CLOSE", "traps": ["vintage"]}
+{"id": 59, "text": "India's GDP is about $4 trillion.", "claim": "$4 trillion", "expected": "UNVERIFIED", "traps": []}
+{"id": 60, "text": "Inflation was 4.6% in 2024-25.", "claim": "4.6%", "expected": "MATCH", "traps": []}
+{"id": 61, "text": "GDP at 2011-12 prices grew 6.5% in 2024-25.", "claim": "6.5%", "expected": "MATCH", "traps": ["old_base"]}
+{"id": 62, "text": "The fiscal deficit for 2024-25 was 4.9% of GDP.", "claim": "4.9%", "expected": "CLOSE", "traps": ["budget_stage"]}
+{"id": 63, "text": "The unemployment rate was 3.2% in 2024-25.", "claim": "3.2%", "expected": "UNVERIFIED", "traps": ["plfs_status"]}
+{"id": 64, "text": "India's population is 140 crore.", "claim": "140 crore", "expected": "UNVERIFIED", "traps": []}
+{"id": 65, "text": "WPI inflation was 1.7% in FY20.", "claim": "1.7%", "expected": "MATCH", "traps": []}

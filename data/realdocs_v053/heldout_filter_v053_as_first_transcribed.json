@@ -1,0 +1,1013 @@
+{
+ "n": 100,
+ "not_a_claim": 71,
+ "not_a_claim_set_aside": 37,
+ "real_claims": 29,
+ "real_claims_wrongly_dropped": 3,
+ "by_label": {
+  "A/kept": 3,
+  "A/set aside": 1,
+  "B/kept": 6,
+  "C/kept": 34,
+  "C/set aside": 37,
+  "D/kept": 17,
+  "D/set aside": 2
+ },
+ "lost": [
+  [
+   "ka_swp2022",
+   "c38",
+   "A",
+   "plan",
+   "It is the eighth The allowable surface water largest state by population with over utilization for various uses is limited 61.13 million inhabitants (Census, to"
+  ],
+  [
+   "mh_swp2019",
+   "c145",
+   "D",
+   "rule",
+   "Assessment of groundwater shall be carried out in urban areas taking into consideration the quantity and quality of the water available, so as to plan for conju"
+  ],
+  [
+   "mh_swp2019",
+   "c147",
+   "D",
+   "plan",
+   "In water resource planning of the basin it is assumed that at least 80% of the water used for domestic purpose will be available for reuse."
+  ]
+ ],
+ "kept_non_claims": [
+  [
+   "ka_swp2022",
+   "c1",
+   "STATE WATER POLICY 2022 KARNATAKA T N E M RT A A P K S O U R CE S O D F E K A R N AT A R R E E N T E M W AT E R N V O G"
+  ],
+  [
+   "ka_swp2022",
+   "c63",
+   "Modernising the State’s and minimise the vulnerability of irrigation systems so that water scarcity and drought. water i"
+  ],
+  [
+   "mh_swp2019",
+   "c85",
+   "8.2 Sectoral Allocation: Water allocation across different user groups e.g. domestic, agricultural, industry, eco-system"
+  ],
+  [
+   "mh_swp2019",
+   "c20",
+   "Since adaptation of this policy, significant positive changes have occurred in the water scenario of the State."
+  ],
+  [
+   "mh_swp2019",
+   "c114",
+   "8.5.3 Integrated Planning for Maximizing Utilisable Water: The demand for water is increasing rapidly due to growing pop"
+  ],
+  [
+   "mh_swp2019",
+   "c161",
+   "(vi) Auditing and Benchmarking of the water resources projects."
+  ],
+  [
+   "mh_swp2019",
+   "c57",
+   "To regulate the water resources within the State, the Maharashtra Water Resources Regulatory Authority (MWRRA) has been "
+  ],
+  [
+   "mh_swp2019",
+   "c81",
+   "7.2 Water Policy Focus Areas: 5 MAHARASHTRA STATE WATER POLICY (2019)"
+  ],
+  [
+   "od_swp2007",
+   "c18",
+   "Orissa Review * September-October - 2007 the State on a regular basis."
+  ],
+  [
+   "od_swp2007",
+   "c44",
+   "This will be achieved through an appropriate combination of legislation and information, education and communication (IE"
+  ],
+  [
+   "od_swp2007",
+   "c127",
+   "Km.) 9275 4500 2.89% Name of Districts: Kalahandi, Koraput, Rayagada 98"
+  ],
+  [
+   "od_swp2007",
+   "c100",
+   "Orissa Review * September-October - 2007 catchment treatment of all the major and medium reservoirs of the State with th"
+  ],
+  [
+   "od_swp2007",
+   "c29",
+   "(f) Navigation and other uses such as tourism."
+  ],
+  [
+   "od_swp2007",
+   "c89",
+   "Sustainability in water resources development and management depends upon the participation of the Water Users in Irriga"
+  ],
+  [
+   "od_swp2007",
+   "c111",
+   "Budhabalanga Basin Total Inside % of Geographical area of Orissa State Basin Area ( Sq."
+  ],
+  [
+   "od_swp2007",
+   "c131",
+   "Km.) 41700 7400 4.75% Indravati River is a tributary of Godavari Basin of area3,12,812 Sq."
+  ],
+  [
+   "kl_spb_dw",
+   "c808",
+   "contains information about fishing villages in Thiruvananthapuram, Kollam, Malappuram, Kozhikode, Kannur, Ernakulam, Ala"
+  ],
+  [
+   "kl_spb_dw",
+   "c807",
+   "The list 66 State Planning Board"
+  ],
+  [
+   "kl_spb_dw",
+   "c942",
+   "A.O, SPB The Accountant General, Kerala Finance Officer, SPB Publication Officer, SPB Sub Treasury, Vellayambalam Accoun"
+  ],
+  [
+   "kl_spb_dw",
+   "c691",
+   "8.1 Rain Water Harvesting (RWH) and Ground Water Recharge Rain water is considered the purest form of water."
+  ],
+  [
+   "kl_spb_dw",
+   "c89",
+   "Table 2.2 Review Indicators relevant to Kerala NNoo.."
+  ],
+  [
+   "ap_rws_om2025",
+   "c558",
+   "Housekeeping at the pump house Earth pit Watering SHASHI BHUSHAN KUMAR PRINCIPAL SECRETARY TO GOVERNMENT 52"
+  ],
+  [
+   "ap_rws_om2025",
+   "c52",
+   "This document outlines the operation and maintenance policy (hereafter called O&M Policy), which builds on and strengthe"
+  ],
+  [
+   "ap_rws_om2025",
+   "c404",
+   "Register individual or household level grievances II."
+  ],
+  [
+   "ap_rws_om2025",
+   "c431",
+   "Cleaning and disinfection activities to be carried out during Disaster v."
+  ],
+  [
+   "ap_rws_om2025",
+   "c638",
+   "Cloud-based water quality iii) pH, TDS, turbidity 4 times dashboard for a year at Surface water transparency. sources."
+  ],
+  [
+   "ap_rws_om2025",
+   "c597",
+   "1.4 Automation Components and Management Automation for quantity management is achieved through flow meters to measure d"
+  ],
+  [
+   "ap_rws_om2025",
+   "c198",
+   "Identification & Registration of the Private Operator for making payments etc., if the work is entrusted. v."
+  ],
+  [
+   "ap_rws_om2025",
+   "c609",
+   "The SLA thus establishes accountability at each level, enabling transparent, reliable and sustainable water service deli"
+  ],
+  [
+   "ap_rws_om2025",
+   "c284",
+   "24.03.2017 for MPPs & ZPPs respectively, duly allocating certain funds for 25"
+  ],
+  [
+   "ap_rws_om2025",
+   "c203",
+   "Delegation of powers on technical sanction as per GO.Ms.No.41 Dt.24-05-2018 of Water Resources Reforms (Dept). a."
+  ],
+  [
+   "ap_rws_om2025",
+   "c29",
+   "The OSD to Chief Secretary to Government."
+  ],
+  [
+   "ap_rws_om2025",
+   "c592",
+   "1.2 Scope This SOP is applicable to all single-village and multi-village rural water supply schemes dependent on both gr"
+  ],
+  [
+   "ap_rws_om2025",
+   "c206",
+   "Above Rs. 2.00cr by Chief Engineer, (O&M), RWS&S."
+  ]
+ ],
+ "rows": [
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c142",
+   "text": "The Inter-departmental State ii.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c1",
+   "text": "STATE WATER POLICY 2022 KARNATAKA T N E M RT A A P K S O U R CE S O D F E K A R N AT A R R E E N T E M W AT E R N V O G",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c48",
+   "text": "Water resources assessment, season, most northern districts planning and management of are projected to have an increase surface water, groundwater, in drought incidences by 10-80% recycled water being knowledge with some districts projected to driven.",
+   "label": "D",
+   "garbled_extraction": true,
+   "filter": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c101",
+   "text": "Department to reduce wastage 3.7.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c13",
+   "text": "Improving the health of watersheds and water bodies 5 2.5.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c61",
+   "text": "Improving the productivity of 2.3.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c28",
+   "text": "GOVERNANCE AND STRENGTHENING THE INSTITUTIONS 16 4.1.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c140",
+   "text": "Undertake policy and institutional assessments to look at options To this end the State will undertake and approaches for strengthening a range of actions to progressively water resources management, strengthen the approach. including potentially updating 4.1.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "plan"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c63",
+   "text": "Modernising the State’s and minimise the vulnerability of irrigation systems so that water scarcity and drought. water is measured, wastage is viii.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c2",
+   "text": "PREAMBLE 1 1.1.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c60",
+   "text": "UWSS reducing dependence on fresh water and relying much ii.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c11",
+   "text": "Improving the efficiency of urban and rural water supply, industrial water use 4 2.3.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c65",
+   "text": "IMPROVING THE HEALTH social assessments.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c131",
+   "text": "Flood management, using a 3.13.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c58",
+   "text": "Reduction of non-revenue SECURITY FOR THE water (NRW) by taking effective ENTIRE POPULATION measures in UWS schemes and reduction of losses and wastages i.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "plan"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c137",
+   "text": "The wider community in land and other statutory instruments (15 and water management will be central and 14 state level).",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "plan"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c39",
+   "text": "While the limited to 11,477 Million m3 (405 TMC) state economy is one of the fastest during an average rainfall year, growing, about 20.91% (Karnataka though the water availability and SDG Report 2020) of population lived demands do vary across the state below the poverty line. spatially. f 1",
+   "label": "A",
+   "garbled_extraction": true,
+   "filter": null
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c47",
+   "text": "In the Kharif ii.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": "heading"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c38",
+   "text": "It is the eighth The allowable surface water largest state by population with over utilization for various uses is limited 61.13 million inhabitants (Census, to 35,916 Million m3 (1268 TMC) and 2011) and projected to be 67.56 million safe utilization of groundwater is in 2020 (UIDAI, May 2020).",
+   "label": "A",
+   "garbled_extraction": true,
+   "filter": "plan"
+  },
+  {
+   "doc": "ka_swp2022",
+   "claim_id": "c29",
+   "text": "Institutional aspects 17 4.2.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c111",
+   "text": "8.5.2 Demand Management and Water Use Efficiency There is a mismatch between supply and demand.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c47",
+   "text": "The State is divided into 1531 elementary watersheds considering river basin and subbasin boundaries as the base.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c120",
+   "text": "Emphasis be laid on collection and treatment of all sewage using cost effective technological innovations and minimum 30 % of the recycled water shall be reused to reduce the fresh water demand in next 5 years.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c189",
+   "text": "9.4.7 Aviation: Water aviation will be promoted in the submergence of major and medium dams with due care as to preservation of water quality.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "plan"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c85",
+   "text": "8.2 Sectoral Allocation: Water allocation across different user groups e.g. domestic, agricultural, industry, eco-systems and other uses is an effective policy instrument to manage the water resources sustainably for increased resilience, economic prosperity and quality of life for the present as well as future generations.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c46",
+   "text": "The State is experiencing water shortage and recurrent droughts.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c139",
+   "text": "8.5.6 Intra and Inter Basin Transfers: Intra and inter-basin river water transfer from surplus Basins to deficit ones shall be undertaken on the basis of merits of each individual case after evaluating environmental, social and economic impacts and inter-state water sharing obligations.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c228",
+   "text": "Habitation and economic activities shall be strictly prohibited in the food plain zones (prohibitive zones –with 25 years return period flood) by the local authorities.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c163",
+   "text": "9.3 Industrial Water Management: The strategies envisaged for industrial water management are: (i) All industrial units must endeavour to reduce their water footprint over the time by optimizing the various industrial processes, modifying the equipment, recycling wastewater and creating awareness amongst their workers.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c7",
+   "text": "WATER RESOURCES DEVELOPMENT AND 3 RELATED REFORMS IN THE STATE 6 CONCERNS AND CHALLENGES FACED BY THE 3 STATE WATER SECTOR 6.1 Growing imbalance between demand and supply of water 3 6.2 Uncertainty in availability of water 4 6.3 Limitation to access to available water 4 6.4 Lack of assured access to allocated quota of water 4 6.5 Low operational efficiency 4 6.6 Significant gap between IPC & IPU 4 6.7 Depleting groundwater resources 4 6.8 Losses in Urban Distribution Network 4 6.9 Deteriorating Water Quality 4 6.10 Lack of accurate data base and trained human resources 5 6.11 Encroachment in Natural water Bodies and Drainage 5 channels 6.12 Achieving Ultimate Irrigation Potential 5 7.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "table"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c130",
+   "text": "8.5.5 Conservation of Water: (i) Water conservation consciousness will be promoted through public participation, training, education and awareness campaigns, incentives, and disincentives and penalties through regulation mechanism.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "plan"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c42",
+   "text": "The Cultivable area of this region is very limited (10.6 %), comprising narrow strip of 50 km between Sahyadri ranges and Arabian Sea.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c37",
+   "text": "Also, a very small area of North-Eastern part of the State comes under the Mahanadi basin.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c20",
+   "text": "Since adaptation of this policy, significant positive changes have occurred in the water scenario of the State.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c145",
+   "text": "Assessment of groundwater shall be carried out in urban areas taking into consideration the quantity and quality of the water available, so as to plan for conjunctive use of surface water and 11 MAHARASHTRA STATE WATER POLICY (2019)",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c114",
+   "text": "8.5.3 Integrated Planning for Maximizing Utilisable Water: The demand for water is increasing rapidly due to growing population, change in the life style, rapid urbanization and industrialization and economic development.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c161",
+   "text": "(vi) Auditing and Benchmarking of the water resources projects.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c147",
+   "text": "In water resource planning of the basin it is assumed that at least 80% of the water used for domestic purpose will be available for reuse.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": "plan"
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c57",
+   "text": "To regulate the water resources within the State, the Maharashtra Water Resources Regulatory Authority (MWRRA) has been established under section 3 of the MWRRA Act.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "mh_swp2019",
+   "claim_id": "c81",
+   "text": "7.2 Water Policy Focus Areas: 5 MAHARASHTRA STATE WATER POLICY (2019)",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c84",
+   "text": "Management of Saline Ingress 11.1.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c18",
+   "text": "Orissa Review * September-October - 2007 the State on a regular basis.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c121",
+   "text": "Orissa Review * September-October - 2007 Population ( Nos. ) 2001 2051 16202133 20930123 Arable Area ( Ha. ) : 3105980 Present Future Net Sown Area (Ha.): 2278140 2640989 Irrigation Status (Ha.): Present Future Major & Medium : 548747 1577855 Minor Flow : 182026 399692 Minor Lift Ground Water Lift 120487 341948 Other sources :- 219010 241805 Total 1070270 2561300 Present Future Rainfed Area ( Ha. ) : 1207870 79669 Surface Ground Present Future Present Future 75 % Dependable Flow (Mcum) 43681.53 42500.81 10623.28 10623.28 Food ( Lakh MT ) 2001 2051 Demand Production Demand Production Cereal 40.91 50.35 52.84 72.52 Pulses 3.97 1.10 5.12 1.94 Oil Seed 7.44 2.48 9.61 4.64 Vegetables 11.34 14.05 14.65 15.47 Salient Feature of Rushikulya Basin Total Inside % of Geographical area of Orissa State Basin Area ( Sq.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "table"
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c44",
+   "text": "This will be achieved through an appropriate combination of legislation and information, education and communication (IEC) measures.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c7",
+   "text": "After due consideration, the State Government have prepared a new Water Policy called \"Orissa State Water Policy-2007\" in keeping with the National Water Policy - 2002, and this has been approved by the State Water Resources Board after taking the outcome of the meeting with all stakeholders and administrative departments into account.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c115",
+   "text": "Km.) 1853 1516 0.97% Name of Districts: Balasore, Mayurbhanj Population ( Nos. ) 2001 2051 426092 499849 Arable Area ( Ha. ) : 113555 Present Future Net Sown Area (Ha.): 100196 100196 Irrigation Status (Ha.): Present Future Major & Medium : 3500 74333 Minor Flow : 3362 4151 Minor Lift : 1204 1330 Ground Water Lift : 4529 5000 Other sources : 8190 9042 Total 20785 93856 Present Future Rainfed Area ( Ha. ) : 79411 6340 Surface Ground 75 % Dependable Flow 735.58 472.97 (Mcum) 93",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "table"
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c72",
+   "text": "Ground Water Development 9.1.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c127",
+   "text": "Km.) 9275 4500 2.89% Name of Districts: Kalahandi, Koraput, Rayagada 98",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c5",
+   "text": "The National Water Policy-1987 has been reviewed, updated and a new policy titled National Water Policy-2002 has been adopted by the Government of India.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c100",
+   "text": "Orissa Review * September-October - 2007 catchment treatment of all the major and medium reservoirs of the State with the help of satellite data as well as ground surveys.",
+   "label": "C",
+   "garbled_extraction": true,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c29",
+   "text": "(f) Navigation and other uses such as tourism.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c89",
+   "text": "Sustainability in water resources development and management depends upon the participation of the Water Users in Irrigation Management.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c111",
+   "text": "Budhabalanga Basin Total Inside % of Geographical area of Orissa State Basin Area ( Sq.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c25",
+   "text": "The State has developed a State Water Plan for a period covering up to 2051 AD when the population of the State is expected to stabilize.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c75",
+   "text": "Orissa Review * September-October - 2007 The ground water recharge would be a conscious policy of all stakeholders .",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "plan"
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c131",
+   "text": "Km.) 41700 7400 4.75% Indravati River is a tributary of Godavari Basin of area3,12,812 Sq.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c10",
+   "text": "The annual overall availability of surface water in Orissa is about 85.89 billion cubic meters.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c73",
+   "text": "The State has a utilizable ground water potential of 21.01 billion cubic meters, out of which the utilisation has been to the extent of 14.79%.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c11",
+   "text": "The population of Orissa is 4% of that of the country, according to 2001 census.",
+   "label": "A",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "od_swp2007",
+   "claim_id": "c117",
+   "text": "Km.) 14218 13482 8.66% Name of Districts: Balasore, Mayurbhanj, Bhadrak, Jajpur, Kendrapara, Angul, Keonjhar, Sundargarh Population ( Nos. ) 2001 2051 3829931 5614349 Arable Area ( Ha. ) : 832970 Present Future Net Sown Area (Ha.): 604270 604270 Irrigation Status (Ha.): Present Future Major & Medium : 114440 305088 Minor Flow : 19970 74885 Minor Lift : 26822 28163 Ground Water Lift : 23754 24942 Other sources : 36710 40531 Total 221696 473609 Present Future Rainfed Area ( Ha. ) : 382574 130661 Surface Ground 75 % Dependable Flow (Mcum) 5149.47 2388.53 Food ( Lakh MT ) 2001 2051 Demand Production Demand Production Cereal 9.67 13.85 14.17 15.85 Pulses 0.94 0.40 1.37 0.55 Oil Seed 1.76 0.38 2.58 0.55 Vegetables 2.68 4.66 3.93 7.26 94",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "table"
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c357",
+   "text": "Efforts should be made to transform all the intermittent urban water supply schemes to 24x7 system with 100% coverage within the 14th FYP period.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c80",
+   "text": "• Completeness: The overall aim of this initiative by NITI Aayog was to arrive at a water index in order to assess the incremental progress made by states on several key parameters.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c326",
+   "text": "5.3.2 Quality Unlike in rural schemes most urban schemes are having water treatment plants which ensures quality of water produced and supplied.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c808",
+   "text": "contains information about fishing villages in Thiruvananthapuram, Kollam, Malappuram, Kozhikode, Kannur, Ernakulam, Alappuzha and Thrissur where water is in short supply.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c157",
+   "text": "The World Bank assisted Jalanidhi project which has been the torch bearer of the demand driven, community managed water supply schemes were also implemented with the active participation of the GPs.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c807",
+   "text": "The list 66 State Planning Board",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c659",
+   "text": "In 2011, the High Court of Kerala directed the State Government to take effective steps to set up plants for treatment and disposal of human excreta or black water.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c43",
+   "text": "A three-tier system with level Drinking Water And Sewerage 3",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c476",
+   "text": "Taste Agreeable Agreeable 4.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c151",
+   "text": "The 73rd Amendment to the constitution of India in 1992, added a new part IX to the constitution titled “The Panchayats” covering provisions from Article 243 to 243 (O); and a new Eleventh Schedule covering 29 subjects within the functions of the Panchayats.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c925",
+   "text": "Mohan Kumar.V.L, Director (Operations) in Kerala Rural Water Supply and Sanitation Agency (KRWSA), Mob: 9400592836, Email id:- vlmkumar1955@gmail.com 11.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "contact"
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c457",
+   "text": "A rough estimate indicates that 60% of the population relies on groundwater for many uses.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c466",
+   "text": "Open wells of Kerala have the problem of bacteriological contamination.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c705",
+   "text": "In a survey conducted by CWRDM there were 6.6 million wells in Kerala, perhaps more than the number of families in the State.",
+   "label": "B",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c942",
+   "text": "A.O, SPB The Accountant General, Kerala Finance Officer, SPB Publication Officer, SPB Sub Treasury, Vellayambalam Accounts Section File/Stock File Forwarded/By Order (Sd-) Joint Director (T.E Santhi) 3 Drinking Water And Sewerage 79",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c629",
+   "text": "7.3.1 Piped Sewerage Piped sewerage is the most prevalent system for wastewater collection.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c691",
+   "text": "8.1 Rain Water Harvesting (RWH) and Ground Water Recharge Rain water is considered the purest form of water.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c89",
+   "text": "Table 2.2 Review Indicators relevant to Kerala NNoo..",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c204",
+   "text": "Table 5.1 Coverage in rural area in Kerala Total Rural Households in Kerala 67.15 lakh No of households provided with FHTCs (coverage as on 01.04.2021) 21.54 lakh Balance households to be provided by 2024 45.61 lakh Source: KWA Kerala Water Authority is implementing several new water supply and sewerage related works in Kerala under the following major funding heads Table 5.2 Project Abstract Status in KWA (as on 28.10.2021) Sl.",
+   "label": "A",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "kl_spb_dw",
+   "claim_id": "c926",
+   "text": "Dr. Resmi T.R, Senior Scientist, Ecology & Environment Research Group,Centre for Water Resources Development and Management, Kozhikode, Mob: 9495248238 Email id:-rtr@cwrdm.org 12.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "contact"
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c803",
+   "text": "Coli 15 Shall not be detectable in any 100 ml. sample Thermo tolerant coliform bacteria 85",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c558",
+   "text": "Housekeeping at the pump house Earth pit Watering SHASHI BHUSHAN KUMAR PRINCIPAL SECRETARY TO GOVERNMENT 52",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c52",
+   "text": "This document outlines the operation and maintenance policy (hereafter called O&M Policy), which builds on and strengthens the framework established by Government Order No. 2290 dated 20-12-2012.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c404",
+   "text": "Register individual or household level grievances II.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c703",
+   "text": "Free Residual Chlorine and 9.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "heading"
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c238",
+   "text": "06.03.2025 of PR&RD Department. a) Up to Rs. 5.00 Lakhs by Gram Panchayat (General body) b) Above Rs. 5.00 Lakhs & Up to Rs. 10.00 Lakhs by Divisional Panchayat Officer c) Above Rs. 10.00 Lakhs by District Collector (PW) The Gram Panchayat through its functional committee shall take up the O&M of SVS and intra-village network of MVS on its own.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "rule"
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c431",
+   "text": "Cleaning and disinfection activities to be carried out during Disaster v.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c638",
+   "text": "Cloud-based water quality iii) pH, TDS, turbidity 4 times dashboard for a year at Surface water transparency. sources.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c597",
+   "text": "1.4 Automation Components and Management Automation for quantity management is achieved through flow meters to measure discharge, pumping rate and water supplied, level sensors to monitor 62",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c398",
+   "text": "O & M estimates to be prepared in 2 parts viz., (1) System Maintenance and (ii) Power Charges by end of December for according administrative sanction for the next financial year. iii.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": "plan"
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c236",
+   "text": "The State Government is coming to the rescue of the PRIs in dealing with this burden in the needy cases.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c198",
+   "text": "Identification & Registration of the Private Operator for making payments etc., if the work is entrusted. v.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c609",
+   "text": "The SLA thus establishes accountability at each level, enabling transparent, reliable and sustainable water service delivery.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c284",
+   "text": "24.03.2017 for MPPs & ZPPs respectively, duly allocating certain funds for 25",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c203",
+   "text": "Delegation of powers on technical sanction as per GO.Ms.No.41 Dt.24-05-2018 of Water Resources Reforms (Dept). a.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c583",
+   "text": "PRI Readiness: As per 73rd Amendment to the Constitution in 1992, the responsibility of operation and maintenance of all RWS assets lies with GPs as all the water works and water supply assets are vested in the Gram Panchayats under Section 80.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c4",
+   "text": "From the Engineer-in-Chief, RWS&S, Vijayawada, e-file bearing Computer No. 2766113, Dated: 06.05.2025. *** O R D E R: - The National Jal Jeevan Mission (NJJM) mandated all the States to notify a comprehensive policy for ‘’Operation and Maintenance of Drinking Water Supply Schemes (Rural)” with 19 integral parameters.",
+   "label": "D",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c29",
+   "text": "The OSD to Chief Secretary to Government.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c592",
+   "text": "1.2 Scope This SOP is applicable to all single-village and multi-village rural water supply schemes dependent on both ground water and surface water sources.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  },
+  {
+   "doc": "ap_rws_om2025",
+   "claim_id": "c206",
+   "text": "Above Rs. 2.00cr by Chief Engineer, (O&M), RWS&S.",
+   "label": "C",
+   "garbled_extraction": false,
+   "filter": null
+  }
+ ]
+}

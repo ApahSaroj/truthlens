@@ -1,0 +1,25 @@
+{"id": 501, "text": "Average monthly per capita consumption expenditure in rural India was ₹4,122 in 2023-24.", "type": "numeric", "expected": "SUPPORTED", "source": "HCES"}
+{"id": 502, "text": "Average monthly per capita consumption expenditure in urban India was ₹6,996 in 2023-24.", "type": "numeric", "expected": "SUPPORTED", "source": "HCES"}
+{"id": 503, "text": "Average monthly per capita consumption expenditure in rural India was ₹5,122 in 2023-24.", "type": "numeric", "expected": "CONTRADICTED", "source": "HCES"}
+{"id": 504, "text": "India's sex ratio was 943 females per 1,000 males in the 2011 Census.", "type": "numeric", "expected": "SUPPORTED", "source": "Census via MoSPI gender"}
+{"id": 505, "text": "Kerala's sex ratio was 1,084 in 2011.", "type": "numeric", "expected": "SUPPORTED", "source": "Census via MoSPI gender"}
+{"id": 506, "text": "Bihar's sex ratio was 950 in 2011.", "type": "numeric", "expected": "CONTRADICTED", "source": "Census via MoSPI gender (918)"}
+{"id": 507, "text": "India had 1,168 universities in 2021-22.", "type": "numeric", "expected": "SUPPORTED", "source": "AISHE"}
+{"id": 508, "text": "India had 1,500 universities in 2021-22.", "type": "numeric", "expected": "CONTRADICTED", "source": "AISHE"}
+{"id": 509, "text": "Industrial production (IIP) grew 4.3% in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "source": "IIP base 2022-23"}
+{"id": 510, "text": "In NFHS-5, 35.5% of children under five were stunted.", "type": "numeric", "expected": "SUPPORTED", "source": "NFHS"}
+{"id": 511, "text": "Child stunting in NFHS-5 was 38.4%.", "type": "numeric", "expected": "CONTRADICTED", "source": "NFHS (38.4 is NFHS-4)"}
+{"id": 512, "text": "In a Lok Sabha answer on 6 August 2026, the Ministry of Jal Shakti addressed the extension of the Jal Jeevan Mission.", "type": "entity", "expected": "SUPPORTED", "source": "Parliament LS"}
+{"id": 513, "text": "The Rajya Sabha took up a question on the Jal Jeevan Mission in Tamil Nadu in March 2025.", "type": "entity", "expected": "SUPPORTED", "source": "Parliament RS"}
+{"id": 514, "text": "The Jal Jeevan Mission was launched in August 2019.", "type": "entity", "expected": "SUPPORTED", "source": "PIB/Parliament"}
+{"id": 515, "text": "The Jal Jeevan Mission is implemented by the Ministry of Education.", "type": "entity", "expected": "CONTRADICTED", "source": "Parliament/PIB (Jal Shakti)"}
+{"id": 516, "text": "India's population in the 2011 Census was 121.09 crore.", "type": "numeric", "expected": "SUPPORTED", "source": "Census"}
+{"id": 517, "text": "The PLFS unemployment rate on usual status was 3.2% in 2023-24.", "type": "numeric", "expected": "SUPPORTED", "source": "PLFS"}
+{"id": 518, "text": "Wholesale price inflation was 2.3% in 2024-25.", "type": "numeric", "expected": "SUPPORTED", "source": "WPI"}
+{"id": 519, "text": "CPI inflation was 2.1% in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "source": "CPI"}
+{"id": 520, "text": "The fiscal deficit is budgeted at 4.3% of GDP for 2026-27.", "type": "numeric", "expected": "SUPPORTED", "source": "Budget"}
+{"id": 521, "text": "India's sex ratio was 940 in 2011.", "type": "numeric", "expected": "CONTRADICTED", "source": "Census final 943 (940 was provisional)"}
+{"id": 522, "text": "In 2011, Haryana recorded a sex ratio of 879.", "type": "numeric", "expected": "SUPPORTED", "source": "Census via MoSPI gender"}
+{"id": 523, "text": "Urban MPCE was ₹6,996 in 2023-24, nearly 70% higher than in rural India.", "type": "numeric", "expected": "PARTLY SUPPORTED", "source": "HCES + unchecked comparison"}
+{"id": 524, "text": "The revised estimate of the fiscal deficit for 2025-26 is 4.4% of GDP.", "type": "numeric", "expected": "SUPPORTED", "source": "Budget"}
+{"id": 525, "text": "A 2026 study of 926 households in Samastipur, Bihar found that 84.9 per cent had a functional tap connection.", "type": "numeric", "expected": "SUPPORTED", "source": "OpenAlex paper"}

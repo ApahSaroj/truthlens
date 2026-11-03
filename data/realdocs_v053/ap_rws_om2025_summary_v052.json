@@ -1,0 +1,93 @@
+{
+ "doc": "ap_rws_om2025",
+ "file": "ap_rural_om_policy_2025.pdf",
+ "blocks": 90,
+ "quick": {
+  "statements": 1171,
+  "claims": 805,
+  "checkable": 411,
+  "not_checkable": 322,
+  "opinions": 72,
+  "contradicted": 0,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 411,
+  "skipped": 394,
+  "headline": "0 wrong · 0 supported · 411 couldn't check · 394 skipped",
+  "verified_score": null,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 236
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 175
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 3.2
+ },
+ "deep": {
+  "statements": 1171,
+  "claims": 805,
+  "checkable": 411,
+  "not_checkable": 322,
+  "opinions": 72,
+  "contradicted": 0,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 411,
+  "skipped": 394,
+  "headline": "0 wrong · 0 supported · 411 couldn't check · 394 skipped",
+  "verified_score": null,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 372
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 39
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 47.2
+ },
+ "errors_deep": [
+  "PIB feed: NetworkError: ReadTimeout: HTTPSConnectionPool(host='pib.gov.in', port=443): Read timed out. (read timeout=5.0)",
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "MoSPI /api/nfhs/getNfhsRecords: RuntimeError: HTTP 429",
+  "MoSPI /api/udise/getUdiseRecords: NetworkError: ReadTimeout: HTTPSConnectionPool(host='api.mospi.gov.in', port=443): Read timed out. (read timeout=10.0)"
+ ]
+}

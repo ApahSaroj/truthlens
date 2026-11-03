@@ -1,0 +1,25 @@
+{"id": 101, "text": "As per the latest PLFS, India's joblessness rate stood at 3.2 per cent for persons aged 15 and above in 2023-24.", "claim": "3.2 per cent", "expected": "MATCH", "traps": ["plfs_status"]}
+{"id": 102, "text": "According to MoSPI, the Indian economy registered a growth of 7.2% in FY25.", "claim": "7.2%", "expected": "MATCH", "traps": []}
+{"id": 103, "text": "India's GDP growth slowed to 6.5 per cent in 2024-25 from 9.2 per cent in 2023-24.", "claim": "6.5 per cent", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 104, "text": "India's GDP growth slowed to 6.5 per cent in 2024-25 from 9.2 per cent in 2023-24.", "claim": "9.2 per cent", "expected": "MISMATCH", "traps": ["old_base"]}
+{"id": 105, "text": "The Centre met its fiscal deficit target of 4.4 per cent of GDP in 2025-26.", "claim": "4.4 per cent", "expected": "MATCH", "traps": []}
+{"id": 106, "text": "Retail inflation eased to an eight-year low of 4.6% in 2024-25.", "claim": "4.6%", "expected": "MATCH", "traps": []}
+{"id": 107, "text": "Women's participation in the labour force climbed to 41.7 per cent in 2023-24, up from 23.3 per cent in 2017-18.", "claim": "41.7 per cent", "expected": "MATCH", "traps": []}
+{"id": 108, "text": "Women's participation in the labour force climbed to 41.7 per cent in 2023-24, up from 23.3 per cent in 2017-18.", "claim": "23.3 per cent", "expected": "MATCH", "traps": []}
+{"id": 109, "text": "Nearly 36% of Indian children below five years are stunted, per NFHS-5 (2019-21).", "claim": "36%", "expected": "MATCH", "traps": []}
+{"id": 110, "text": "India's nominal GDP crossed ₹300 lakh crore in 2024-25.", "claim": "₹300 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 111, "text": "In 2025-26, real GDP expanded by 7.8 per cent, while nominal growth was 8.6 per cent.", "claim": "7.8 per cent", "expected": "MATCH", "traps": []}
+{"id": 112, "text": "In 2025-26, real GDP expanded by 7.8 per cent, while nominal growth was 8.6 per cent.", "claim": "8.6 per cent", "expected": "MATCH", "traps": []}
+{"id": 113, "text": "The Union government's fiscal deficit narrowed to ₹15.70 lakh crore in RE 2024-25.", "claim": "₹15.70 lakh crore", "expected": "MATCH", "traps": []}
+{"id": 114, "text": "Factory output, measured by the IIP, grew 5.7% in FY 2024-25.", "claim": "5.7%", "expected": "MATCH", "traps": []}
+{"id": 115, "text": "Unemployment in urban areas was 5.1% in 2023-24.", "claim": "5.1%", "expected": "UNVERIFIED", "traps": []}
+{"id": 116, "text": "With a population of over 121 crore at the 2011 Census, India is a young country.", "claim": "121 crore", "expected": "MATCH", "traps": []}
+{"id": 117, "text": "WPI-based inflation rose to 9.4 per cent in 2022-23.", "claim": "9.4 per cent", "expected": "MATCH", "traps": []}
+{"id": 118, "text": "The CPI inflation for 2025-26 averaged 2.1 per cent, the lowest in the series.", "claim": "2.1 per cent", "expected": "MATCH", "traps": []}
+{"id": 119, "text": "The economy grew at 8.2 per cent in 2023-24.", "claim": "8.2 per cent", "expected": "MISMATCH", "traps": []}
+{"id": 120, "text": "Revenue deficit is budgeted at 1.5% of GDP in 2026-27.", "claim": "1.5%", "expected": "MATCH", "traps": []}
+{"id": 121, "text": "LFPR for persons aged 15 years and above was 59.3 per cent in calendar year 2025.", "claim": "59.3 per cent", "expected": "MATCH", "traps": ["plfs_status"]}
+{"id": 122, "text": "Stunting in children under five declined from 38.4% (NFHS-4) to 35.5% (NFHS-5).", "claim": "35.5%", "expected": "MATCH", "traps": []}
+{"id": 123, "text": "The debt-to-GDP ratio is estimated at 56.1 per cent in RE 2025-26.", "claim": "56.1 per cent", "expected": "UNVERIFIED", "traps": []}
+{"id": 124, "text": "GDP per capita grew 5.5% in 2024-25.", "claim": "5.5%", "expected": "UNVERIFIED", "traps": []}
+{"id": 125, "text": "India's population of 1.45 billion people (2024) makes it the most populous country.", "claim": "1.45 billion", "expected": "MATCH", "traps": ["not_census"]}

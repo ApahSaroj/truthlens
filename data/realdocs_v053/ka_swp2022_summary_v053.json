@@ -1,0 +1,90 @@
+{
+ "doc": "ka_swp2022",
+ "file": "ka_state_water_policy_2022.pdf",
+ "blocks": 252,
+ "quick": {
+  "statements": 481,
+  "claims": 98,
+  "checkable": 22,
+  "not_checkable": 72,
+  "opinions": 4,
+  "contradicted": 0,
+  "partly": 1,
+  "supported": 0,
+  "couldnt_check": 21,
+  "skipped": 76,
+  "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 2 need a source you should cite · 19 not checked this run",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 2
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 19
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": 2,
+  "checked_against_data": 1,
+  "lead": null,
+  "wall_s": 0.3
+ },
+ "deep": {
+  "statements": 481,
+  "claims": 98,
+  "checkable": 22,
+  "not_checkable": 72,
+  "opinions": 4,
+  "contradicted": 0,
+  "partly": 1,
+  "supported": 0,
+  "couldnt_check": 21,
+  "skipped": 76,
+  "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 4 need a source you should cite · 17 not checked this run",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 4
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 17
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": 4,
+  "checked_against_data": 1,
+  "lead": null,
+  "wall_s": 35.5
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)"
+ ]
+}

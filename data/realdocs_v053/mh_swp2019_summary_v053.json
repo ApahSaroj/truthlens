@@ -1,0 +1,90 @@
+{
+ "doc": "mh_swp2019",
+ "file": "mh_state_water_policy_2019.pdf",
+ "blocks": 325,
+ "quick": {
+  "statements": 581,
+  "claims": 321,
+  "checkable": 100,
+  "not_checkable": 183,
+  "opinions": 38,
+  "contradicted": 0,
+  "partly": 1,
+  "supported": 0,
+  "couldnt_check": 99,
+  "skipped": 221,
+  "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 57 need a source you should cite · 42 not checked this run",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 57
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 42
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": 57,
+  "checked_against_data": 1,
+  "lead": null,
+  "wall_s": 1.5
+ },
+ "deep": {
+  "statements": 581,
+  "claims": 321,
+  "checkable": 100,
+  "not_checkable": 183,
+  "opinions": 38,
+  "contradicted": 0,
+  "partly": 1,
+  "supported": 0,
+  "couldnt_check": 99,
+  "skipped": 221,
+  "headline": "1 claim checked against official data · 0 wrong · 1 partly right · 81 need a source you should cite · 18 not checked this run",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "Needs a source (no official dataset in TruthLens yet)",
+    "claims": 81
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 18
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": 81,
+  "checked_against_data": 1,
+  "lead": null,
+  "wall_s": 45.7
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)"
+ ]
+}

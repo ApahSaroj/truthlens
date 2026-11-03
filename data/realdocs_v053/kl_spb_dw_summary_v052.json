@@ -1,0 +1,92 @@
+{
+ "doc": "kl_spb_dw",
+ "file": "kl_spb_drinking_water.pdf",
+ "blocks": 209,
+ "quick": {
+  "statements": 1552,
+  "claims": 954,
+  "checkable": 685,
+  "not_checkable": 172,
+  "opinions": 97,
+  "contradicted": 1,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 684,
+  "skipped": 269,
+  "headline": "1 wrong · 0 supported · 684 couldn't check · 269 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 336
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 348
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 4.4
+ },
+ "deep": {
+  "statements": 1552,
+  "claims": 954,
+  "checkable": 685,
+  "not_checkable": 172,
+  "opinions": 97,
+  "contradicted": 1,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 684,
+  "skipped": 269,
+  "headline": "1 wrong · 0 supported · 684 couldn't check · 269 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 621
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 55
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 8
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 60.2
+ },
+ "errors_deep": [
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "OpenAlex: RuntimeError: HTTP 429 (OpenAlex daily budget for this network used up; add OPENALEX_API_KEY)",
+  "MoSPI /api/env/getEnvStatsRecords: RuntimeError: HTTP 429"
+ ]
+}

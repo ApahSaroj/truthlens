@@ -1,0 +1,25 @@
+{"id": 701, "text": "In our view, CPI inflation fell to 2.1 per cent in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "category": "hedged_fact", "source": "CPI 2024=100, 2025-26 = 2.1%"}
+{"id": 702, "text": "Arguably, retail inflation has fallen every year since 2023-24.", "type": "entity", "expected": "SUPPORTED", "category": "hedged_trend", "source": "CPI 5.4 (2023-24) -> 4.6 -> 2.1"}
+{"id": 703, "text": "I think the unemployment rate has been rising every year since 2017-18.", "type": "entity", "expected": "CONTRADICTED", "category": "hedged_trend", "source": "PLFS usual status 6.0 (2017-18) ... 3.2 (2023-24): falling"}
+{"id": 704, "text": "We believe the government should raise spending on rural water supply.", "type": "opinion", "expected": "SKIPPED", "category": "opinion"}
+{"id": 705, "text": "Headline retail inflation averaged 2.0 per cent in 2025-26.", "type": "numeric", "expected": "CONTRADICTED", "category": "rounding", "source": "official 2.1%; same precision, not rounding"}
+{"id": 706, "text": "Real GDP grew about 8 per cent in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "category": "rounding", "source": "7.8% rounds to 8"}
+{"id": 707, "text": "Real GDP grew 7.8% in 2025-26, up from 7.2% in 2024-25.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "NAS 2026"}
+{"id": 708, "text": "Real GDP growth dipped from 7.3 per cent in 2023-24 to 7.2 per cent in 2024-25.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "NAS 2026 (2022-23 base)"}
+{"id": 709, "text": "WPI inflation turned positive in 2024-25, rising by 3 percentage points from the previous year.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "WPI -0.7 (2023-24) -> 2.3 (2024-25)"}
+{"id": 710, "text": "The fiscal deficit fell from 6.4 per cent of GDP in 2022-23 to 5.6 per cent in 2023-24.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "Budget at a Glance, Actuals"}
+{"id": 711, "text": "The fiscal deficit rose by 0.4 percentage points in 2025-26 compared with 2024-25.", "type": "numeric", "expected": "CONTRADICTED", "category": "period_change", "source": "4.8 (2024-25 Actual) -> 4.4 (2025-26 RE): fell"}
+{"id": 712, "text": "According to MoSPI's PLFS, the usual-status unemployment rate was 3.2% in 2023-24.", "type": "numeric", "expected": "SUPPORTED", "category": "acronym", "source": "PLFS 2023-24"}
+{"id": 713, "text": "NFHS-5 found that 35.5% of children under five were stunted.", "type": "numeric", "expected": "SUPPORTED", "category": "acronym", "source": "NFHS-5"}
+{"id": 714, "text": "Under NFHS-5, child wasting was 21.0%.", "type": "numeric", "expected": "CONTRADICTED", "category": "acronym", "source": "NFHS-5 wasting 19.3% (21.0% was NFHS-4)"}
+{"id": 715, "text": "The RBI's policy repo rate is 5.5 per cent.", "type": "numeric", "expected": "SUPPORTED", "category": "acronym", "source": "RBI current rates 5.50% (live)"}
+{"id": 716, "text": "The CRR currently stands at 3 per cent.", "type": "numeric", "expected": "SUPPORTED", "category": "acronym", "source": "RBI current rates, CRR 3.00% (live)"}
+{"id": 717, "text": "Female LFPR on usual status rose from 37.0% in 2022-23 to 41.7% in 2023-24, a rise of 4.7 percentage points.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "PLFS"}
+{"id": 718, "text": "IIP growth slowed by 1.4 percentage points in 2025-26 compared with 2024-25.", "type": "numeric", "expected": "SUPPORTED", "category": "period_change", "source": "IIP 2022-23 base: 5.7 -> 4.3"}
+{"id": 719, "text": "Nominal GDP reached ₹345 lakh crore in 2025-26.", "type": "numeric", "expected": "SUPPORTED", "category": "rounding", "source": "₹345.37 lakh crore"}
+{"id": 720, "text": "India's population was 121 crore in the 2011 Census.", "type": "numeric", "expected": "SUPPORTED", "category": "rounding", "source": "121.09 crore"}
+{"id": 721, "text": "The Jal Jeevan Mission (JJM) is run by the Ministry of Jal Shakti.", "type": "entity", "expected": "SUPPORTED", "category": "acronym", "source": "PIB / Parliament answers"}
+{"id": 722, "text": "Arguably, India's real GDP growth in 2024-25 was 6.5 per cent.", "type": "numeric", "expected": "CONTRADICTED", "category": "hedged_fact", "source": "6.5% is the old 2011-12 base; current series 7.2%"}
+{"id": 723, "text": "Peak power demand met in August 2026 was higher than in July 2026.", "type": "entity", "expected": "CONTRADICTED", "category": "period_change", "source": "CEA: 258.27 GW (Aug) vs 270.2 GW (Jul)"}
+{"id": 724, "text": "In my opinion, tap water now reaches 100% of rural households in Goa.", "type": "numeric", "expected": "SUPPORTED", "category": "hedged_fact", "source": "JJM dashboard (live)"}
+{"id": 725, "text": "Array programming with NumPy is described in a Nature paper (doi:10.1038/s41586-020-2649-2).", "type": "citation", "expected": "SUPPORTED", "category": "acronym", "source": "Crossref record exists; title matches"}

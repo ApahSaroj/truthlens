@@ -1,0 +1,125 @@
+{
+ "testset.jsonl": {
+  "n": 65,
+  "correct": 64
+ },
+ "testset_holdout.jsonl": {
+  "n": 25,
+  "correct": 25
+ },
+ "testset_v3_adversarial.jsonl": {
+  "n": 50,
+  "correct": 50,
+  "unsafe_supported": 0,
+  "misses": []
+ },
+ "testset_v3_india_live.jsonl": {
+  "n": 25,
+  "correct": 24,
+  "unsafe_supported": 0,
+  "misses": [
+   [
+    525,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ]
+  ]
+ },
+ "testset_v2.jsonl": {
+  "n": 45,
+  "correct": 43,
+  "unsafe_supported": 0,
+  "misses": [
+   [
+    230,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    231,
+    "CONTRADICTED",
+    "UNVERIFIED"
+   ]
+  ]
+ },
+ "testset_v2_holdout.jsonl": {
+  "n": 28,
+  "correct": 21,
+  "unsafe_supported": 0,
+  "misses": [
+   [
+    305,
+    "SUPPORTED",
+    "PARTLY SUPPORTED"
+   ],
+   [
+    312,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    313,
+    "CONTRADICTED",
+    "UNVERIFIED"
+   ],
+   [
+    316,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    317,
+    "CONTRADICTED",
+    "UNVERIFIED"
+   ],
+   [
+    326,
+    "PARTLY SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    328,
+    "CONTRADICTED",
+    "UNVERIFIED"
+   ]
+  ]
+ },
+ "testset_v4_india_sources.jsonl": {
+  "n": 25,
+  "correct": 25,
+  "unsafe_supported": 0,
+  "misses": []
+ },
+ "testset_v041_heldout.jsonl (offline)": {
+  "n": 25,
+  "correct": 20,
+  "unsafe_supported": 0,
+  "misses": [
+   [
+    715,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    716,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    721,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ],
+   [
+    723,
+    "CONTRADICTED",
+    "UNVERIFIED"
+   ],
+   [
+    724,
+    "SUPPORTED",
+    "UNVERIFIED"
+   ]
+  ]
+ }
+}

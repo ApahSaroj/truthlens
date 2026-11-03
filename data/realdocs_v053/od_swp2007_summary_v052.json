@@ -1,0 +1,92 @@
+{
+ "doc": "od_swp2007",
+ "file": "od_state_water_policy_2007.pdf",
+ "blocks": 17,
+ "quick": {
+  "statements": 265,
+  "claims": 132,
+  "checkable": 71,
+  "not_checkable": 41,
+  "opinions": 20,
+  "contradicted": 0,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 71,
+  "skipped": 61,
+  "headline": "0 wrong · 0 supported · 71 couldn't check · 61 skipped",
+  "verified_score": null,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 29
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 0
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 42
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 2.2
+ },
+ "deep": {
+  "statements": 265,
+  "claims": 132,
+  "checkable": 71,
+  "not_checkable": 41,
+  "opinions": 20,
+  "contradicted": 1,
+  "partly": 0,
+  "supported": 0,
+  "couldnt_check": 70,
+  "skipped": 61,
+  "headline": "1 wrong · 0 supported · 70 couldn't check · 61 skipped",
+  "verified_score": 0.0,
+  "supported_by_confidence": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "couldnt_check_reasons": {
+   "no_data": {
+    "label": "No official dataset covers this yet",
+    "claims": 51
+   },
+   "no_response": {
+    "label": "Source didn't respond",
+    "claims": 19
+   },
+   "quick": {
+    "label": "Not checked in Quick mode",
+    "claims": 0
+   },
+   "deadline": {
+    "label": "Ran out of time",
+    "claims": 0
+   }
+  },
+  "needs_source": null,
+  "checked_against_data": null,
+  "lead": null,
+  "wall_s": 35.7
+ },
+ "errors_deep": [
+  "PIB feed: NetworkError: ReadTimeout: HTTPSConnectionPool(host='pib.gov.in', port=443): Read timed out. (read timeout=5.0)",
+  "parliament datasets-server.huggingface.co: NetworkError: ReadTimeout: HTTPSConnectionPool(host='datasets-server.huggingface.co', port=443): Read timed out. (read timeout=10.0)",
+  "MoSPI /api/env/getEnvStatsRecords: RuntimeError: HTTP 429"
+ ]
+}
