@@ -32,13 +32,13 @@ from typing import Optional
 
 from .claims import DATE_RX, MONTHS, NUMREF_RX, _strip_citations, checkable_numbers
 from .fixes import date_fix, heuristic_fix, numeric_fix
-from .model import (CONTRADICTED, PARTLY, SEVERITY, SKIPPED, SUPPORTED, UNVERIFIED, Claim, ClaimResult,
+from .model import (CONTRADICTED, DATED, PARTLY, SEVERITY, SKIPPED, SUPPORTED, UNVERIFIED, Claim, ClaimResult,
                     Evidence)
 from .polarity import extra_assertions, negated, stated_in
 from .retrievers.base import best_window, contains_number, norm_ws, terms
 
 LIVE_PREFIXES = ("mospi:", "datagovin:", "ndap:", "rbi:", "cea:", "ppac:", "jjm:", "plugin:")
-MAP_V01 = {"MATCH": SUPPORTED, "CLOSE": PARTLY, "MISMATCH": CONTRADICTED, "UNVERIFIED": UNVERIFIED}
+MAP_V01 = {"MATCH": SUPPORTED, "CLOSE": PARTLY, "MISMATCH": CONTRADICTED, "UNVERIFIED": UNVERIFIED, "DATED": DATED}
 MONTH_YEAR_RX = re.compile(rf"\b{MONTHS}\.?,?\s+(?:19|20)\d{{2}}\b", re.I)
 
 
@@ -48,6 +48,9 @@ def combine(verdicts: list[str]) -> str:
         return UNVERIFIED
     if CONTRADICTED in vs:
         return CONTRADICTED
+    if DATED in vs:
+        # v0.6: a figure for an earlier year or boundary is never wrong and never fully supported
+        return DATED
     if PARTLY in vs:
         return PARTLY
     if SUPPORTED in vs and UNVERIFIED in vs:
@@ -694,8 +697,11 @@ def _keep_matcher_unverified(f: dict, findings: list) -> bool:
     official value) replaces the curated checker's open finding for the same figure (UNVERIFIED with no official
     value), so the undated-snapshot rule can see it. Nothing else changes: any other UNVERIFIED matcher finding still
     gives way to an existing finding for that figure."""
-    if f.get("verdict") != "UNVERIFIED" or not f.get("official") \
-            or not str(f.get("reason") or "").startswith("The latest official value is"):
+    if f.get("verdict") != "UNVERIFIED" or not f.get("official"):
+        return False
+    # v0.6: the bundled Census comparison of a share of India or a State area ('Differs: Census 2011 gives ...') also
+    # replaces the open finding, so the reader sees the official value
+    if not (str(f.get("reason") or "").startswith("The latest official value is") or f.get("show_official")):
         return False
     same = [x for x in findings if x.get("claimed") == f.get("claimed")]
     return all(x.get("verdict") == "UNVERIFIED" and not x.get("official") for x in same)
@@ -1055,6 +1061,13 @@ class VerdictEngine:
             res.warnings.append({"code": "dataset_pointer", "severity": "info",
                                  "message": f"Dataset to check: {ptr.title} ({ptr.publisher}; {ptr.as_of or 'date n.a.'}) "
                                             f"{ptr.source_url}"})
+        # v0.6: a DATED claim leads with why it is dated (the year or boundary and the official value)
+        if res.verdict == DATED:
+            why = " ".join(f"{f['claimed']}: {f['reason']}" for f in findings if f.get("verdict") == "DATED")
+            if why and why not in (res.rationale or ""):
+                rest = (res.rationale or "").strip()
+                rest = "" if rest.startswith("No evidence passage") else rest
+                res.rationale = (why + (" " + rest if rest else "")).strip()
         # v0.4.1: name the failing part and quote only the deciding cell/sentence
         if res.verdict in (CONTRADICTED, PARTLY):
             fp = failed_part(findings, chg, res)

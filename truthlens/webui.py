@@ -16,7 +16,7 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8">
  --ink:#0F172A;--ink2:#334155;--muted:#52606F;
  --primary:#1E3A5F;--primary-h:#152C49;--on-primary:#FFFFFF;--ring:#1E3A5F;
  --con:#B42318;--conbg:#FCE4DF;--part:#8A4B00;--partbg:#FBEBCF;--unv:#475569;--unvbg:#E6E9EE;
- --sup:#166534;--supbg:#DCEFE1;--meter:#16A34A;--fixed:#0F5132;
+ --sup:#166534;--supbg:#DCEFE1;--dat:#3D5A80;--datbg:#E3E9F2;--meter:#16A34A;--fixed:#0F5132;
  --sans:"Atkinson Hyperlegible",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
  --serif:"Crimson Pro",Charter,"Bitstream Charter","Iowan Old Style","Source Serif 4",Georgia,"Noto Serif","DejaVu Serif",serif;
  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
@@ -51,7 +51,12 @@ svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-widt
 
 /* START */
 .view{max-width:1240px;margin:0 auto;padding:0 32px 64px}
-#start{max-width:760px;padding-top:40px}
+#start{max-width:1140px;padding-top:40px}
+.startgrid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;align-items:start}
+.startgrid>.side{position:sticky;top:16px;order:0}.startgrid>.startmain{order:1;min-width:0}
+.side details.key{margin-top:0;border-top:0;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.side .keyrow{grid-template-columns:minmax(0,1fr)}
+
 h1{font:600 44px/1.1 var(--serif);letter-spacing:-.015em;margin:0;text-wrap:balance}
 .lede{font-size:18px;line-height:1.55;color:var(--ink2);margin:14px 0 32px;max-width:36em}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
@@ -85,12 +90,14 @@ details.key summary .chev{transition:transform .2s var(--ease)}details.key[open]
 .keybody p{font-size:14px;line-height:1.55;color:var(--muted);margin:4px 0 12px;max-width:44em}
 .keyrow{display:grid;grid-template-columns:180px minmax(0,1fr);gap:12px}
 .keyrow label{display:block;font-size:14px;font-weight:600;color:var(--ink2);margin-bottom:6px}
-select,input#key,input#dgkey{width:100%;height:44px;padding:0 12px;border:1px solid var(--line2);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
-select:focus,input#key:focus,input#dgkey:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,58,95,.18)}
+select,input#key,input#dgkey,input#llmmodel,input#llmbase{width:100%;height:44px;padding:0 12px;border:1px solid var(--line2);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+select:focus,input#key:focus,input#dgkey:focus,input#llmmodel:focus,input#llmbase:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,58,95,.18)}
 .foot{font-size:14px;color:var(--muted);margin:20px 0 0;text-align:center}
 .live{font-size:13px;color:var(--muted);margin:6px 0 0;text-align:center;text-wrap:balance}
 .keyrow+.keyrow{margin-top:12px}
-.keyrow.one{grid-template-columns:minmax(0,1fr)}
+.keyrow.one{grid-template-columns:minmax(0,1fr)}.keyrow.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cmpout{margin-top:16px}.cmptab{border-collapse:collapse;font-size:13px;margin:6px 0 10px}.cmptab td,.cmptab th{border-top:1px solid #e3ddd2;padding:3px 8px;text-align:left}.cmpsec details{margin:4px 0}.cmpsec summary{cursor:pointer;font-size:14px}.cmphead{font-weight:600;margin:0 0 8px}.cmpsec h3{font-size:15px;margin:14px 0 6px}.cmpsec ul{margin:0;padding-left:20px}.cmpsec li{font-size:14px;line-height:21px;margin:4px 0}
+#pane-cmp>.hint{color:var(--muted);font-size:14px;margin:0 0 14px}
 
 /* CHECKING */
 #checking{max-width:560px;padding-top:72px}
@@ -127,7 +134,7 @@ select:focus,input#key:focus,input#dgkey:focus{outline:none;border-color:var(--p
 .chip:hover:not([disabled]){border-color:var(--ink2)}
 .chip[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:var(--raised)}
 .chip[disabled]{opacity:.55;cursor:default}
-.chip.con .sw{background:var(--con)}.chip.part .sw{background:#C27A00}.chip.unv .sw{background:var(--unv)}.chip.sup .sw{background:var(--sup)}
+.chip.con .sw{background:var(--con)}.chip.part .sw{background:#C27A00}.chip.unv .sw{background:var(--unv)}.chip.dat .sw{background:var(--dat)}.chip.unvr .sw{background:transparent;border:2px solid var(--unv)}.chip.sup .sw{background:var(--sup)}
 .actions{display:flex;flex-direction:column;gap:8px;min-width:200px}
 .actions .btn{white-space:nowrap}.opt{margin-left:-3px}
 .actions .btn{justify-content:flex-start}
@@ -144,6 +151,7 @@ select:focus,input#key:focus,input#dgkey:focus{outline:none;border-color:var(--p
 .s.con{background:var(--conbg);text-decoration:underline wavy var(--con) 1.5px}
 .s.part{background:var(--partbg);text-decoration:underline dotted #C27A00 2px}
 .s.unv{background:var(--unvbg);text-decoration:underline dashed var(--unv) 1px}
+.s.dat{background:var(--datbg);text-decoration:underline dotted var(--dat) 1px}
 .s.sup{background:var(--supbg)}
 .s:hover{box-shadow:0 0 0 2px var(--line2)}
 .s.sel{box-shadow:0 0 0 2px var(--ink)}
@@ -151,7 +159,7 @@ select:focus,input#key:focus,input#dgkey:focus{outline:none;border-color:var(--p
 .s.fixed.sel{box-shadow:0 0 0 2px var(--ink)}
 .s:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
 .mk{font:700 11px/1 var(--mono);vertical-align:super;margin-left:2px;color:var(--muted)}
-.mk.con{color:var(--con)}.mk.part{color:var(--part)}.mk.unv{color:var(--unv)}.mk.sup{color:var(--sup)}
+.mk.con{color:var(--con)}.mk.part{color:var(--part)}.mk.unv{color:var(--unv)}.mk.dat{color:var(--dat)}.mk.sup{color:var(--sup)}
 .draft[data-filter] .s:not(.match){background:transparent;text-decoration:none;box-shadow:none;opacity:.55}
 .draft[data-filter] .mk:not(.match){opacity:.4}
 .tip{font-size:14px;color:var(--muted);margin:24px 0 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -170,7 +178,7 @@ kbd{font:600 12px/1 var(--mono);padding:3px 6px;border:1px solid var(--line2);bo
 .finding+.finding{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .verdict{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;font-weight:700;font-size:15px}
 .verdict.con{background:var(--conbg);color:var(--con)}.verdict.part{background:var(--partbg);color:var(--part)}
-.verdict.unv{background:var(--unvbg);color:var(--unv)}.verdict.sup{background:var(--supbg);color:var(--sup)}.verdict.op{background:var(--raised);color:var(--ink2)}
+.verdict.unv{background:var(--unvbg);color:var(--unv)}.verdict.dat{background:var(--datbg);color:var(--dat)}.verdict.sup{background:var(--supbg);color:var(--sup)}.verdict.op{background:var(--raised);color:var(--ink2)}
 .meta{font-size:13px;color:var(--muted);margin:10px 0 0}
 .plain{font-size:15px;color:var(--ink2);margin:12px 0 0}
 .why{font-size:16px;line-height:1.55;margin:10px 0 0;color:var(--ink)}
@@ -249,6 +257,7 @@ blockquote.q{background:#EEF2F7}
  .scrim{display:block;position:fixed;inset:0;background:rgba(15,23,42,.38);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s ease}
  .scrim.on{opacity:1;pointer-events:auto}
  .keyrow{grid-template-columns:minmax(0,1fr)}
+ .startgrid{grid-template-columns:minmax(0,1fr);gap:24px}.startgrid>.side{position:static;order:2}
  #drop{min-height:200px}
 }
 @media (min-width:861px){.panel .grab{display:none}}
@@ -271,12 +280,31 @@ blockquote.q{background:#EEF2F7}
 <main>
 <!-- STATE 1: start -->
 <section id="start" class="view" aria-labelledby="start-h">
+ <div class="startgrid">
+ <aside class="side" aria-label="Optional keys">
+ <details class="key" id="keybox" open><summary><svg class="i chev" data-i="chev"></svg>Optional: your own AI key or data.gov.in key</summary>
+  <form class="keybody" onsubmit="return false">
+   <p>TruthLens works without any key. With an AI key it also judges non-numeric claims and writes better fixes. Your key is used for this one check only. It is never stored, logged or shown in the report. Providers marked “untested” have only been tried against simulated answers, never a live account.</p>
+   <div class="keyrow"><div><label for="prov">Provider</label><select id="prov"><option value="anthropic">Anthropic Claude</option><option value="openai">OpenAI</option>
+    <option value="deepseek">DeepSeek (untested)</option><option value="mistral">Mistral (untested)</option><option value="xai">xAI Grok (untested)</option>
+    <option value="gemini">Google Gemini (untested)</option><option value="moonshot">Moonshot Kimi (untested)</option><option value="qwen">Alibaba Qwen (untested)</option>
+    <option value="zhipu">Z.ai GLM (untested)</option><option value="openrouter">OpenRouter (untested)</option><option value="custom">Custom OpenAI-compatible URL (untested)</option></select></div>
+   <div><label for="key">API key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key (optional)"></div></div>
+   <div class="keyrow"><div><label for="llmmodel">Model (optional)</label><input id="llmmodel" type="text" autocomplete="off" spellcheck="false" placeholder="Provider default"></div>
+   <div id="baserow" hidden><label for="llmbase">Base URL (custom only)</label><input id="llmbase" type="url" autocomplete="off" spellcheck="false" placeholder="https://your-host/v1"></div></div>
+   <p>A data.gov.in key (optional) is accepted for data.gov.in resources you map yourself. Untested: data.gov.in has never answered our test network, so this path has only been tested on made-up sample data.</p>
+   <div class="keyrow one"><div><label for="dgkey">data.gov.in key</label><input id="dgkey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your data.gov.in key (optional)"></div></div>
+  </form>
+ </details>
+ </aside>
+ <div class="startmain">
  <h1 id="start-h" tabindex="-1">Check every fact in your draft</h1>
  <p class="lede">TruthLens reads your document, tests each number, claim and citation against official sources, and shows you exactly what to fix.</p>
  <div class="card">
   <div class="tabs" role="tablist" aria-label="How to add your draft">
    <button class="tab" role="tab" id="tab-file" aria-selected="true" aria-controls="pane-file" type="button"><svg class="i" data-i="upload"></svg>Upload a file</button>
    <button class="tab" role="tab" id="tab-text" aria-selected="false" aria-controls="pane-text" tabindex="-1" type="button"><svg class="i" data-i="type"></svg>Paste text</button>
+   <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="pane-cmp" tabindex="-1" type="button"><svg class="i" data-i="file"></svg>Compare two versions</button>
   </div>
   <div class="pane" id="pane-file" role="tabpanel" aria-labelledby="tab-file">
    <div id="drop" tabindex="0" role="button" aria-label="Choose a file to check: .docx, .pdf, .txt or .md, up to 15 MB">
@@ -292,23 +320,25 @@ blockquote.q{background:#EEF2F7}
    <textarea id="txt" placeholder="Paste a paragraph or a whole draft here"></textarea>
    <div class="row"><button class="btn primary" id="go" type="button"><svg class="i" data-i="search"></svg>Check text</button><span class="hint" id="count"></span></div>
   </div>
+  <div class="pane" id="pane-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden>
+   <p class="hint">Upload an older and a newer version of a document (.docx, .pdf, .txt or .md). TruthLens lists sentences copied almost word for word, figures that changed between matching sentences, old sentences and commitments that are gone, and new section headings. With <b>Match by meaning</b> it also pairs sentences that say the same thing in other words and labels each change (kept, strengthened, weakened, changed figure, new, dropped) by topic, quoting both versions. Meaning matching is similarity, not understanding: check the quotes. Nothing is sent to any outside source and the files are not kept.</p>
+   <div class="keyrow two"><div><label for="cmpold">Older version</label><input id="cmpold" type="file" accept=".docx,.pdf,.txt,.md"></div>
+   <div><label for="cmpnew">Newer version</label><input id="cmpnew" type="file" accept=".docx,.pdf,.txt,.md"></div></div>
+   <div class="row"><label class="hint"><input type="checkbox" id="cmpmeaning"> Match by meaning</label><span class="hint" id="cmpmstate"></span></div>
+   <div class="row"><button class="btn primary" id="cmpgo" type="button"><svg class="i" data-i="search"></svg>Compare</button>
+    <button class="btn ghost" id="cmpdl" type="button" hidden><svg class="i" data-i="download"></svg>Download comparison<span class="opt">(HTML)</span></button><span class="hint" id="cmpstate" role="status"></span></div>
+   <div id="cmpout" class="cmpout"></div>
+  </div>
  </div>
  <div id="err" class="err" role="alert" hidden><svg class="i" data-i="alert"></svg><span id="errtext"></span></div>
  <div class="or">No draft to hand?</div>
  <div class="sample"><button class="btn ghost" id="sample" type="button"><svg class="i" data-i="play"></svg>Try the sample policy note</button>
   <a class="btn quiet" id="samplereport" href="sample-report" target="_blank" rel="noopener">Open sample report</a></div>
  <p class="foot">“Open sample report” shows a finished report straight away, with no internet needed.</p>
- <details class="key" id="keybox"><summary><svg class="i chev" data-i="chev"></svg>Optional: your own AI key or data.gov.in key</summary>
-  <form class="keybody" onsubmit="return false">
-   <p>TruthLens works without any key. With an Anthropic or OpenAI key it also judges non-numeric claims and writes better fixes. Your key is used for this one check only. It is never stored, logged or shown in the report.</p>
-   <div class="keyrow"><div><label for="prov">Provider</label><select id="prov"><option value="anthropic">Anthropic</option><option value="openai">OpenAI</option></select></div>
-   <div><label for="key">API key</label><input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key (optional)"></div></div>
-   <p>A data.gov.in key (optional) is accepted for data.gov.in resources you map yourself. Untested: data.gov.in has never answered our test network, so this path has only been tested on made-up sample data.</p>
-   <div class="keyrow one"><div><label for="dgkey">data.gov.in key</label><input id="dgkey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your data.gov.in key (optional)"></div></div>
-  </form>
- </details>
  <p class="foot">No sign-up. Your draft is checked and not kept.</p>
  <p class="live">Deep check asks: MoSPI, RBI, CEA, PPAC, Jal Jeevan Mission, PIB, Lok Sabha, Rajya Sabha, Economic Survey and World Bank; research: OpenAlex, arXiv and Crossref; the NDAP catalogue only names a dataset to cite. Quick check uses the official figures bundled with TruthLens (including Census 2011, CGWB 2025 and NFHS-5 Karnataka). Untested (never answered our test network; tested only on made-up sample data, marked “unverified source”): data.gov.in, Semantic Scholar and Shodhganga.</p>
+ </div>
+ </div>
 </section>
 
 <!-- STATE 2: checking -->
@@ -419,6 +449,7 @@ function copy(text){
 var V={
  "CONTRADICTED":{c:"con",l:"Contradicted",i:"xc",p:"The evidence says something different."},
  "PARTLY SUPPORTED":{c:"part",l:"Partly supported",i:"half",p:"Part of this is backed up, or a figure is close but not exact."},
+ "DATED":{c:"dat",l:"Dated: earlier year or boundary",i:"help",p:"The figure was compared with official data for another year or for the State's boundaries before a split (for example undivided Uttar Pradesh before Uttarakhand). It is not wrong, but it is not today's figure: say which year it is for, or use a current figure."},
  "UNVERIFIED":{c:"unv",l:"Needs a source",i:"help",p:"No official dataset in TruthLens covers this claim yet, or no source answered in this run. That is not a finding that it is wrong: cite a source for it, or check it by hand."},
  "SUPPORTED":{c:"sup",l:"Supported",i:"okc",p:"The evidence says the same thing."},
  "SKIPPED":{c:"op",l:"Opinion, not checked",i:"quote",p:"This reads as an opinion or recommendation, so there is nothing to check."}};
@@ -436,7 +467,13 @@ function asOf(e){return e.data_as_of||e.as_of||e.date||"";}
 function citation(e){var bits=[e.publisher,e.title&&e.title!==e.publisher?e.title:"",stype(e)+(e.page?", page "+e.page:"")].filter(Boolean);
  var a=asOf(e);if(a)bits.push("Data as of "+a);var u=safeUrl(e.source_url);if(u)bits.push(u);
  return bits.join(". ").replace(/\.\./g,".");}
-var ORDER=["CONTRADICTED","PARTLY SUPPORTED","UNVERIFIED","SUPPORTED"];
+var ORDER=["CONTRADICTED","PARTLY SUPPORTED","DATED","UNVERIFIED","SUPPORTED"];
+/* v0.6: "couldn't check" is split by reason in the chips, the same way the headline counts it */
+var REASONS=[["no_data","Needs a source"],["no_response","Source didn't respond"],["quick","Not checked in Quick mode"],["deadline","Ran out of time"]];
+function filterLabel(key){if(V[key])return V[key].l;var r=REASONS.filter(function(x){return "UNVERIFIED:"+x[0]===key;})[0];return r?r[1]:"";}
+function fmatch(s,key){if(!key)return true;if(key.indexOf("UNVERIFIED:")!==0)return s.verdict===key;
+ if(s.verdict!=="UNVERIFIED")return false;var why=key.slice(11);
+ return (claimsBySid[s.id]||[]).some(function(c){return c.verdict==="UNVERIFIED"&&(c.unchecked_reason||"no_data")===why;});}
 
 /* ---------- state switching ---------- */
 function show(state){
@@ -445,10 +482,10 @@ function show(state){
  var h=$(state+"-h");if(h)h.focus({preventScroll:true});window.scrollTo(0,0);}
 
 /* ---------- start: tabs, drop zone, paste ---------- */
-var tabs=[$("tab-file"),$("tab-text")];
+var tabs=[$("tab-file"),$("tab-text"),$("tab-cmp")];
 function selectTab(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;$(x.getAttribute("aria-controls")).hidden=!on;});t.focus();}
 tabs.forEach(function(t,i){t.addEventListener("click",function(){selectTab(t);});
- t.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();selectTab(tabs[(i+1)%2]);}});});
+ t.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();selectTab(tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length]);}});});
 var drop=$("drop"),fileIn=$("file");
 drop.addEventListener("click",function(){fileIn.click();});
 drop.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();fileIn.click();}});
@@ -464,10 +501,53 @@ $("go").addEventListener("click",function(){var t=txt.value;if(!t.trim()){showEr
 txt.addEventListener("keydown",function(e){if(e.key==="Enter"&&(e.ctrlKey||e.metaKey))$("go").click();});
 $("sample").addEventListener("click",runSample);
 function showErr(m){$("errtext").textContent=m;$("err").hidden=false;}
+/* ---------- v0.6: compare two versions ---------- */
+function cmpForm(){var o=$("cmpold").files[0],n=$("cmpnew").files[0];if(!o||!n){showErr("Choose both files: the older and the newer version.");return null;}
+ if(o.size>15*1024*1024||n.size>15*1024*1024){showErr("Each file can be up to 15 MB.");return null;}
+ var fd=new FormData();fd.append("old",o);fd.append("new",n);return fd;}
+function cmpList(title,items,fmt){var box=el("div",{class:"cmpsec"});add(box,el("h3",{text:title}));
+ if(!items.length){add(box,el("p",{class:"hint",text:"None."}));return box;}var ul=el("ul");items.forEach(function(x){add(ul,el("li",{text:fmt(x)}));});add(box,ul);return box;}
+function nums(ch){var b=(ch.changed||[]).map(function(c){return c.old+" → "+c.new;});(ch.removed||[]).forEach(function(x){b.push("removed "+x);});(ch.added||[]).forEach(function(x){b.push("added "+x);});return b.join("; ");}
+/* v0.7: match by meaning, on by default when the optional model is installed */
+(async function(){try{var r=await fetch("compare/meaning-status");if(!r.ok)return;var st=await r.json();
+ $("cmpmeaning").checked=!!st.installed;$("cmpmeaning").disabled=!st.installed;
+ $("cmpmstate").textContent=st.installed?(st.model_downloaded?"":"(the model downloads once on first use)"):"(not installed here: "+st.install+")";}catch(e){}})();
+function cmpQ(){return $("cmpmeaning").checked?"&meaning=true":"";}
+var LABS=["kept","strengthened","weakened","changed figure","new","dropped"];
+function meaningBox(m){var box=el("div",{class:"cmpsec"});add(box,el("h3",{text:"Match by meaning"}));
+ if(m.unavailable){add(box,el("p",{class:"hint",text:"Not run: "+m.unavailable}));return box;}
+ add(box,el("p",{class:"cmphead",text:LABS.map(function(k){return m.summary[k]+" "+k;}).join(" · ")}));
+ var tb=el("table",{class:"cmptab"}),hr=el("tr");add(hr,el("th",{text:"Topic"}));LABS.forEach(function(k){add(hr,el("th",{text:k}));});add(tb,hr);
+ m.topics.forEach(function(t){var tr=el("tr");add(tr,el("td",{text:t.topic}));LABS.forEach(function(k){add(tr,el("td",{text:String(t.counts[k]||0)}));});add(tb,tr);});add(box,tb);
+ m.topics.forEach(function(t){var d=el("details");add(d,el("summary",{text:t.topic}));
+  (t.why&&t.why.length?t.why:[null]).forEach(function(w){add(d,el("p",{class:"hint",text:w?"Reason the document gives (linked by similarity, check): “"+clip(w.text,260)+"” ("+w.location+")":"Reason not stated in the document"}));});
+  if(t.ai_summary)add(d,el("p",{class:"hint",text:t.ai_summary.status==="ok"?t.ai_summary.label+": "+t.ai_summary.text:t.ai_summary.label+": not shown ("+t.ai_summary.status+")"}));
+  var ul=el("ul");t.items.filter(function(x){return x.label!=="new"&&x.label!=="dropped";}).concat(t.items.filter(function(x){return x.label==="dropped";}).slice(0,6)).forEach(function(x){
+   var s=x.label.toUpperCase()+": ";if(x.old)s+="old “"+clip(x.old.text,200)+"” ("+x.old.location+")";if(x.new&&x.new.length)s+=" → new “"+clip(x.new[0].text,200)+"” ("+x.new[0].location+")";if(x.rule&&x.rule.length)s+=" ["+x.rule.join("; ")+"]";add(ul,el("li",{text:s}));});
+  add(d,ul);add(box,d);});
+ add(box,el("p",{class:"hint",text:m.caveat+" New sentences and the rest of the dropped ones are in the downloaded report."}));return box;}
+$("cmpgo").addEventListener("click",async function(){clearErr();var fd=cmpForm();if(!fd)return;var b=this;b.disabled=true;$("cmpstate").textContent=$("cmpmeaning").checked?"Comparing (matching by meaning can take a minute)…":"Comparing…";$("cmpout").textContent="";$("cmpdl").hidden=true;
+ try{var r=await fetch("compare/file?format=json"+cmpQ(),{method:"POST",body:fd});if(!r.ok)throw await errorOf(r);var c=await r.json(),S=c.summary,out=$("cmpout");
+  if(c.meaning)add(out,meaningBox(c.meaning));
+  add(out,el("p",{class:"cmphead",text:S.near_copies+" near-copied sentences · "+S.figures_changed+" figures changed · "+S.dropped_commitments+" commitments dropped ("+S.dropped+" old sentences with no match) · "+S.added+" new sentences · "+S.new_sections+" new section headings"}));
+  add(out,cmpList("Near-copied sentences (first 5 of "+S.near_copies+")",c.near_copies.slice(0,5),function(x){return Math.round(x.similarity*100)+"% · "+clip(x.new,220)+(nums(x.numbers)?"  ["+nums(x.numbers)+"]":"");}));
+  add(out,cmpList("Figures changed between matching sentences",c.number_changes.slice(0,8),function(x){return nums(x.numbers)+" · "+clip(x.new,180);}));
+  add(out,cmpList("Commitments dropped (first 8 of "+S.dropped_commitments+")",c.dropped.filter(function(d){return d.commitment;}).slice(0,8),function(x){return clip(x.text,220);}));
+  add(out,cmpList("New section headings",c.new_sections.slice(0,12),function(x){return x.heading+" · "+x.new_sentences+" of "+x.sentences+" sentences new";}));
+  $("cmpstate").textContent=c.meaning&&!c.meaning.unavailable?"Done. Matches by meaning are similarity, not understanding: check the quotes.":"Done. Similarity is about wording, not meaning: check the pairs before relying on them.";$("cmpdl").hidden=false;
+ }catch(e){$("cmpstate").textContent="";showErr(e.message||"The comparison failed.");}finally{b.disabled=false;}});
+$("cmpdl").addEventListener("click",async function(){var fd=cmpForm();if(!fd)return;var b=this;b.disabled=true;
+ try{var r=await fetch("compare/file?format=html"+cmpQ(),{method:"POST",body:fd});if(!r.ok)throw await errorOf(r);var blob=await r.blob();
+  var a=el("a",{href:URL.createObjectURL(blob),download:"truthlens-compare.html"});document.body.appendChild(a);a.click();a.remove();
+ }catch(e){showErr(e.message||"The download failed.");}finally{b.disabled=false;}});
 function clearErr(){$("err").hidden=true;}
 
 function keyFields(){var k=$("key").value.trim(),d=$("dgkey").value.trim(),o={};
  if(k){o.llm_key=k;o.llm_provider=$("prov").value;}if(d)o.datagovin_key=d;return (k||d)?o:null;}
+/* v0.6: model and (custom) base URL travel as headers on uploads and as fields on JSON requests; never stored */
+function llmExtra(){var k=$("key").value.trim(),h={};if(!k)return h;var m=$("llmmodel").value.trim(),b=$("llmbase").value.trim();
+ if(m)h["X-LLM-Model"]=m;if($("prov").value==="custom"&&b)h["X-LLM-Base-URL"]=b;return h;}
+$("prov").addEventListener("change",function(){$("baserow").hidden=this.value!=="custom";});
 
 /* ---------- checking: honest step progress ---------- */
 var ctl=null,timers=[],tick=null,started=0,lastInput=null,job=null,poll=null,lastJob=null,curMode="quick";
@@ -526,15 +606,16 @@ async function request(url,opts,label){
 var OK=[".docx",".pdf",".txt",".md"];
 /* v0.5.2: Deep check of the claims Quick mode left unchecked (the server still holds the document in memory) */
 function runDeep(){if(!lastJob)return;curMode="deep";var fd=new FormData();var k=keyFields();if(k)Object.keys(k).forEach(function(n){fd.append(n,k[n]);});
- request("jobs/"+lastJob+"/deep",{method:"POST",body:fd},(lastInput&&lastInput.name||"Your draft")+" · Deep check");}
+ request("jobs/"+lastJob+"/deep",{method:"POST",body:fd,headers:llmExtra()},(lastInput&&lastInput.name||"Your draft")+" · Deep check");}
 function runFile(f){curMode="quick";
  var ext=(f.name.match(/\.[^.]+$/)||[""])[0].toLowerCase();
  if(OK.indexOf(ext)<0){showErr("TruthLens reads .docx, .pdf, .txt and .md files. Try saving your draft in one of those.");return;}
  if(f.size>15*1024*1024){showErr("That file is over 15 MB. Try a shorter version or paste the text.");return;}
  var fd=new FormData();fd.append("file",f);var k=keyFields();if(k)Object.keys(k).forEach(function(n){fd.append(n,k[n]);});
  lastInput={kind:"file",name:f.name};
- request("jobs/file",{method:"POST",body:fd},f.name);}
+ request("jobs/file",{method:"POST",body:fd,headers:llmExtra()},f.name);}
 function runText(t){curMode="quick";var body={type:"text",content:t,format:"json"};var k=keyFields();if(k)Object.keys(k).forEach(function(n){body[n]=k[n];});
+ var ex=llmExtra();if(ex["X-LLM-Model"])body.llm_model=ex["X-LLM-Model"];if(ex["X-LLM-Base-URL"])body.llm_base_url=ex["X-LLM-Base-URL"];
  lastInput={kind:"text",name:"Pasted text"};
  request("jobs",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)},"Pasted text, "+(t.trim().match(/\S+/g)||[]).length+" words");}
 async function runSample(){
@@ -545,7 +626,7 @@ async function runSample(){
 /* ---------- results ---------- */
 var R=null,claimsBySid={},sentById={},fixes={},filter=null,current=null,openerEl=null;
 function findings(){return R.sentences.filter(function(s){return V[s.verdict]&&s.verdict!=="SKIPPED"&&(claimsBySid[s.id]||[]).length;})
- .filter(function(s){return !filter||s.verdict===filter;});}
+ .filter(function(s){return fmatch(s,filter);});}
 function sentText(s){return fixes[s.id]!=null?fixes[s.id]:s.text;}
 
 function renderResults(report){
@@ -555,7 +636,7 @@ function renderResults(report){
  var S=R.summary||{},v=S.verdicts||{},checkable=S.checkable_claims||0;
  var score=S.verified_score;
  /* headline */
- var sup=v.SUPPORTED||0,con=v.CONTRADICTED||0,part=v["PARTLY SUPPORTED"]||0,unv=v.UNVERIFIED||0;
+ var sup=v.SUPPORTED||0,con=v.CONTRADICTED||0,part=v["PARTLY SUPPORTED"]||0,unv=v.UNVERIFIED||0,dat=v.DATED||0;
  var skp=S.skipped!=null?S.skipped:(S.skipped_opinions||0),checked=S.checked_claims!=null?S.checked_claims:sup+part+con;
  /* v0.4.1: split headline, e.g. "8 wrong · 7 supported · 3 couldn't check · 1 skipped" */
  var head=S.headline||[con+" wrong"].concat(part?[part+" partly supported"]:[]).concat([sup+" supported",unv+" couldn't check",skp+" skipped"]).join(" · ");
@@ -566,6 +647,7 @@ function renderResults(report){
  bits.push(S.score_note?S.score_note:"Score: "+sup+" of "+checked+" checked claims supported");
  if(needs)bits.push(needs+(needs===1?" claim needs":" claims need")+" a source: no official dataset in TruthLens covers "+(needs===1?"it":"them")+" yet. That is not wrong; download the list and cite a source");
  if(other)bits.push(other+" not checked this run (a source didn't answer, Quick mode or time limit)");
+ if(dat)bits.push(dat+(dat===1?" figure is":" figures are")+" dated: compared with official data for another year or for the State before a boundary change. Not wrong, but not today's figure");
  $("citebtn").hidden=!((R.claims_to_cite||[]).length||unv);
  if(S.suggested_fixes)bits.push(S.suggested_fixes+(S.suggested_fixes===1?" suggested fix":" suggested fixes")+" ready");
  if(S.hedged_factual)bits.push(S.hedged_factual+(S.hedged_factual===1?" opinion-worded sentence contains a factual claim and was checked":" opinion-worded sentences contain factual claims and were checked"));
@@ -599,10 +681,14 @@ function renderResults(report){
  else{var t0=performance.now();(function step(t){var k=Math.min(1,(t-t0)/1100);k=1-Math.pow(1-k,3);sc.textContent=Math.round(pct*k)+"%";if(k<1)requestAnimationFrame(step);})(t0);}
  /* chips */
  var chips=$("chips");chips.textContent="";
- ORDER.forEach(function(key){var n=v[key]||0,m=V[key];if(!n)return; /* a chip that filters to nothing is noise */
-  var b=el("button",{class:"chip "+m.c,type:"button","aria-pressed":"false","data-v":key,disabled:n?null:true,
-   "aria-label":"Show only "+m.l.toLowerCase()+": "+n},el("span",{class:"sw","aria-hidden":"true"}),el("b",{text:n}),m.l);
-  b.addEventListener("click",function(){setFilter(filter===key?null:key);});chips.appendChild(b);});
+ var chipList=[];ORDER.forEach(function(key){
+  if(key==="UNVERIFIED"){var rsn=S.couldnt_check_reasons;
+   if(rsn){REASONS.forEach(function(r,i){var n=(rsn[r[0]]||{}).claims||0;if(n)chipList.push({key:"UNVERIFIED:"+r[0],n:n,l:r[1],c:i?"unvr":"unv"});});return;}}
+  var n=v[key]||0,m=V[key];if(n&&m)chipList.push({key:key,n:n,l:m.l,c:m.c});});
+ chipList.forEach(function(ch){ /* a chip that filters to nothing is noise */
+  var b=el("button",{class:"chip "+ch.c,type:"button","aria-pressed":"false","data-v":ch.key,
+   "aria-label":"Show only "+ch.l.toLowerCase()+": "+ch.n},el("span",{class:"sw","aria-hidden":"true"}),el("b",{text:ch.n}),ch.l);
+  b.addEventListener("click",function(){setFilter(filter===ch.key?null:ch.key);});chips.appendChild(b);});
  /* doc head */
  function pl(n,one,many){return n+" "+(n===1?one:many);}
  $("dochead").textContent=(!R.input||R.input==="text input")?"Pasted text":R.input;
@@ -620,12 +706,12 @@ function drawDraft(){
   ss.forEach(function(s,i){if(i)add(p," ");
    var m=V[s.verdict];
    if(num[s.id]){
-    var sp=el("span",{class:"s "+m.c+(fixes[s.id]!=null?" fixed":"")+(filter&&s.verdict===filter?" match":"")+(current===s.id?" sel":""),
+    var sp=el("span",{class:"s "+m.c+(fixes[s.id]!=null?" fixed":"")+(filter&&fmatch(s,filter)?" match":"")+(current===s.id?" sel":""),
      tabindex:"0",role:"button","data-sid":s.id,"aria-pressed":current===s.id?"true":"false"},sentText(s),
      el("span",{class:"sr",text:" ("+(fixes[s.id]!=null?"fix accepted, was ":"")+m.l+", finding "+num[s.id]+")"}));
     sp.addEventListener("click",function(){select(s.id,true);});
     sp.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();select(s.id,true);}});
-    add(p,sp);add(p,el("span",{class:"mk "+m.c+(filter&&s.verdict===filter?" match":""),"aria-hidden":"true",text:num[s.id]}));
+    add(p,sp);add(p,el("span",{class:"mk "+m.c+(filter&&fmatch(s,filter)?" match":""),"aria-hidden":"true",text:num[s.id]}));
    }else add(p,sentText(s));});
   d.appendChild(p);});
  if(filter)d.setAttribute("data-filter",filter);else d.removeAttribute("data-filter");
@@ -634,7 +720,7 @@ function setFilter(key){filter=key;
  $("chips").querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed",c.getAttribute("data-v")===key?"true":"false");});
  drawDraft();
  var f=findings();
- if(key&&f.length&&(!current||sentById[current].verdict!==key)){if(!PHONE.matches)select(f[0].id,false);}
+ if(key&&f.length&&(!current||!fmatch(sentById[current],key))){if(!PHONE.matches)select(f[0].id,false);}
  else if(current)markSel();}
 function markSel(){$("draft").querySelectorAll(".s").forEach(function(x){var on=x.getAttribute("data-sid")===current;x.classList.toggle("sel",on);x.setAttribute("aria-pressed",on?"true":"false");});}
 
@@ -654,7 +740,7 @@ function renderPanel(anim){
  var pb=$("panelbody");pb.textContent="";var s=sentById[current];if(!s){emptyPanel();return;}
  var f=findings(),idx=f.findIndex(function(x){return x.id===current;});
  var head=el("div",{class:"ph"},
-  el("span",{class:"pos",text:idx>=0?("Finding "+(idx+1)+" of "+f.length+(filter?" "+V[filter].l.toLowerCase():"")):""}),
+  el("span",{class:"pos",text:idx>=0?("Finding "+(idx+1)+" of "+f.length+(filter?" "+filterLabel(filter).toLowerCase():"")):""}),
   el("div",{class:"nav"},
    el("button",{class:"iconbtn",type:"button","aria-label":"Previous finding",title:"Previous (K)",onclick:function(){move(-1);}},svg("up")),
    el("button",{class:"iconbtn",type:"button","aria-label":"Next finding",title:"Next (J)",onclick:function(){move(1);}},svg("down")),
@@ -724,7 +810,7 @@ function wrongBox(c,s){var cl=c.claim||{},wrap=el("div",{class:"wrong"}),opened=
  var btn=el("button",{class:"btn quiet",type:"button","aria-expanded":"false"},"This verdict is wrong");
  btn.addEventListener("click",function(){if(opened)return;opened=true;btn.setAttribute("aria-expanded","true");
   var sel=el("select",{"aria-label":"Correct verdict"});
-  ["CONTRADICTED","PARTLY SUPPORTED","UNVERIFIED","SUPPORTED"].filter(function(v){return v!==c.verdict;}).forEach(function(v){add(sel,el("option",{value:v,text:(V[v]||{}).l||v}));});
+  ["CONTRADICTED","PARTLY SUPPORTED","DATED","UNVERIFIED","SUPPORTED"].filter(function(v){return v!==c.verdict;}).forEach(function(v){add(sel,el("option",{value:v,text:(V[v]||{}).l||v}));});
   var note=el("textarea",{rows:"2",maxlength:"1000","aria-label":"Note (optional)",placeholder:"What is wrong? (optional)"});
   var url=el("input",{type:"url",maxlength:"500","aria-label":"Source link (optional)",placeholder:"https://… source that shows the right answer (optional)"});
   var send=el("button",{class:"btn primary",type:"submit"},"Send for review");

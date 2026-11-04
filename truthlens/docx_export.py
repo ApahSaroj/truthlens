@@ -12,7 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 
-ANNOTATE = ("CONTRADICTED", "PARTLY SUPPORTED")
+ANNOTATE = ("CONTRADICTED", "PARTLY SUPPORTED", "DATED")
 
 
 def _comment_text(c: dict) -> str:

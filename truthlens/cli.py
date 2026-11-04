@@ -113,9 +113,9 @@ def cmd_check(args) -> int:
         print(f"truthlens: could not read input: {e}", file=sys.stderr)
         return 2
     report = pipe.run(blocks, name, {"source_path": Path(src).name} if src else {}, mode=mode)
-    from .report_v2 import to_cite_csv
+    from .report_v2 import to_cite_csv, to_claims_csv
     body = {"html": to_html, "md": to_markdown, "markdown": to_markdown, "json": to_json,
-            "cite": to_cite_csv}[args.format](report)
+            "cite": to_cite_csv, "csv": to_claims_csv}[args.format](report)
     _emit(body, args.output)
     if args.docx_out:
         from .docx_export import export_docx
@@ -129,8 +129,8 @@ def cmd_check(args) -> int:
 
 def _attention(report: dict, limit: int = 5) -> None:
     """Quiet by default: only list what a person must act on (contradicted first, then partly supported)."""
-    act = [c for c in report["claims"] if c["verdict"] in ("CONTRADICTED", "PARTLY SUPPORTED")]
-    act.sort(key=lambda c: 0 if c["verdict"] == "CONTRADICTED" else 1)
+    act = [c for c in report["claims"] if c["verdict"] in ("CONTRADICTED", "PARTLY SUPPORTED", "DATED")]
+    act.sort(key=lambda c: {"CONTRADICTED": 0, "PARTLY SUPPORTED": 1}.get(c["verdict"], 2))
     if not act:
         print("truthlens: nothing needs fixing. Unverified claims are listed in the report.", file=sys.stderr)
         return
@@ -149,6 +149,44 @@ def _emit(body: str, out):
         Path(out).write_text(body, encoding="utf-8")
     else:
         sys.stdout.write(body + ("\n" if not body.endswith("\n") else ""))
+
+
+def cmd_compare(args) -> int:
+    """v0.6: compare two versions of a document (near-copied sentences, changed figures, dropped commitments,
+    new sections). Local text comparison: no network, no AI."""
+    from .compare import compare_paths, meaning_line, render, summary_line
+    from .readers import ReaderError
+    mopts = {}
+    if getattr(args, "meaning", False):
+        mopts = {"meaning": True, "topics": args.topics, "threshold": args.meaning_threshold, "model": args.model}
+        if getattr(args, "ai_summary", False):
+            from .config import Config
+            from .llm import LLMClient
+            cfg = Config.load(getattr(args, "config", None))
+            if args.llm:
+                cfg.llm_provider = args.llm
+            llm = LLMClient.from_config(cfg)
+            if llm is None:
+                print("truthlens: --ai-summary needs an AI provider: pass --llm and --ask-key (or set its key), or run "
+                      "Ollama with --llm ollama; continuing without AI summaries", file=sys.stderr)
+            else:
+                mopts["llm"] = llm
+    try:
+        rep = compare_paths(args.old, args.new, near_copy=args.threshold, **mopts)
+    except ReaderError as e:
+        print(f"truthlens: {e}", file=sys.stderr)
+        return 2
+    except FileNotFoundError as e:
+        print(f"truthlens: {e}", file=sys.stderr)
+        return 2
+    _emit(render(rep, args.format), args.output)
+    print(f"TruthLens compare: {summary_line(rep)}", file=sys.stderr)
+    m = rep.get("meaning")
+    if m and m.get("unavailable"):
+        print(f"truthlens: match by meaning not run: {m['unavailable']}", file=sys.stderr)
+    elif m:
+        print(f"TruthLens compare by meaning ({m['seconds']['total']} s): {meaning_line(m)}", file=sys.stderr)
+    return 0
 
 
 def cmd_index(args) -> int:
@@ -478,14 +516,43 @@ def cmd_datagov(args) -> int:
 
 
 def _ask_key(args):
-    """Prompt for a key without echoing it; returns the use_keys() mapping or None."""
+    """Prompt for a key without echoing it; returns the use_keys() mapping or None. v0.6: any provider of --llm."""
     import getpass
-    key = getpass.getpass("Your Anthropic or OpenAI key (hidden, used for this run only; Enter to skip): ").strip()
+    from .config import LLM_KEY_ENV
+    from .llm import UNTESTED_LIVE, check_base_url, norm_provider
+    prov = norm_provider(args.llm) if args.llm else ""
+    names = "Anthropic, OpenAI, DeepSeek, Mistral, xAI Grok, Gemini, Kimi, Qwen, GLM, OpenRouter or a custom endpoint"
+    who = prov or names
+    key = getpass.getpass(f"Your {who} key (hidden, used for this run only, never saved; Enter to skip): ").strip()
     if not key:
         return None
-    prov = args.llm if args.llm in ("anthropic", "openai") else ("anthropic" if key.startswith("sk-ant-") else "openai")
+    if not prov:
+        prov = "anthropic" if key.startswith("sk-ant-") else "openai"
+        if not key.startswith(("sk-ant-", "sk-proj-")):
+            print("truthlens: no --llm given, so the key is used as an OpenAI key; pass --llm deepseek (or another "
+                  "provider) for the others", file=sys.stderr)
+    out = {LLM_KEY_ENV[prov]: key}
+    if prov == "custom":
+        try:
+            out["TRUTHLENS_CUSTOM_BASE_URL"] = check_base_url(input("Custom base URL (OpenAI-compatible, e.g. https://host/v1): "),
+                                                              public=False)
+        except Exception as e:
+            print(f"truthlens: {e}", file=sys.stderr)
+            return None
+        model = input("Model name: ").strip()
+        if not model:
+            print("truthlens: a model name is needed for a custom provider", file=sys.stderr)
+            return None
+        out["TRUTHLENS_LLM_MODEL"] = model
+    if prov in UNTESTED_LIVE:
+        print(f"truthlens: note: the {prov} connection is untested live (only checked against mocked answers)",
+              file=sys.stderr)
     args.llm = prov
-    return {"ANTHROPIC_API_KEY" if prov == "anthropic" else "OPENAI_API_KEY": key}
+    return out
+
+
+LLM_CHOICES = ["anthropic", "openai", "ollama", "deepseek", "mistral", "xai", "gemini", "moonshot", "qwen", "zhipu",
+               "openrouter", "custom"]
 
 
 def main(argv=None) -> int:
@@ -497,8 +564,9 @@ def main(argv=None) -> int:
     c = sub.add_parser("check", help="check a draft (.docx, .pdf, .txt, .md), a URL, or text")
     c.add_argument("input", help="path, http(s) URL, or '-' to read text from stdin")
     c.add_argument("--text", action="store_true", help="treat INPUT as literal text")
-    c.add_argument("-f", "--format", default="md", choices=["html", "md", "markdown", "json", "cite"],
-                   help="report format; 'cite' (v0.5.3) writes only the claims that need a source, as CSV")
+    c.add_argument("-f", "--format", default="md", choices=["html", "md", "markdown", "json", "cite", "csv"],
+                   help="report format; 'cite' (v0.5.3) writes only the claims that need a source, as CSV; 'csv' (v0.6) "
+                        "writes every claim with its verdict, as CSV")
     c.add_argument("-o", "--output", help="write the report here (default: stdout)")
     c.add_argument("--docx-out", help="also write a corrected copy of the draft (.docx) with comments and suggestions")
     c.add_argument("--offline", action="store_true", help="no network: bundled data, caches and the local index only")
@@ -510,13 +578,42 @@ def main(argv=None) -> int:
     c.add_argument("--strict", action="store_true", help="exit with status 1 if any claim is CONTRADICTED")
     c.add_argument("--numbers-only", action="store_true", help="v0.1 mode: only check numbers against India statistics")
     c.add_argument("--no-llm", action="store_true", help="ignore LLM keys (rules + heuristics only)")
-    c.add_argument("--llm", choices=["anthropic", "openai", "ollama"], help="LLM provider (key from the environment)")
+    c.add_argument("--llm", choices=LLM_CHOICES,
+                   help="AI provider (key from the environment, or --ask-key). v0.6: deepseek, mistral, xai (Grok), "
+                        "gemini, moonshot (Kimi), qwen, zhipu (GLM), openrouter and custom are untested live")
     c.add_argument("--ask-key", action="store_true",
-                   help="prompt (hidden) for your own Anthropic or OpenAI key, used for this run only and never saved")
+                   help="prompt (hidden) for your own AI key (Anthropic, OpenAI, DeepSeek, Mistral, xAI, Gemini, Kimi, "
+                        "Qwen, GLM, OpenRouter or custom; pick with --llm), used for this run only and never saved")
     c.add_argument("--search", choices=["brave", "tavily", "serper", "none"], help="web search provider")
     c.add_argument("--retrievers", help="comma list: curated,worldbank,mospi,datagovin,docs,web,citations,pib,parliament,"
                                         "openalex,reports,ndap,rbi,cea,ppac,jjm,semanticscholar,arxiv,shodhganga")
     c.add_argument("--config", help="path to truthlens.toml")
+
+    cm = sub.add_parser("compare", help="v0.6: compare two versions of a document (OLD NEW): near-copied sentences, "
+                                       "changed figures, dropped commitments, new sections")
+    cm.add_argument("old", help="the earlier version (.pdf, .docx, .txt, .md)")
+    cm.add_argument("new", help="the later version")
+    cm.add_argument("-f", "--format", default="md", choices=["md", "markdown", "json", "html"])
+    cm.add_argument("-o", "--output", help="write the comparison here (default: stdout)")
+    cm.add_argument("--threshold", type=float, default=0.85,
+                    help="similarity at which a sentence counts as near-copied (0-1, default 0.85)")
+    cm.add_argument("--meaning", action="store_true",
+                    help="v0.7: also match sentences by meaning (needs: pip install \"truthlens[meaning]\"; the model "
+                         "downloads once) and label each change kept / strengthened / weakened / changed figure / new / dropped")
+    cm.add_argument("--meaning-threshold", type=float, default=None,
+                    help="match score a pair needs to count as the same point (default 0.10; higher = fewer, surer matches)")
+    cm.add_argument("--topics", default="auto", choices=["auto", "headings", "clusters", "water"],
+                    help="where topics come from: the documents' headings (auto falls back to grouping by similarity), "
+                         "clusters, or the optional water-policy keyword preset")
+    cm.add_argument("--model", default=None, choices=["english", "multilingual"],
+                    help="embedding model: english (bge-small-en-v1.5, 67 MB, default) or multilingual "
+                         "(paraphrase-multilingual-MiniLM-L12-v2, 240 MB)")
+    cm.add_argument("--ai-summary", action="store_true",
+                    help="optional: a 2-3 sentence AI summary per topic, grounded only in the shown quotes (needs --llm and "
+                         "a key via --ask-key or the environment, or Ollama); summaries citing text not in the quotes are rejected")
+    cm.add_argument("--llm", help="AI provider for --ai-summary (anthropic, openai, ollama, deepseek, ...)")
+    cm.add_argument("--ask-key", action="store_true", help="prompt (hidden) for the AI key, used for this run only, never saved")
+    cm.add_argument("--config", help="path to truthlens.toml")
 
     i = sub.add_parser("index", help="add documents to the local evidence index")
     i.add_argument("paths", nargs="*", help="files or folders (.pdf, .html, .docx, .txt, .md)")
@@ -579,13 +676,13 @@ def main(argv=None) -> int:
             years = sorted({p for k, v in cov.items() if k.split(" [")[0] == iid for p in v})
             print(f"{iid:26s} {ind.name}\n{'':26s} periods: {', '.join(years) or '—'}")
         return 0
-    if args.cmd == "check" and getattr(args, "ask_key", False):
+    if args.cmd in ("check", "compare") and getattr(args, "ask_key", False):
         from .config import use_keys
         keys = _ask_key(args)
         if keys:
             with use_keys(keys):
-                return cmd_check(args)
-    return {"check": cmd_check, "index": cmd_index, "sources": cmd_sources, "doctor": cmd_doctor,
+                return cmd_check(args) if args.cmd == "check" else cmd_compare(args)
+    return {"check": cmd_check, "compare": cmd_compare, "index": cmd_index, "sources": cmd_sources, "doctor": cmd_doctor,
             "datagov": cmd_datagov, "sync": cmd_sync,
             "corrections": cmd_corrections, "eval": cmd_eval}[args.cmd](args)
 

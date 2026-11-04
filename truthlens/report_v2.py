@@ -6,8 +6,10 @@ import html
 import json
 import re
 
-VCLASS = {"SUPPORTED": "sup", "PARTLY SUPPORTED": "part", "CONTRADICTED": "con", "UNVERIFIED": "unv", "SKIPPED": "op"}
+VCLASS = {"SUPPORTED": "sup", "PARTLY SUPPORTED": "part", "CONTRADICTED": "con", "UNVERIFIED": "unv", "SKIPPED": "op",
+          "DATED": "dat"}
 VLABEL = {"SUPPORTED": "Supported", "PARTLY SUPPORTED": "Partly supported", "CONTRADICTED": "Contradicted",
+          "DATED": "Dated: figure is for an earlier year or boundary",
           "UNVERIFIED": "Needs a source / couldn't check", "SKIPPED": "Opinion (not checked)"}
 TYPE_LABEL = {"numeric": "number/statistic", "citation": "cited claim", "entity": "factual claim", "opinion": "opinion"}
 RETRIEVER_LABEL = {"curated": "TruthLens curated official dataset", "mospi": "MoSPI eSankhyiki API (live)",
@@ -40,7 +42,7 @@ def split_counts(s: dict) -> dict:
     v = s.get("verdicts") or {}
     return {"contradicted": s.get("contradicted", v.get("CONTRADICTED", 0)), "partly": s.get("partly", v.get("PARTLY SUPPORTED", 0)),
             "supported": s.get("supported", v.get("SUPPORTED", 0)), "couldnt_check": s.get("couldnt_check", v.get("UNVERIFIED", 0)),
-            "skipped": s.get("skipped", s.get("skipped_opinions", 0))}
+            "skipped": s.get("skipped", s.get("skipped_opinions", 0)), "dated": s.get("dated", v.get("DATED", 0))}
 
 
 def headline_text(s: dict) -> str:
@@ -59,7 +61,33 @@ def cite_rows(report: dict) -> list:
     return [{"claim_id": c["claim"]["id"], "location": c["claim"]["location"], "text": c["claim"]["text"],
              "why": UNCHECKED_REASONS.get(c.get("unchecked_reason") or "no_data", "no data"),
              "reason": c.get("unchecked_reason") or "no_data", "numbers": c["claim"].get("numbers") or []}
-            for c in report.get("claims") or [] if c.get("verdict") == "UNVERIFIED"]
+            for c in report.get("claims") or [] if c.get("verdict") == "UNVERIFIED"] + [
+        {"claim_id": c["claim"]["id"], "location": c["claim"]["location"], "text": c["claim"]["text"],
+         "why": DATED_WHY, "reason": "dated", "numbers": c["claim"].get("numbers") or []}
+        for c in report.get("claims") or [] if c.get("verdict") == "DATED"]
+
+
+DATED_WHY = "Dated: the figure is for an earlier year or boundary; cite the year it is for, or a current figure"
+
+
+def to_claims_csv(report: dict) -> str:
+    """v0.6: every claim with its verdict (including DATED) as CSV, UTF-8 with a BOM; formula-like cells are quoted."""
+    import csv
+    import io
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["#", "Where", "Verdict", "Verdict (plain words)", "Claim", "Figures", "Official value(s)", "Reason"])
+
+    def safe(x):
+        x = str(x or "")
+        return "'" + x if x[:1] in ("=", "+", "-", "@", "\t", "\r") else x
+    for i, c in enumerate(report.get("claims") or [], 1):
+        cl = c["claim"]
+        offs = "; ".join(f"{f.get('claimed')}: {(f.get('official') or {}).get('display')} ({f.get('period') or ''})"
+                         for f in c.get("numbers") or [] if f.get("official"))
+        w.writerow([i, safe(cl.get("location")), c.get("verdict"), safe(VLABEL.get(c.get("verdict"), c.get("verdict"))),
+                    safe(cl.get("text")), safe("; ".join(cl.get("numbers") or [])), safe(offs), safe(c.get("rationale"))])
+    return "\ufeff" + buf.getvalue()
 
 
 def to_cite_csv(report: dict) -> str:
@@ -141,7 +169,7 @@ def mode_line(s: dict) -> str:
     return "Deep check (live sources asked)"
 
 
-ORDER = {"CONTRADICTED": 0, "PARTLY SUPPORTED": 1, "UNVERIFIED": 2, "SUPPORTED": 3, "SKIPPED": 4}
+ORDER = {"CONTRADICTED": 0, "PARTLY SUPPORTED": 1, "DATED": 2, "UNVERIFIED": 3, "SUPPORTED": 4, "SKIPPED": 5}
 
 
 def to_json(report: dict) -> str:
@@ -163,9 +191,9 @@ def to_markdown(report: dict) -> str:
            f"(extractor: {report['meta'].get('extractor', '?')}, judge: {report['meta'].get('judge', '?')}).", "",
            f"**{headline_text(s)}**", "",
            *([f"_{s['split_line']}_", ""] if s.get("split_line") else []),
-           "| Wrong (contradicted) | Partly supported | Supported | Couldn't check | Skipped (opinion) |",
-           "|---|---|---|---|---|",
-           f"| {sp['contradicted']} | {sp['partly']} | {sp['supported']} | {sp['couldnt_check']} | {sp['skipped']} |", ""]
+           "| Wrong (contradicted) | Partly supported | Dated (earlier year or boundary) | Supported | Couldn't check | Skipped (opinion) |",
+           "|---|---|---|---|---|---|",
+           f"| {sp['contradicted']} | {sp['partly']} | {sp['dated']} | {sp['supported']} | {sp['couldnt_check']} | {sp['skipped']} |", ""]
     if mode_line(s):
         out += [f"_{mode_line(s)}_", ""]
     if s.get("statements") is not None:
@@ -226,7 +254,9 @@ def to_markdown(report: dict) -> str:
         out.append(f"- {src.get('publisher') or ''}: {src.get('title') or ''} {src['url']}"
                    + (f" ({src['date']})" if src.get("date") else ""))
     out += ["", "_SUPPORTED: the evidence states the claim. PARTLY SUPPORTED: part of it, or close but not exact. "
-            "CONTRADICTED (wrong): the evidence says something different. COULDN'T CHECK (UNVERIFIED): no evidence good enough to "
+            "CONTRADICTED (wrong): the evidence says something different. DATED: the figure was compared with official data "
+            "for another year or other State boundaries (an older policy, a State before it was split); it is not wrong, "
+            "but it is not today's figure. COULDN'T CHECK (UNVERIFIED): no evidence good enough to "
             "decide; TruthLens fails closed. This is not a finding that the claim is wrong. "
             "The verified score counts SUPPORTED claims among checked claims (supported, partly, contradicted), weighted by "
             "confidence (high 1.0, medium 0.6, low 0.3)._", ""]
@@ -238,7 +268,7 @@ CSS = """.cite{max-width:1080px;margin:24px auto;padding:0 24px}.cite table{bord
 
 :root{--bg:#f6f4ef;--paper:#fff;--raised:#f1ede5;--line:rgba(31,27,22,.12);--line2:rgba(31,27,22,.07);
 --ink:#1f1b16;--ink2:#564e44;--muted:#6f675c;--accent:#1f4e79;
---sup:#1d6b3a;--supbg:#e2f0e5;--part:#8a5300;--partbg:#fbedcf;--con:#b42318;--conbg:#fadcd6;--unv:#5e564b;--unvbg:#ebe6dc;--op:#6f675c;
+--sup:#1d6b3a;--supbg:#e2f0e5;--part:#8a5300;--partbg:#fbedcf;--con:#b42318;--conbg:#fadcd6;--unv:#5e564b;--unvbg:#ebe6dc;--dat:#3d5a80;--datbg:#e3e9f2;--op:#6f675c;
 --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","IBM Plex Sans",Roboto,"Helvetica Neue",Arial,sans-serif;
 --serif:Charter,"Bitstream Charter","Iowan Old Style","Source Serif 4",Georgia,"Noto Serif",serif;
 --mono:ui-monospace,"SF Mono","JetBrains Mono","IBM Plex Mono",Menlo,Consolas,"Liberation Mono",monospace}
@@ -261,7 +291,7 @@ h2{font-size:13px;line-height:20px;font-weight:500;color:var(--ink2);margin:0 0 
 .counts{display:flex;flex-wrap:wrap;gap:8px 32px;margin:0;padding:0;list-style:none}
 .counts li{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--ink2);white-space:nowrap}
 .counts li b{font-size:24px;line-height:32px;font-weight:500;color:var(--ink)}
-.counts li.con b{color:var(--con)}.counts li.part b{color:var(--part)}.counts li.sup b{color:var(--sup)}.counts li.unv b{color:var(--unv)}
+.counts li.con b{color:var(--con)}.counts li.part b{color:var(--part)}.counts li.sup b{color:var(--sup)}.counts li.unv b{color:var(--unv)}.counts li.dat b{color:var(--dat)}
 .headline{margin:16px 0 0;font-size:20px;line-height:28px;font-weight:600;color:var(--ink)}
 .banner{margin:12px 0 0;padding:8px 12px;border-radius:8px;background:var(--partbg);color:var(--ink);font-size:13px;line-height:20px;max-width:1080px}
 .counts li.op b{color:var(--op)}.tag{display:inline-block;padding:0 6px;margin-right:6px;border-radius:999px;background:var(--raised);border:1px solid var(--line);font:600 11px/18px var(--sans);color:var(--ink2)}
@@ -278,24 +308,24 @@ section,aside{min-width:0}
 mark{background:none;color:inherit;padding:2px 1px;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 mark.sup{background:var(--supbg)}mark.part{background:var(--partbg)}
 mark.con{background:var(--conbg);text-decoration:underline wavy var(--con) 1px;text-underline-offset:4px;text-decoration-skip-ink:none}
-mark.unv{background:var(--unvbg)}mark.op{color:var(--op);text-decoration:underline dotted var(--muted) 1px;text-underline-offset:4px}
+mark.unv{background:var(--unvbg)}mark.dat{background:var(--datbg)}mark.op{color:var(--op);text-decoration:underline dotted var(--muted) 1px;text-underline-offset:4px}
 mark a{color:inherit;text-decoration:none}
 sup.n{font:500 10px/1 var(--mono);margin-left:2px;vertical-align:super}sup.n a{text-decoration:none}
-sup.n.sup a{color:var(--sup)}sup.n.part a{color:var(--part)}sup.n.con a{color:var(--con)}sup.n.unv a{color:var(--unv)}
+sup.n.sup a{color:var(--sup)}sup.n.part a{color:var(--part)}sup.n.con a{color:var(--con)}sup.n.unv a{color:var(--unv)}sup.n.dat a{color:var(--dat)}
 .card,blockquote,.fix,.warn{overflow-wrap:anywhere}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 12px}
 .card.op{background:transparent}
 .ch{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
 .ch .no{font:500 13px/20px var(--mono);color:var(--unv)}
 .verdict{font-size:14px;font-weight:600;color:var(--unv)}
-.sup .no,.sup .verdict{color:var(--sup)}.part .no,.part .verdict{color:var(--part)}.con .no,.con .verdict{color:var(--con)}.op .no,.op .verdict{color:var(--op);font-weight:500}
+.sup .no,.sup .verdict{color:var(--sup)}.part .no,.part .verdict{color:var(--part)}.con .no,.con .verdict{color:var(--con)}.dat .no,.dat .verdict{color:var(--dat)}.op .no,.op .verdict{color:var(--op);font-weight:500}
 .meta{color:var(--muted);font-size:12px;line-height:20px}
 .claim{margin:8px 0 0;font:14px/22px var(--serif)}.why{font-size:13px;line-height:20px;margin:8px 0 0;color:var(--ink)}
 table.nums{width:100%;border-collapse:collapse;font-size:12px;line-height:16px;margin:12px 0 4px}
 table.nums td,table.nums th{border-bottom:1px solid var(--line2);padding:6px 8px 6px 0;text-align:left;vertical-align:top}
 table.nums th{color:var(--muted);font-weight:500;border-bottom-color:var(--line)}
 table.nums th,table.nums td.f,table.nums td.bad,table.nums td.ok,table.nums td:nth-child(4){white-space:nowrap}
-table.nums td.f{font-family:var(--mono);color:var(--ink)}table.nums td.bad{color:var(--con)}table.nums td.ok{color:var(--sup)}
+table.nums td.f{font-family:var(--mono);color:var(--ink)}table.nums td.bad{color:var(--con)}table.nums td.ok{color:var(--sup)}table.nums td.dat{color:var(--dat)}
 .warn{font-size:12px;line-height:18px;margin:8px 0 0;padding:8px 12px;border-radius:8px;background:var(--partbg);color:var(--ink)}
 .warn b{font-weight:600;color:var(--part)}.warn.error{background:var(--conbg)}.warn.error b{color:var(--con)}
 blockquote{margin:8px 0 0;padding:8px 12px;border-left:2px solid var(--line);background:var(--raised);border-radius:0 8px 8px 0;font:13px/20px var(--serif);color:var(--ink)}
@@ -401,7 +431,7 @@ def _card(i: int, c: dict) -> str:
             src = off.get("source") or {}
             link = f'<a href="{e(src["url"])}">{e((src.get("publisher") or "source").split(" (")[0])}</a>' if _safe_url(src.get("url")) else ""
             chk = str(f["verdict"])
-            tone = {"MATCH": "ok", "MISMATCH": "bad"}.get(chk, "")
+            tone = {"MATCH": "ok", "MISMATCH": "bad", "DATED": "dat"}.get(chk, "")
             rows.append(f'<tr><td class="f">{e(f["claimed"])}</td><td>{e(f.get("indicator_name") or "—")}</td>'
                         f'<td class="f">{e(str(f.get("period") or "—"))}</td><td class="{tone}">{e(_sentence(chk))}</td>'
                         f'<td><span class="f">{e(off.get("display", "—"))}</span> {link}</td></tr>')
@@ -505,7 +535,8 @@ def to_html(report: dict) -> str:
                     f'{" · " + str(s["not_checkable"]) + " not checkable facts (descriptions, procedures)" if s.get("not_checkable") else ""}</p>')
     numbering = {c["claim"]["id"]: i for i, c in enumerate(report["claims"], 1)}
     bar = "".join(f'<i style="width:{100 * v[k] / n:.2f}%;background:var(--{cls})"></i>'
-                  for k, cls in (("SUPPORTED", "sup"), ("PARTLY SUPPORTED", "part"), ("CONTRADICTED", "con")) if v[k])
+                  for k, cls in (("SUPPORTED", "sup"), ("PARTLY SUPPORTED", "part"), ("DATED", "dat"), ("CONTRADICTED", "con"))
+                  if v.get(k))
     cards = sorted(report["claims"], key=lambda c: (ORDER.get(c["verdict"], 9), numbering[c["claim"]["id"]]))
     cards_html = "".join(_card(numbering[c["claim"]["id"]], c) for c in cards)
     meta = report["meta"]
@@ -519,6 +550,7 @@ def to_html(report: dict) -> str:
     err_html = f'<p>Source errors during this run: {e("; ".join(errs[:6]))}</p>' if errs else ""
     counts = "".join(f'<li class="{cls}"><b>{sp[k]}</b>{label}</li>' for k, cls, label in (
         ("contradicted", "con", "wrong (contradicted)"), ("partly", "part", "partly supported"),
+        ("dated", "dat", "dated (earlier year or boundary)"),
         ("supported", "sup", "supported"), ("couldnt_check", "unv", "couldn't check"), ("skipped", "op", "skipped (opinion or not a checkable fact)")))
     stats = " · ".join([
         _plural(s.get("hedged_factual", 0), "opinion-worded sentence checked for its factual claim",
@@ -542,13 +574,13 @@ claims by {e(meta.get('extractor', '?'))} · judged by {e(meta.get('judge', '?')
 <p class="stats">{e(s.get("couldnt_check_note") or "“Couldn't check” means no source answered for that claim; it is not a finding that the claim is wrong.")}</p>
 <p class="stats">{e(stats)}</p>
 <div class="legend">Highlights: <mark class="sup">supported</mark> <mark class="part">partly supported</mark> <mark class="con">contradicted</mark>
-<mark class="unv">couldn't check</mark> <mark class="op">opinion</mark> · plain text has no checkable claim. Select a sentence to jump to its evidence</div></div></div>
+<mark class="dat">dated</mark> <mark class="unv">couldn't check</mark> <mark class="op">opinion</mark> · plain text has no checkable claim. Select a sentence to jump to its evidence</div></div></div>
 </header>
 <main><section><h2>Draft</h2><div class="draft">{_draft(report, numbering)}</div></section>
 <aside class="panel"><h2>Findings, evidence and fixes</h2>{cards_html or '<p>No checkable claims found.</p>'}</aside></main>
 {_cite_section(report)}<footer><h2>Sources</h2><ol class="srcs">{srcs or '<li>none</li>'}</ol>
 <p><b>How to read this.</b> SUPPORTED: the evidence states the claim. PARTLY SUPPORTED: part of it is supported, or a figure is close but not exact.
-CONTRADICTED (wrong): the evidence says something different. COULDN'T CHECK (UNVERIFIED): no evidence good enough to decide; TruthLens fails closed and never guesses, and this is not a finding that the claim is wrong.
+CONTRADICTED (wrong): the evidence says something different. DATED: the figure was compared with official data for another year or other State boundaries; it is not wrong, but it is not today's figure. COULDN'T CHECK (UNVERIFIED): no evidence good enough to decide; TruthLens fails closed and never guesses, and this is not a finding that the claim is wrong.
 The verified score counts SUPPORTED claims among checked claims (supported, partly supported, contradicted; couldn't-check and opinions excluded), weighted by confidence: high 1.0, medium 0.6, low 0.3, so heuristic matches alone can never reach 100%. Numbers matched to an official series are checked
 deterministically (TruthLens India statistics pack: curated official values, live MoSPI data, World Bank); other claims are judged only against the quoted evidence.
 Confidence “low” means a lexical heuristic decided (no LLM key configured). Retrievers: {e(used)}.</p>{err_html}

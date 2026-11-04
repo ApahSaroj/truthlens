@@ -30,7 +30,12 @@ SECRET_HEADERS = {"authorization", "x-api-key", "api-key", "apikey", "x-subscrip
 SECRET_PARAMS = {"key", "api_key", "apikey", "api-key", "token", "access_token", "auth", "subscription-key",
                  "client_secret", "password", "sig", "signature"}
 NEVER_HOSTS = ("api.anthropic.com", "api.openai.com", "api.tavily.com", "api.search.brave.com", "search.brave.com",
-               "google.serper.dev", "serper.dev")
+               "google.serper.dev", "serper.dev",
+               # v0.6 AI providers (a custom provider's host is unknown in advance: any /chat/completions path is
+               # refused below as well)
+               "api.deepseek.com", "api.mistral.ai", "api.x.ai", "generativelanguage.googleapis.com",
+               "api.moonshot.ai", "api.moonshot.cn", "dashscope-intl.aliyuncs.com", "dashscope.aliyuncs.com",
+               "maas.aliyuncs.com", "api.z.ai", "open.bigmodel.cn", "openrouter.ai")
 MAX_ENTRY_BYTES = 8 * 2 ** 20
 
 
@@ -54,6 +59,8 @@ def cacheable_request(method: str, url: str, headers: Optional[dict], allow_loca
     host = (p.hostname or "").lower()
     if not host or any(host == h or host.endswith("." + h) for h in NEVER_HOSTS):
         return False
+    if p.path.rstrip("/").endswith(("/chat/completions", "/v1/messages", "/api/chat", "/responses")):
+        return False          # v0.6: an AI provider's endpoint on any host (a custom base URL) is never cached
     if any(str(k).lower() in SECRET_HEADERS for k in (headers or {})):
         return False
     if any(k.lower() in SECRET_PARAMS for k, _v in parse_qsl(p.query, keep_blank_values=True)):

@@ -9,8 +9,12 @@ PARTLY = "PARTLY SUPPORTED"
 CONTRADICTED = "CONTRADICTED"
 UNVERIFIED = "UNVERIFIED"
 SKIPPED = "SKIPPED"
-VERDICTS = [CONTRADICTED, PARTLY, UNVERIFIED, SUPPORTED]
-SEVERITY = {CONTRADICTED: 4, PARTLY: 3, UNVERIFIED: 2, SUPPORTED: 1, SKIPPED: 0}
+# v0.6: the figure was compared with official data for another year or for other State boundaries (an older policy's
+# figure for undivided Uttar Pradesh, a 2009 groundwater figure against the 2025 assessment). Never called wrong.
+DATED = "DATED"
+DATED_LABEL = "Dated: figure is for an earlier year or boundary"
+VERDICTS = [CONTRADICTED, PARTLY, DATED, UNVERIFIED, SUPPORTED]
+SEVERITY = {CONTRADICTED: 4, PARTLY: 3, DATED: 2.5, UNVERIFIED: 2, SUPPORTED: 1, SKIPPED: 0}
 
 CLAIM_TYPES = ("numeric", "citation", "entity", "opinion")
 

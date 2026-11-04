@@ -442,6 +442,7 @@ NON_CLAIM_LABELS = {
     "rule": "A rule or instruction (shall, should, must): it says what should happen, not what is.",
     "plan": "A plan, target or projection: it is about the future, so no dataset can confirm it yet.",
     "contact": "Contact details, an address or a signature block.",
+    "request": "A request or instruction to the reader (please check, verify, refer to): not a statement of fact.",
     "description": "Not a checkable fact: it describes an objective, a procedure, a role or a definition, with no "
                    "figure, date or citation to check.",
 }
@@ -477,6 +478,12 @@ PROJECTION_RX = re.compile(r"\b(?:projected|expected|likely|estimated|anticipate
 OWN_WILL_RX = re.compile(r"^(?:the|this|our|each|every|all)\s+(?:state|government|department|policy|mission|board|authority|"
                          r"committee|corporation|gram panchayats?|gps?|panchayats?|ulbs?|district|agency|agencies|commission)\b"
                          r"[^.]{0,100}\bwill\b", re.I)
+# v0.6: requests and instructions to the reader ('Please check ...', 'Kindly verify that ...', 'Refer to Table 3 ...').
+# 'Please note that X was Y' introduces a fact and is kept.
+REQUEST_RX = re.compile(r"^(?:(?:please|kindly|pls\.?|pl\.)\s+(?!note\b|find\s+(?:below|attached|enclosed)\b)\w+|"
+                        r"(?:check(?!\s+(?:dams?|posts?|gates?|structures?|weirs?|basins?|bunds?))|verify|confirm|refer|see|"
+                        r"cross[- ]?check|double[- ]?check|re-?check|cite|look\s+(?:up|at)|attach|submit|send|furnish|"
+                        r"consult|do\s+not|don't|ensure\s+that|make\s+sure)\b)", re.I)
 IMPERATIVE_RX = re.compile(r"^(?:implement|ensur|enforc|promot|bring|reduc|secur|improv|strengthen|develop|establish|encourag|"
                            r"provid|adopt|undertak|creat|enhanc|introduc|facilitat|prioriti|achiev|mak|increas|maintain|"
                            r"conserv|protect|support|build|integrat|optimi|mobilis|mobiliz|minimi|maximi|regulat|revis|"
@@ -520,6 +527,8 @@ def non_claim_reason(text: str) -> Optional[str]:
                                  r"leads|meets|serves|supplies|uses|means|contributes|employs|produces)\b", core, re.I))
     if ORDER_REF_RX.match(core):
         return "heading"
+    if REQUEST_RX.match(core) and not re.match(r"^see\s+(?:also\s+)?(?:table|annex|fig|chapter|section|para)\w*\s*[\dIVX.]+\s*$", core, re.I):
+        return "request"
     if len(nums) >= 8 or (len(nums) >= 6 and len(nums) >= 0.3 * max(1, len(toks))):
         return "table"
     if len(nums) >= 5 and not has_verb:

@@ -4,11 +4,16 @@ Keys are read from the environment only (never from the TOML file) and are never
 reports, caches or logs. `Config.public()` returns a redacted view that is safe to print.
 
 Environment variables
-  TRUTHLENS_LLM              anthropic | openai | ollama | none   (default: first one with a key)
+  TRUTHLENS_LLM              anthropic | openai | ollama | deepseek | mistral | xai | gemini | moonshot | qwen |
+                             zhipu | openrouter | custom | none   (default: first one with a key)
   ANTHROPIC_API_KEY          Anthropic key           TRUTHLENS_ANTHROPIC_MODEL (default claude-sonnet-4-5)
   OPENAI_API_KEY             OpenAI key              TRUTHLENS_OPENAI_MODEL    (default gpt-4o-mini)
   OPENAI_BASE_URL            OpenAI-compatible base URL (optional)
   OLLAMA_HOST                e.g. http://localhost:11434 (enables Ollama)  TRUTHLENS_OLLAMA_MODEL (default llama3.1)
+  v0.6 OpenAI-compatible providers (untested live; see truthlens/llm.py PROVIDERS for base URLs and default models):
+  DEEPSEEK_API_KEY | MISTRAL_API_KEY | XAI_API_KEY | GEMINI_API_KEY | MOONSHOT_API_KEY | DASHSCOPE_API_KEY (Qwen) |
+  ZAI_API_KEY (GLM) | OPENROUTER_API_KEY; TRUTHLENS_<PROVIDER>_MODEL and TRUTHLENS_<PROVIDER>_BASE_URL override
+  the default model and base URL. custom: TRUTHLENS_CUSTOM_BASE_URL + TRUTHLENS_CUSTOM_API_KEY (+ TRUTHLENS_CUSTOM_MODEL)
   BRAVE_API_KEY | TAVILY_API_KEY | SERPER_API_KEY   web search (first configured wins unless TRUTHLENS_SEARCH set)
   TRUTHLENS_SEARCH           brave | tavily | serper | none
   TRUTHLENS_TAVILY_KEYLESS   1 to use Tavily's keyless mode (sends claim text to Tavily; off by default)
@@ -40,8 +45,19 @@ except ImportError:  # pragma: no cover - Python 3.9/3.10
     except ImportError:
         _toml = None
 
+# v0.6: the environment variable that holds each AI provider's key (see truthlens/llm.py PROVIDERS)
+LLM_KEY_ENV = {"anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY",
+               "mistral": "MISTRAL_API_KEY", "xai": "XAI_API_KEY", "gemini": "GEMINI_API_KEY",
+               "moonshot": "MOONSHOT_API_KEY", "qwen": "DASHSCOPE_API_KEY", "zhipu": "ZAI_API_KEY",
+               "openrouter": "OPENROUTER_API_KEY", "custom": "TRUTHLENS_CUSTOM_API_KEY"}
+LLM_ALIASES = {"grok": "xai", "x.ai": "xai", "google": "gemini", "kimi": "moonshot", "dashscope": "qwen",
+               "alibaba": "qwen", "glm": "zhipu", "z.ai": "zhipu", "zai": "zhipu"}
 SECRET_ENV = ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "BRAVE_API_KEY", "TAVILY_API_KEY", "SERPER_API_KEY",
-              "DATAGOVIN_API_KEY", "S2_API_KEY", "OPENALEX_API_KEY")
+              "DATAGOVIN_API_KEY", "S2_API_KEY", "OPENALEX_API_KEY",
+              *[v for k, v in LLM_KEY_ENV.items() if k not in ("anthropic", "openai")])
+# v0.6: per-request AI settings that are not secrets (a 'custom' provider's base URL, a model name). They ride with
+# the per-request keys and are dropped after the check like them.
+LLM_SETTING_ENV = ("TRUTHLENS_CUSTOM_BASE_URL", "TRUTHLENS_LLM_MODEL")
 
 DEFAULT_ALLOWED_DOMAINS = [
     # Government of India and official statistics
@@ -65,7 +81,8 @@ _KEY_OVERRIDES: contextvars.ContextVar[dict] = contextvars.ContextVar("truthlens
 @contextlib.contextmanager
 def use_keys(keys: Optional[dict]):
     """Temporarily use the given secrets (names from SECRET_ENV) instead of the environment."""
-    clean = {k: v.strip() for k, v in (keys or {}).items() if k in SECRET_ENV and v and v.strip()}
+    clean = {k: v.strip() for k, v in (keys or {}).items()
+             if (k in SECRET_ENV or k in LLM_SETTING_ENV) and v and v.strip()}
     token = _KEY_OVERRIDES.set(clean)
     try:
         yield
@@ -165,6 +182,7 @@ class Config:
         c.cache_dir = Path(_env("TRUTHLENS_CACHE") or tl.get("cache_dir") or default_cache_dir()).expanduser()
         llm = data.get("llm", {})
         c.llm_provider = (_env("TRUTHLENS_LLM") or llm.get("provider") or "").lower() or None
+        c.llm_provider = LLM_ALIASES.get(c.llm_provider or "", c.llm_provider)
         c.llm_model = llm.get("model")
         search = data.get("search", {})
         c.search_provider = (_env("TRUTHLENS_SEARCH") or search.get("provider") or "").lower() or None
@@ -213,6 +231,11 @@ class Config:
             return "anthropic"
         if self.secret("OPENAI_API_KEY"):
             return "openai"
+        for name, env in LLM_KEY_ENV.items():          # v0.6: the other providers, first one with a key
+            if name not in ("anthropic", "openai", "custom") and self.secret(env):
+                return name
+        if self.secret("TRUTHLENS_CUSTOM_API_KEY") and _env("TRUTHLENS_CUSTOM_BASE_URL"):
+            return "custom"
         if _env("OLLAMA_HOST"):
             return "ollama"
         return None
@@ -250,4 +273,7 @@ def redact(text: str) -> str:
             text = text.replace(v, "[redacted]")
     import re
     text = re.sub(r"(api[-_]?key=)[^&\s]+", r"\1[redacted]", text, flags=re.I)
+    # v0.6: bearer tokens and key-shaped strings an AI provider may echo back in an error body
+    text = re.sub(r"(bearer\s+)[A-Za-z0-9._\-]{8,}", r"\1[redacted]", text, flags=re.I)
+    text = re.sub(r"\b(?:sk|xai|gsk|AIza)[-_A-Za-z0-9]{16,}", "[redacted]", text)
     return text

@@ -7,6 +7,10 @@
   GET  /sources       configured evidence sources (no secrets)
   POST /check         JSON {"type": "text"|"url", "content": "...", "format": "json"|"md"|"html", "numbers_only": false}
   POST /check/file    multipart upload (?format=json|md|html&numbers_only=false), 15 MB max
+  POST /compare/file  v0.6: two uploads `old` and `new` (?format=json|md|html&threshold=0.85): compare two versions
+                      v0.7: &meaning=true (match by meaning; optional extra), &topics=auto|headings|clusters|water,
+                      &ai_summary=true (your own key, this request only)
+  GET  /compare/meaning-status  v0.7: is match-by-meaning installed here, and is its model downloaded
   v0.5.1 background jobs (the web app uses these; the endpoints above stay synchronous for the API and CLI):
   POST /jobs          same JSON body as /check -> 202 {"job_id"}
   POST /jobs/file     same upload as /check/file -> 202 {"job_id"}
@@ -22,8 +26,10 @@
   hour), at most TRUTHLENS_MAX_JOBS checks running, results kept in memory only for TRUTHLENS_JOB_TTL seconds.
   Uploaded documents are read in memory and never written to disk.
 
-Bring your own AI key (optional): send it in the `X-LLM-Key` header with `X-LLM-Provider: anthropic|openai`
-(or the `llm_key`/`llm_provider` fields). It is used for that one check only, never stored or logged,
+Bring your own AI key (optional): send it in the `X-LLM-Key` header with `X-LLM-Provider: anthropic|openai|
+deepseek|mistral|xai|gemini|moonshot|qwen|zhipu|openrouter|custom` (or the `llm_key`/`llm_provider` fields); v0.6:
+`X-LLM-Model` (optional) and, for custom, `X-LLM-Base-URL` (https, public address only when hosted). The v0.6
+providers are untested live (mocked HTTP only). It is used for that one check only, never stored or logged,
 and redacted from any error. Without a key TruthLens runs key-free.
 A free data.gov.in key works the same way: `X-DataGovIn-Key` header or `datagovin_key` field (one check only).
 v0.5.3: the NDAP token (`X-NDAP-Token` / `ndap_token`) was removed: it was never verified (no token could be
@@ -33,8 +39,9 @@ catalogue is still searched with no key, only to name the dataset to cite.
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Optional
 
 from fastapi import FastAPI, File, Form, Header, HTTPException, Query, Request, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, PlainTextResponse
@@ -67,27 +74,49 @@ class CheckRequest(BaseModel):
     content: str = Field(..., description="Draft text, or a URL when type='url'")
     format: Literal["json", "md", "html"] = "json"
     numbers_only: bool = False
-    llm_provider: Literal["anthropic", "openai", ""] = ""
+    llm_provider: str = Field("", description="anthropic | openai | deepseek | mistral | xai | gemini | moonshot | qwen | "
+                                              "zhipu | openrouter | custom (v0.6; the new ones are untested live)")
     llm_key: str = Field("", repr=False, description="Optional: your own AI key, used for this check only")
+    llm_model: str = Field("", description="Optional: model name (default: the provider's documented default)")
+    llm_base_url: str = Field("", description="Only for llm_provider=custom: an OpenAI-compatible base URL (https)")
     datagovin_key: str = Field("", repr=False, description="Optional: your free data.gov.in key, used for this check only")
 
 
-_KEY_ENV = {"anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY"}
+from .config import LLM_KEY_ENV as _KEY_ENV  # noqa: E402  (v0.6: every supported AI provider)
 
 
-def _user_keys(provider: str, key: str, datagovin_key: str = ""):
-    """Map user-supplied keys to the secret names the pipeline reads. None means run key-free/server keys."""
+def _user_keys(provider: str, key: str, datagovin_key: str = "", request=None, body=None):
+    """Map user-supplied keys to the secret names the pipeline reads. None means run key-free/server keys.
+    v0.6: any provider in config.LLM_KEY_ENV; a model name (X-LLM-Model / llm_model) and, for 'custom', a base URL
+    (X-LLM-Base-URL / llm_base_url), checked by the SSRF guard (https and public addresses only when hosted)."""
+    from .llm import LLMError, check_base_url, norm_provider
     key = (key or "").strip()
     dg = (datagovin_key or "").strip()
+    hdr = (lambda n: (request.headers.get(n) or "").strip()) if request is not None else (lambda n: "")
+    model = ((getattr(body, "llm_model", "") or "") or hdr("x-llm-model")).strip()
+    base = ((getattr(body, "llm_base_url", "") or "") or hdr("x-llm-base-url")).strip()
     if not key and not dg:
         return None
-    keys, provider = {}, (provider or "").strip().lower()
+    keys, provider = {}, norm_provider(provider)
     if key:
         if not provider:
             provider = "anthropic" if key.startswith("sk-ant-") else "openai"
         if provider not in _KEY_ENV:
-            raise HTTPException(status_code=422, detail="llm_provider must be anthropic or openai")
+            raise HTTPException(status_code=422, detail="llm_provider must be one of: " + ", ".join(_KEY_ENV))
+        if len(key) > 400 or any(c.isspace() for c in key):
+            raise HTTPException(status_code=422, detail="that does not look like an API key")
         keys[_KEY_ENV[provider]] = key
+        if model:
+            if len(model) > 120 or not re.fullmatch(r"[\w.:/~@+-]+", model):
+                raise HTTPException(status_code=422, detail="llm_model: letters, digits and . : / ~ @ + - only")
+            keys["TRUTHLENS_LLM_MODEL"] = model
+        if provider == "custom":
+            try:
+                keys["TRUTHLENS_CUSTOM_BASE_URL"] = check_base_url(base, PUBLIC)
+            except LLMError as e:
+                raise HTTPException(status_code=422, detail=str(e))
+            if not model:
+                raise HTTPException(status_code=422, detail="llm_model is needed for a custom provider")
     else:
         provider = ""
     if dg:
@@ -295,7 +324,7 @@ def home():
 def check(req: CheckRequest, request: Request, mode: str = Query(""), x_llm_key: str = Header("", include_in_schema=False),
           x_llm_provider: str = Header("", include_in_schema=False),
           x_datagovin_key: str = Header("", include_in_schema=False)):
-    user = _user_keys(req.llm_provider or x_llm_provider, req.llm_key or x_llm_key, req.datagovin_key or x_datagovin_key)
+    user = _user_keys(req.llm_provider or x_llm_provider, req.llm_key or x_llm_key, req.datagovin_key or x_datagovin_key, request=request, body=req)
     md = _mode(req.mode or mode, "deep")
     if not req.content.strip():
         raise HTTPException(status_code=422, detail="content is empty")
@@ -337,7 +366,7 @@ async def check_file(request: Request, file: UploadFile = File(...), format: Lit
                      x_llm_key: str = Header("", include_in_schema=False),
                      x_llm_provider: str = Header("", include_in_schema=False),
                      x_datagovin_key: str = Header("", include_in_schema=False)):
-    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key)
+    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key, request=request)
     md = _mode(mode, "deep")
     data, suffix = await _read_upload(file)
     LIMITER.allow(_client_ip(request), "check")
@@ -356,6 +385,77 @@ async def check_file(request: Request, file: UploadFile = File(...), format: Lit
         raise HTTPException(status_code=400, detail=str(e))
     report["input"] = file.filename
     return _render(report, format, v1=numbers_only)
+
+
+# ---------------------------------------------------------------------------------------------- v0.6: compare
+@app.get("/compare/meaning-status")
+def compare_meaning_status():
+    """v0.7: is match-by-meaning available here (optional extra installed, model downloaded)?"""
+    from .meaning import status
+    st = status()
+    st.pop("cache_dir", None)            # no server paths in public answers
+    return st
+
+
+@app.post("/compare/file")
+async def compare_file(request: Request, old: UploadFile = File(...), new: UploadFile = File(...),
+                       format: Literal["json", "md", "html"] = Query("json"), threshold: float = Query(0.85),
+                       meaning: bool = Query(False), topics: Literal["auto", "headings", "clusters", "water"] = Query("auto"),
+                       meaning_threshold: Optional[float] = Query(None), ai_summary: bool = Query(False),
+                       llm_provider: str = Form(""), llm_key: str = Form(""),
+                       x_llm_key: str = Header("", include_in_schema=False),
+                       x_llm_provider: str = Header("", include_in_schema=False)):
+    """v0.6: compare two versions of a document (multipart fields `old` and `new`, .docx/.pdf/.txt/.md, 15 MB each).
+    Near-copied sentences, figures changed between matched sentences, old sentences (and commitments) with no match,
+    new section headings. Local text comparison: no network, no AI. Files are read in memory and not kept.
+    v0.7: `meaning=true` adds a match by meaning (optional extra; topic table, labels kept / strengthened / weakened /
+    changed figure / new / dropped, and reasons quoted from the new version); `topics=auto|headings|clusters|water`;
+    `ai_summary=true` with your own key (X-LLM-Key / X-LLM-Provider, used for this request only) or Ollama adds a short
+    per-topic summary grounded in the quotes, rejected when it cites text that is not in them."""
+    if not 0.5 <= threshold <= 1.0:
+        raise HTTPException(status_code=422, detail="threshold must be between 0.5 and 1.0")
+    if meaning_threshold is not None and not -0.5 <= meaning_threshold <= 1.0:
+        raise HTTPException(status_code=422, detail="meaning_threshold must be between -0.5 and 1.0")
+    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, "", request=request) if ai_summary else None
+    od, osuf = await _read_upload(old)
+    nd, nsuf = await _read_upload(new)
+    LIMITER.allow(_client_ip(request), "check")
+    from .compare import compare_bytes, render
+    mopts = {}
+    if meaning:
+        mopts = {"meaning": True, "topics": topics, "threshold": meaning_threshold}
+
+    def run():
+        if meaning and ai_summary:
+            from .config import Config
+            from .llm import LLMClient
+            cfg = Config.load(offline=not ONLINE)
+            if user and user["provider"]:
+                cfg.llm_provider = user["provider"]
+            llm = LLMClient.from_config(cfg)
+            if llm is not None:
+                mopts["llm"] = llm
+        return compare_bytes(od, osuf, old.filename or f"old{osuf}", nd, nsuf, new.filename or f"new{nsuf}",
+                             near_copy=threshold, **mopts)
+    def run_keyed():
+        if user:
+            with use_keys(user["keys"]):
+                return run()
+        return run()
+    try:
+        if meaning:
+            from starlette.concurrency import run_in_threadpool
+            rep = await run_in_threadpool(run_keyed)     # the model runs on the CPU for a while: keep the server free
+        else:
+            rep = run_keyed()
+    except ReaderError as e:
+        raise HTTPException(status_code=400, detail=redact(str(e)))
+    if format == "json":
+        return rep
+    body = render(rep, format)
+    if format == "html":
+        return HTMLResponse(body)
+    return PlainTextResponse(body, media_type="text/markdown; charset=utf-8")
 
 
 # ---------------------------------------------------------------------------------------------- v0.5: freshness, sync
@@ -541,7 +641,7 @@ def job_check(req: CheckRequest, request: Request, mode: str = Query(""),
               x_llm_provider: str = Header("", include_in_schema=False),
               x_datagovin_key: str = Header("", include_in_schema=False)):
     """Start a text/URL check in the background (default Quick). Poll GET /jobs/{id}; fetch GET /jobs/{id}/result."""
-    user = _user_keys(req.llm_provider or x_llm_provider, req.llm_key or x_llm_key, req.datagovin_key or x_datagovin_key)
+    user = _user_keys(req.llm_provider or x_llm_provider, req.llm_key or x_llm_key, req.datagovin_key or x_datagovin_key, request=request, body=req)
     md = _mode(req.mode or mode, "quick")
     if not req.content.strip():
         raise HTTPException(status_code=422, detail="content is empty")
@@ -580,7 +680,7 @@ async def job_file(request: Request, file: UploadFile = File(...), numbers_only:
                    x_llm_provider: str = Header("", include_in_schema=False),
                    x_datagovin_key: str = Header("", include_in_schema=False)):
     """Start a file check in the background (default Quick; same limits as /check/file). Read in memory only."""
-    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key)
+    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key, request=request)
     md = _mode(mode, "quick")
     data, suffix = await _read_upload(file)
     LIMITER.allow(_client_ip(request), "check")
@@ -621,7 +721,7 @@ def job_deep(job_id: str, request: Request, llm_provider: str = Form(""), llm_ke
         raise HTTPException(status_code=409, detail="that check is not finished (or it has expired); run it again")
     if PUBLIC and src.owner and src.owner != _client_ip(request):
         raise HTTPException(status_code=404, detail="no such check (it may have expired)")
-    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key)
+    user = _user_keys(llm_provider or x_llm_provider, llm_key or x_llm_key, datagovin_key or x_datagovin_key, request=request)
     LIMITER.allow(_client_ip(request), "deep")
     import copy as _copy
     prior = _copy.deepcopy(src.state)       # the Quick job's own result stays untouched

@@ -12,7 +12,7 @@ from .claims import (NON_CLAIM_LABELS, LLMExtractor, RuleExtractor, _make_claim,
                      non_claim_reason, norm_claim_key, segment)
 from .config import Config, redact
 from .llm import LLMClient
-from .model import CONTRADICTED, PARTLY, SEVERITY, SKIPPED, SUPPORTED, UNVERIFIED, VERDICTS, ClaimResult
+from .model import CONTRADICTED, DATED, PARTLY, SEVERITY, SKIPPED, SUPPORTED, UNVERIFIED, VERDICTS, ClaimResult
 from .readers import Block, read_file, read_text, read_url
 from .retrievers.citations import CitationChecker, references_from_blocks
 from .retrievers.datagovin import DataGovInRetriever
@@ -172,11 +172,17 @@ class Pipeline:
             tok = runguard.CURRENT.set(guard)
         elif cancel is not None:
             guard.cancel = cancel
-        from .retrievers.state_data import DOC_STATE, dominant_state
+        from .retrievers.state_data import DOC_STATE, DOC_YEAR, document_year, dominant_state
         doc_tok = DOC_STATE.set(dominant_state(b.text for b in blocks) if len(blocks) >= 5 else None)
+        # v0.6: the document's own year (title lines), for the DATED rule
+        year_tok = DOC_YEAR.set(document_year(b.text for b in blocks) if len(blocks) >= 5 else None)
         try:
+            meta = dict(meta or {})
+            if DOC_YEAR.get():
+                meta["document_year"] = DOC_YEAR.get()
             return self._run(blocks, name, meta, progress or (lambda *a: None), guard, prior, state_out)
         finally:
+            DOC_YEAR.reset(year_tok)
             DOC_STATE.reset(doc_tok)
             if tok is not None:
                 runguard.CURRENT.reset(tok)
@@ -371,7 +377,7 @@ def build_report_v2(name, blocks, sentences, results, findings, pipe: Optional[P
     score = round(100.0 * weighted / checked, 1) if checked else None
     split = {"contradicted": counts.get(CONTRADICTED, 0), "partly": counts.get(PARTLY, 0),
              "supported": counts.get(SUPPORTED, 0), "couldnt_check": counts.get(UNVERIFIED, 0),
-             "skipped": counts.get(SKIPPED, 0)}
+             "skipped": counts.get(SKIPPED, 0), "dated": counts.get(DATED, 0)}
     unreachable = unreachable_sources(results, pipe)
     types = Counter(r.claim.type for r in results)
     cites = [c for r in results for c in r.citation_checks]
@@ -414,15 +420,19 @@ def build_report_v2(name, blocks, sentences, results, findings, pipe: Optional[P
             # ('8 wrong · 7 supported · 3 couldn't check · 1 skipped') stays in split_line
             "headline": lead_line(split, results),
             "split_line": headline(split),
-            "checked_against_data": checked,
+            # v0.6: DATED claims were compared with official data (for another year or boundary); they are counted
+            # here but not in the verified score, which is over supported / partly / contradicted only
+            "checked_against_data": checked + counts.get(DATED, 0),
+            "dated_label": "Dated: figure is for an earlier year or boundary",
             "needs_source": sum(1 for r in results if r.verdict == UNVERIFIED and (r.unchecked_reason or "no_data") == "no_data"),
             "not_checked_this_run": sum(1 for r in results if r.verdict == UNVERIFIED
                                         and (r.unchecked_reason or "no_data") != "no_data"),
             "not_checkable_reasons": dict(Counter(getattr(r.claim, "not_claim", "") or "description"
                                                   for r in results if r.method == "not-checkable")),
             "score_note": ("" if checked >= MIN_SCORED else
-                           f"Only {checked} claim{'s' if checked != 1 else ''} could be checked against official data, too "
-                           "few for a meaningful score."),
+                           f"Only {checked + counts.get(DATED, 0)} claim{'s' if checked + counts.get(DATED, 0) != 1 else ''} "
+                           "could be checked against official data, too few for a meaningful score."
+                           + (" Dated claims are not scored." if counts.get(DATED, 0) else "")),
             "hedged_factual": sum(1 for r in results if getattr(r.claim, "hedged", False)),
             "unreachable_sources": unreachable,
             "live_deadline": _deadline_summary(meta.get("live_checks"), results),
@@ -440,7 +450,8 @@ def build_report_v2(name, blocks, sentences, results, findings, pipe: Optional[P
             "suggested_fixes": sum(1 for r in results if r.suggested_fix),
             "numbers_checked": len(findings),
             "numbers": {"MATCH": num_counts.get("MATCH", 0), "CLOSE": num_counts.get("CLOSE", 0),
-                        "MISMATCH": num_counts.get("MISMATCH", 0), "UNVERIFIED": num_counts.get("UNVERIFIED", 0)},
+                        "MISMATCH": num_counts.get("MISMATCH", 0), "UNVERIFIED": num_counts.get("UNVERIFIED", 0),
+                        "DATED": num_counts.get("DATED", 0)},
             "warnings": sum(1 for r in results for w in r.warnings if w["severity"] in ("warn", "error")),
         },
         "blocks": [{"text": b.text, "location": b.location} for b in blocks],
@@ -528,13 +539,15 @@ def _n(k: int, one: str, many: str) -> str:
 
 def lead_line(split: dict, results) -> str:
     """v0.5.3 headline: '12 claims checked against official data · 1 wrong · 40 need a source you should cite'."""
-    checked = split["supported"] + split["partly"] + split["contradicted"]
+    checked = split["supported"] + split["partly"] + split["contradicted"] + split.get("dated", 0)
     needs = sum(1 for r in results if r.verdict == UNVERIFIED and (r.unchecked_reason or "no_data") == "no_data")
     other = split["couldnt_check"] - needs
     bits = [_n(checked, "claim checked against official data", "claims checked against official data"),
             f"{split['contradicted']} wrong"]
     if split.get("partly"):
         bits.append(f"{split['partly']} partly right")
+    if split.get("dated"):
+        bits.append(f"{split['dated']} dated (earlier year or boundary)")
     bits.append(_n(needs, "needs a source you should cite", "need a source you should cite"))
     if other > 0:
         bits.append(f"{other} not checked this run")
@@ -547,6 +560,12 @@ def claims_to_cite(results) -> list:
     from .verdict import UNCHECKED_REASONS
     out = []
     for r in results:
+        if r.verdict == DATED:
+            # v0.6: a dated figure needs the year it is for, or a current figure
+            from .report_v2 import DATED_WHY
+            out.append({"claim_id": r.claim.id, "location": r.claim.location, "text": r.claim.text,
+                        "why": DATED_WHY, "reason": "dated", "numbers": list(r.claim.numbers or [])})
+            continue
         if r.verdict != UNVERIFIED:
             continue
         k = r.unchecked_reason or "no_data"
@@ -560,6 +579,8 @@ def headline(split: dict) -> str:
     bits = [f"{split['contradicted']} wrong"]
     if split.get("partly"):
         bits.append(f"{split['partly']} partly supported")
+    if split.get("dated"):
+        bits.append(f"{split['dated']} dated")
     bits += [f"{split['supported']} supported", f"{split['couldnt_check']} couldn't check", f"{split['skipped']} skipped"]
     return " · ".join(bits)
 
