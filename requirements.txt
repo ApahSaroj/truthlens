@@ -12,3 +12,4 @@ tomli; python_version < "3.11"
 # weasyprint         (PDF preview of the HTML report)
 # mcp                (MCP server)
 # spacy              (better sentence splitting)
+# fastembed>=0.5,<1  (v0.7 match by meaning: pip install -r requirements-meaning.txt or "truthlens[meaning]")

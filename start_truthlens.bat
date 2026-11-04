@@ -80,6 +80,22 @@ if errorlevel 1 (
   )
 )
 
+REM 3b. Optional (v0.7): "match by meaning" in the compare tab. Tried once; if it cannot install
+REM     (no Windows package for this Python, no internet), TruthLens works without it.
+if not exist ".venv\meaning-tried.txt" (
+  "%PY%" -c "import fastembed" >nul 2>nul
+  if errorlevel 1 (
+    echo Adding the optional "match by meaning" feature, about 145 MB. This is tried once...
+    "%PY%" -m pip install -e ".[api,meaning]" >nul 2>nul
+    if errorlevel 1 (
+      echo The optional "match by meaning" feature could not be installed. TruthLens works without it.
+    ) else (
+      echo "Match by meaning" is installed. Its model, 67 MB, downloads the first time you use it.
+    )
+  )
+  echo tried> ".venv\meaning-tried.txt"
+)
+
 REM 4. Start TruthLens and open the browser.
 echo.
 echo TruthLens is running at http://127.0.0.1:8765

@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.7.0 (unreleased)
+
+- **Compare two versions by meaning (optional extra `truthlens[meaning]`).** `truthlens compare OLD NEW --meaning`, `POST /compare/file?meaning=true` and a "Match by meaning" box in the web tab (on by default when installed). A small sentence-embedding model (bge-small-en-v1.5, ONNX via fastembed, no torch; 67 MB, downloaded once) runs on the CPU. No key, no AI service. Works for any kind of policy document.
+- **Rule-based labels** per matched pair: kept, strengthened, weakened, changed figure, new, dropped. Strength comes from obligation words (shall/must/will > should/would > may/endeavour/encourage) and deadlines, figures and named bodies added or removed; a negation on one side only is flagged for checking.
+- **Topics from the documents themselves** (section headings, including headings joined to their first paragraph; k-means groups named by their own words when headings are scarce). A water-policy keyword preset exists only as `--topics water`.
+- **Why = quotes only.** Reasons are sentences of the new version that state a motive (preamble/introduction cue words, "in view of", "need for a new ...", ...), linked to a topic by similarity; otherwise "Reason not stated in the document".
+- **Optional AI summary per topic** (`--ai-summary`, your key or Ollama), grounded only in the shown quotes, labelled "AI summary, check the quotes", rejected when it quotes text or gives figures not in the quotes. Mocked tests only.
+- Reports (HTML, Markdown, JSON) lead with the meaning results (topic table, expandable pairs with both quotes, page and paragraph) and keep the wording comparison below.
+- **Hand-checked** (`data/meaning_v070.md`): UP State Water Policy 1999 → 2020, 22 of 29 matched pairs right, 9 of 15 "dropped" truly dropped (threshold tuned on this pair); National Health Policy 2002 → 2017, 13 of 19 and 6 of 12. Runtime 22–44 s for the meaning step on a 2-core machine.
+- Windows launchers try to add the extra once and carry on without it if it cannot install. PyPI lists Windows (win_amd64) wheels for every package it needs on Python 3.10–3.13 (checked 4 Nov 2026); not tried on Windows.
+- Not read: scanned, image-only PDFs (no OCR).
+- Tests: 557 (30 new). Fresh `git archive` copy, clean environments, Linux: Python 3.10, 3.11, 3.12 without extras, 552 passed, 5 skipped (4 need `mcp`, 1 needs the meaning model); Python 3.12 with `[meaning]` and the model, 553 passed, 4 skipped.
+
+## 0.6.0 (unreleased)
+
+- **Share of India.** "X% of India's population / land area" is computed from bundled Census 2011 (State row divided by the All India row). Population and area only.
+- **DATED verdict.** A figure for an earlier year, or for a State before a boundary change (Uttarakhand, Jharkhand, Chhattisgarh 2000; Telangana 2014), is marked dated, never wrong. Hectares and lakh/million sq km are converted.
+- **Compare two versions.** `truthlens compare OLD NEW`, `POST /compare/file` and a web tab: near-copied sentences, changed figures, dropped sentences, new sections. Wording only, not meaning.
+- **More AI providers (optional, your own key, used per run, never saved):** DeepSeek, Mistral, xAI, Gemini, Moonshot, Qwen, Z.ai (GLM), OpenRouter and a custom OpenAI-compatible URL. Tested with mocked responses only, not with live accounts.
+- **Requests and instructions** ("Please check...", "Verify...") are set aside as not checkable facts.
+- **Couldn't-check chips** split into needs a source, source didn't respond, not checked in Quick mode and ran out of time, matching the headline.
+- Results on nine real documents: [`data/realdocs_v060.md`](data/realdocs_v060.md). Not run on Windows.
+
 ## 0.5.3 (unreleased)
 
 Real documents. v0.5.2 was measured on a draft generated from its own bundled data (withdrawn as evidence, see

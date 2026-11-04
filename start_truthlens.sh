@@ -33,6 +33,18 @@ if ! .venv/bin/python -c "import fastapi, uvicorn, truthlens.pipeline" 2>/dev/nu
     exit 1
   fi
 fi
+# Optional (v0.7): "match by meaning" in the compare tab. Tried once; TruthLens works without it.
+if [ ! -f .venv/meaning-tried.txt ]; then
+  if ! .venv/bin/python -c "import fastembed" 2>/dev/null; then
+    echo 'Adding the optional "match by meaning" feature (about 145 MB, tried once)...'
+    if .venv/bin/python -m pip install -e ".[api,meaning]" >/dev/null 2>&1; then
+      echo '"Match by meaning" is installed; its model (67 MB) downloads the first time you use it.'
+    else
+      echo 'The optional "match by meaning" feature could not be installed. TruthLens works without it.'
+    fi
+  fi
+  echo tried > .venv/meaning-tried.txt
+fi
 echo "TruthLens is running at http://127.0.0.1:8765 (press Ctrl+C or close this window to stop)"
 ( sleep 3; open_url http://127.0.0.1:8765 ) &
 exec .venv/bin/python -m uvicorn truthlens.api:app --host 127.0.0.1 --port 8765

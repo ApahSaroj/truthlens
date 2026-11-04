@@ -1,0 +1,2 @@
+# v0.7 optional: compare two versions by meaning (CPU, ONNX; no torch). The model (67 MB) downloads on first use.
+fastembed>=0.5,<1
