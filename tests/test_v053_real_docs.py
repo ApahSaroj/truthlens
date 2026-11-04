@@ -95,7 +95,12 @@ def test_percentage_never_compared_with_an_area(P):
     from truthlens.retrievers.state_data import StateDataSource
     t = "The State of Karnataka covers an area of 1,91,791 Sq. Kms., i.e., 5.83% of the area of India (Census 2011)."
     fs = StateDataSource(Config.load(offline=True)).match(t, checkable_numbers(t))
-    assert [(f["claimed"], f["verdict"]) for f in fs] == [("1,91,791", "MATCH")]
+    # v0.6: the 5.83% is now computed as a share of India's area (191,791 / 3,287,469 = 5.834%), never compared with
+    # the area value itself
+    got = {f["claimed"]: f for f in fs}
+    assert got["1,91,791"]["verdict"] == "MATCH"
+    assert got["5.83%"]["verdict"] == "MATCH" and got["5.83%"]["official"]["display"] == "5.83%"
+    assert "share of India" in got["5.83%"]["indicator_name"]
 
 
 def test_abbreviations_do_not_end_a_sentence():
